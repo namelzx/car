@@ -1,148 +1,126 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title></title>
     <meta name="renderer" content="webkit">
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" media="screen" />
-
-    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
-    <script src="__INDEX__/js/jquery.min.js"></script>
-    <script src="__INDEX__/js/layer.js"></script>
-    <script src="__INDEX__/js/avalon.mobile.min.js"></script>
-    <script src="__INDEX__/js/sl.tool.1.0.js?v=1.2.25.51"></script>
-    <script src="__INDEX__/js/sl.location.1.0.js?v=1.2.25.51"></script>
-
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" media="screen"/>
     <!--style-->
-    <link href="__INDEX__/css/font_138813_d8pljrpjjz6.css?v=1.2.25.51" rel="stylesheet" type="text/css" />
-        <link href="__INDEX__/css/jfshop.css?v=1.2.25.51" rel="stylesheet" type="text/css" />
-        <link href="__INDEX__/css/yy.base.css?v=1.2.25.51" rel="stylesheet" type="text/css">
-        <link href="__INDEX__/css/wap_reset.css?v=1.2.25.51" rel="stylesheet" type="text/css">
-        <link href="__INDEX__/css/wap_common.css?v=1.2.25.51" rel="stylesheet" type="text/css">
-        <link href="__INDEX__/css/wap_main.css?v=1.2.25.51" rel="stylesheet" type="text/css">
-        <link href="__INDEX__/css/popup.css?v=1.2.25.51" rel="stylesheet" type="text/css">
-        <link href="__INDEX__/css/select_car.css?v=1.2.25.51" rel="stylesheet" type="text/css">
-        <link href="__INDEX__/css/yy.ui.css?v=1.2.25.51" rel="stylesheet" type="text/css">
-        <link href="__INDEX__/css/bp.css?v=3" rel="stylesheet" type="text/css" />
-        <link href="__INDEX__/css/banpen.css?v=2" rel="stylesheet" type="text/css" />
-        <script type="text/javascript">
-    var sl = {
-        msg : function(msg){
-            layer.open({
-                content: msg,
-                style: 'background-color:rgba(0,0,0,0.6); color:#fff; border:none;',
-                time: 2,
-                shade: false,
-                anim: true
-            });
-        },
-        alert: function(msg, fun){
-            layer.open({
-                content: msg,
-                btn: ['确定'],
-                style: 'font-size:1.4em; width:80%;',
-                yes : function (index) {
-                    fun&&fun();
-                    layer.close(index);
-                }
-            });
-        }
-    }
-    var path = '';
-    sl.wxshare = {};
-    sl.wx = {
-        initedJSConfig: false ,
-        initJSConfig: function(){
-            if(sl.wx.initedJSConfig){
-                sl.wx.initShare();
-                return ;
-            }
-            if (wx == undefined) return false;
-            sl.wx.initedJSConfig = true ;
-            var parms = {} ;
-            parms.url = location.href.split('#')[0] ;
-            $.post('/wechat/getJSConfig.htm',parms,function(rs){
-                wx.config({
-                    debug: false,
-                    appId: rs.config.appId,
-                    timestamp: rs.config.timestamp,
-                    nonceStr: rs.config.nonceStr,
-                    signature: rs.config.signature,
-                    jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']
-                });
-                wx.ready(function(){
-                    console.log('wechat is init ');
-                    sl.wx.initShare();
-                });
-                wx.error(function(res){
-                    console.log(res);
-                });
-            },'json');
-        },
-        initShare: function(){
-            var shareParms = {
-                title: '【车自主】互联网＋汽车保养专家 为口碑而生', // 分享标题
-                desc: '我刚在车自主完成了汽车保养，你也来看一下吧', // 分享描述
-                link: location.href , // 分享链接
-                imgUrl: 'http://static.chezizhu.com/m/images/index_share1.png?v=111', // 分享图标
-                success: function () {
-                    //			    	sl.msg('分享成功');
-                    czz.control.toast('分享成功');
-                },
-                cancel: function () {
-                    //			    	sl.msg('您取消了分享');
-                }
-            }
-            shareParms.title = document.title ;
-            shareParms = $.extend(true, shareParms, sl.wxshare);
-            wx.onMenuShareTimeline({
-                title: shareParms.title , // 分享标题
-                link: shareParms.link , // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl: shareParms.imgUrl
-            });
-            wx.onMenuShareAppMessage({
-                title: shareParms.title , // 分享标题
-                desc: shareParms.desc, // 分享描述
-                link: shareParms.link , // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl: shareParms.imgUrl
-            });
-        }
-    }
-    sl.wx.initJSConfig();
-    </script>
+    {include file="public/css"}
 </head>
 <body>
 <style>
     <!--
+    .banner {
+        min-height: 150px;
+    }
+
     a {
         -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
     }
+
     -->
 </style>
 <!--
-	作者：lastpring@gmail.com
-	时间：2018-07-23
+	作者：m18577610926@163.com
+	时间：2018-11-1
 	描述：html-template
 -->
-<div class="block-content content ms-controller" sign="page_1540472711585" ms-controller="page_1540472711585">
-    <div class="main">
+<style>
+    .van-popup {
+        width: 300px;
+        top: 30%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding-bottom: 20px;
+    }
+
+    .van-popup .title {
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid #f3f3f3;
+        padding-left: 10px;
+    }
+
+    .van-popup .title .title-name {
+        font-size: 15px;
+        color: black;
+        float: left;
+    }
+
+    .van-popup .title-name h1 {
+        float: left;
+    }
+
+    .van-popup .content dd, .van-popup .content a {
+        float: left;
+
+    }
+
+    .van-popup .content dd a {
+        font-size: 14px;
+        color: #535558;
+        padding-top: 10px;
+        padding-left: 5px;
+    }
+
+    .van-popup .content .a {
+        padding-top: 10px;
+        padding-left: 10px;
+        font-size: 15px;
+
+    }
+
+    .clear {
+        clear: both
+    }
+</style>
+<div class="block-content content ms-controller">
+    <div class="main" id="app" v-clock>
+        <van-popup v-model="vv">
+
+            <div class="title">
+                <div class="title-name"><h1>当前城市:</h1> <span :style="styleObject">{{cityname}}</span></div>
+            </div>
+            <div class="content">
+                <div v-for="item in city">
+                    <div v-if="item.parent_id==0">
+                        <a class="a"> {{item.name}}:</a>
+                        <dd v-for="items in city">
+                            <a v-if="item.id==items.parent_id" @click="handecity(items)">
+                                {{items.name}}
+                            </a>
+                        </dd>
+                    </div>
+                    <div class="clear"></div>
+
+
+                </div>
+            </div>
+        </van-popup>
+
         <!--header-->
-        <img src="http://static.chezizhu.com/m/images/index_share1.png?v=1.2.25.51" alt="" style="width:0px;height:0px;"/>
+        <img src="http://static.chezizhu.com/m/images/index_share1.png?v=1.2.25.51" alt=""
+             style="width:0px;height:0px;"/>
         <header class="index-header">
             <div class="header-box">
-                <div class="absolute-l head-addr" onclick="sl.city.show()">
-                    <span class="mr_20">&nbsp;</span>
-                    <figure class="icon-right" style="top:2px;"><i class="iconfont icon-xialajiantou font-s18"></i></figure>
+                <div class="absolute-l head-addr" @click="handeCity()">
+                    <span class="mr_20">{{cityname}}</span>
+                    <figure class="icon-right" style="top:2px;"><i class="iconfont icon-xialajiantou font-s18"></i>
+                    </figure>
                 </div>
                 <div class="head-logo"><img src="__INDEX__/images/icon-logo.png" class="header-logo"></div>
                 <div class="absolute-r">
-                    <a class=" head-phone" href="tel:400-0351-465"><span class="mr_35">400-0351-465</span><figure class="icon-t-phone "><img src="images/icon-phone.png" class="w100"></figure></a>
+                    <a class=" head-phone" href="tel:400-0351-465"><span class="mr_35">400-0351-465</span>
+                        <figure class="icon-t-phone "><img src="__INDEX__/images/icon-phone.png" class="w100"></figure>
+                    </a>
                 </div>
             </div>
         </header>
@@ -151,38 +129,15 @@
         <div class="banner" id="banner">
             <div id="slideBox" class="slideBox">
                 <div class="bd">
-                    <div class="tempWrap" >
+                    <div class="tempWrap">
                         <ul>
-                            <li>
+                            <li v-for="(item,index) in banner  ">
                                 <a href="https://hd.chezizhu.com/wx/fixed/180927164935.htm?mch_key=chezizhu14">
-                                    <img src="http://static.chezizhu.com/upload/image/2018/09/20180930161936193681578.jpg" data-src="" width="100%">
+                                    <img :src="item.image"
+                                         data-src="" width="100%">
                                 </a>
                             </li>
-                            <li>
-                                <a href="http://hd.chezizhu.com/wx/fixed/180529150258.htm?mch_key=chezizhu14">
-                                    <img src="http://static.chezizhu.com/upload/image/2018/07/20180702085837583709813.jpg" data-src="" width="100%">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://wap.chebaobei.cc/">
-                                    <img src="http://static.chezizhu.com/image/2018/02/20180222084643_815.jpg" data-src="" width="100%">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://m.chezizhu.com/main.htm#/bd/examcar/index.htm">
-                                    <img src="http://static.chezizhu.com/upload/image/2018/10/20181022092341234160524.jpg" data-src="" width="100%">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://hd.chezizhu.com/wx/fixed/171228132229.htm">
-                                    <img src="http://static.chezizhu.com/image/2018/02/20180222083826_524.jpg" data-src="" width="100%">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://hd.chezizhu.com/wx/fixed/171228132246.htm">
-                                    <img src="http://static.chezizhu.com/image/2018/02/20180222083902_734.jpg" data-src="" width="100%">
-                                </a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -194,70 +149,49 @@
         </div>
         <!--菜单title-->
         <div class="bg_white sl-flex" style="padding: 12px 0px;">
-            <div class="cell" style="text-align: center;">
+            <div class="cell" style="text-align: center;" v-for="item in icos">
                 <a style="cursor: pointer;" href="http://m.chezizhu.com/main.htm#/apot/services.htm">
                     <div class="ticon">
-                        <img src="http://static.chezizhu.com/upload/image/2018/08/20180829203458345811575.png" alt=""/>
+                        <img :src="item.images" alt=""/>
                     </div>
-                    <div class="font-s15" style="margin-top: 4px;">保养</div>
-                </a>
-            </div>
-            <div class="cell" style="text-align: center;">
-                <a style="cursor: pointer;" href="http://m.chezizhu.com/main.htm#/bp/apot/index.htm">
-                    <div class="ticon">
-                        <img src="http://static.chezizhu.com/upload/image/2018/08/20180829203534353446615.png" alt=""/>
-                    </div>
-                    <div class="font-s15" style="margin-top: 4px;">喷漆</div>
-                </a>
-            </div>
-            <div class="cell" style="text-align: center;">
-                <a style="cursor: pointer;" href="http://m.chezizhu.com/main.htm#/bd/examcar/index.htm">
-                    <div class="ticon">
-                        <img src="http://static.chezizhu.com/upload/image/2018/08/20180829203551355119301.png" alt=""/>
-                    </div>
-                    <div class="font-s15" style="margin-top: 4px;">审车</div>
-                </a>
-            </div>
-            <div class="cell" style="text-align: center;">
-                <a style="cursor: pointer;" href="http://m.chezizhu.com/main.htm#/bd/insure/index.htm">
-                    <div class="ticon">
-                        <img src="http://static.chezizhu.com/upload/image/2018/08/2018082920360036041522.png" alt=""/>
-                    </div>
-                    <div class="font-s15" style="margin-top: 4px;">保险</div>
-                </a>
-            </div>
-            <div class="cell" style="text-align: center;">
-                <a style="cursor: pointer;" href="http://m.chezizhu.com/main.htm#/bd/usedcar/index.htm">
-                    <div class="ticon">
-                        <img src="http://static.chezizhu.com/upload/image/2018/08/2018082920360936979768.png" alt=""/>
-                    </div>
-                    <div class="font-s15" style="margin-top: 4px;">估价</div>
+                    <div class="font-s15" style="margin-top: 4px;">{{item.name}}</div>
                 </a>
             </div>
         </div>
         <!--菜单title-->
         <div class="bycon mt_5 mb_5 relative bg_white">
             <a href="/bysc.html?v=1.2.25.51">
-                <div class="left ff4500 relative pt_5 pb_5"><img src="images/by-icon.png" alt="" /></div>
-                <div class="right pr_20"><div class="bydirect">不懂要做什么保养项目,去看看</div></div>
+                <div class="left ff4500 relative pt_5 pb_5"><img src="__INDEX__/images/by-icon.png" alt=""/></div>
+                <div class="right pr_20">
+                    <div class="bydirect">不懂要做什么保养项目,去看看</div>
+                </div>
                 <i class="iconfont icon-rightArrow-copy absolute-r font-s15 mt_2"></i>
             </a>
         </div>
         <!--服务项目套餐s-->
         <div class="bycontent" id="bycontent">
             <div class="relative over border-b bg_white">
-                <div class="left " style="border-bottom:0px;height:100%;padding-bottom:1px;"><a href="https://hd.chezizhu.com/wx/fixed/180927164935.htm?mch_key=chezizhu14"><img src="http://static.chezizhu.com/upload/image/2018/09/20180930162026202628924.jpg" alt="" width="100%"/></a></div>
+                <div class="left " style="border-bottom:0px;height:100%;padding-bottom:1px;">
+                    <a href="https://hd.chezizhu.com/wx/fixed/180927164935.htm?mch_key=chezizhu14"><img
+                            src="http://static.chezizhu.com/upload/image/2018/09/20180930162026202628924.jpg" alt=""
+                            width="100%"/>
+                    </a>
+                </div>
                 <div class="right absolute-r">
                     <a href="http://wap.chebaobei.cc/user/buy/package/main.htm">
-                        <img src="http://static.chezizhu.com/image/2018/03/20180301112847_936.jpg" alt="" width="100%" class="h50 border-b">
+                        <img src="http://static.chezizhu.com/image/2018/03/20180301112847_936.jpg" alt="" width="100%"
+                             class="h50 border-b">
                     </a>
                     <a href="http://hd.chezizhu.com/wx/fixed/180224142257.htm">
-                        <img src="http://static.chezizhu.com/image/2018/03/20180308152754_567.jpg" alt="" width="100%" class="h50" style="border-bottom:0px;"/>
+                        <img src="http://static.chezizhu.com/image/2018/03/20180308152754_567.jpg" alt="" width="100%"
+                             class="h50" style="border-bottom:0px;"/>
                     </a>
                 </div>
             </div>
             <div class="border-b relative over">
-                <div class="left fl"><a href="http://hd.chezizhu.com/wx/fixed/180529150258.htm?mch_key=chezizhu14"><img src="http://static.chezizhu.com/upload/image/2018/07/2018070210021921939038.jpg" alt="" width="100%"/></a></div>
+                <div class="left fl"><a href="http://hd.chezizhu.com/wx/fixed/180529150258.htm?mch_key=chezizhu14"><img
+                        src="http://static.chezizhu.com/upload/image/2018/07/2018070210021921939038.jpg" alt=""
+                        width="100%"/></a></div>
                 <div class="right fr">
                     <a href="http://hd.chezizhu.com/wx/fixed/171228132246.htm">
                         <img src="http://static.chezizhu.com/image/2017/12/20171206114550_874.jpg" alt="" width="100%"/>
@@ -276,32 +210,33 @@
         -->
         <div class="us-nav">
             <a href="/main.htm#/model/servicer/list.htm" class="us-nav-item ">
-                <figure class="mt_3" >
+                <figure class="mt_3">
                     <i class="iconfont icon-dianpu font-s22"></i>
                 </figure>
                 <span>门店导航</span>
             </a>
-            <a href="http://p.qiao.baidu.com/cps/mobileChat?siteId=9908599&userId=22334706&type=1&reqParam=&appId=&referer=&lightapp=2" class="us-nav-item ">
-                <figure class="mt_3" >
+            <a href="http://p.qiao.baidu.com/cps/mobileChat?siteId=9908599&userId=22334706&type=1&reqParam=&appId=&referer=&lightapp=2"
+               class="us-nav-item ">
+                <figure class="mt_3">
                     <i class="iconfont icon-zaixiankefuzhuanhuan font-s22"></i>
                 </figure>
                 <span>在线客服</span>
             </a>
             <a href="/jfshop/jfshop_list.htm" class="us-nav-item" style="display:none">
-                <figure class="mt_3" >
+                <figure class="mt_3">
                     <i class="iconfont icon-icon1 font-s22"></i>
                 </figure>
                 <span>积分商城</span>
             </a>
             <a href="/main.htm#/model/evaluation_list.htm" class="us-nav-item ">
-                <figure class="mt_3" >
+                <figure class="mt_3">
                     <i class="iconfont icon-pingjia font-s22"></i>
                 </figure>
                 <span>服务评价</span>
                 <!--http://static.chezizhu.com/m/gywm.html?v=1.2.25.51-->
             </a>
-            <a href="/user/center.htm?rnd=" class="us-nav-item " >
-                <figure class="mt_3" >
+            <a href="/user/center.htm?rnd=" class="us-nav-item ">
+                <figure class="mt_3">
                     <i class="iconfont icon-30 font-s22"></i>
                 </figure>
                 <span>个人中心</span>
@@ -310,211 +245,95 @@
         </div>
     </div>
 </div>
-<div id="citylist" style="top: 100%; background-color: rgba(0, 0, 0, 0.5);display:none;" class="popup">
-</div>
+
 <!-- html-template end -->
 <style type="text/css">
-    .us-nav-item{
+    .us-nav-item {
         width: 25%;
     }
-    .font-s8{
+
+    .font-s8 {
         font-size: 8px !important;
     }
-    .two-btn{
+
+    .two-btn {
         cursor: pointer;
-        margin:5px 13px;
+        margin: 5px 13px;
         margin-right: 0px;
         display: block;
         padding-left: 10px;
     }
-    .two-btn:first-child{
+
+    .two-btn:first-child {
         border-right: 1px solid #eee;
     }
-    .two-btn .ticon1{
+
+    .two-btn .ticon1 {
         float: left;
         width: 45px;
         height: 45px;
     }
-    .ticon img{
+
+    .ticon img {
         width: 52px;
         height: 52px;
         margin: auto;
     }
 </style>
 </body>
-</html><!--
-	作者：lastpring@gmail.com
-	时间：2018-07-23
-	描述：js-template
--->
-<script src="__INDEX__/js/TouchSlide.js"></script>
-<script type="text/javascript">
-    $(function(){
-        sl.city = {
-            show: function(fun){
-                if($('#citylist').attr('loaded') == '1'){
-                    $('#citylist').animate({'top': '0px'}, 'fast', 'swing');
-                }else{
-                    $('#citylist').load('/model/city_list.htm?vn=m', function(rs){
-                        $('#citylist').attr('loaded', '1');
-                        $('#citylist').animate({'top': '0px'}, 'fast', 'swing');
-                    })
-                }
-            },
-            callback: function(k,dic_num,sort){
-                control.city_dic_num = dic_num;
-                control.thiscity=k.substring(0,2);
-                localStorage.city_name = k.substring(0,2);
-                localStorage.city_dic_num = dic_num;
-                var myDate = new Date();
-                var date = myDate.getTime();
-                var min = 10*60*1000; //10分钟
-                var time = date + min;
-                localStorage.end_time = date + min;
-                localStorage.setItem("citysort",sort.substr(0,2));
-                localStorage.setItem('mch_key','chezizhu' + sort.substr(0,2));
-                if(sort.substr(0,2) != 'chezizhu14'.substring(8)){
-                    $.get('/',{mch_key:'chezizhu' + sort.substr(0,2)},function(){
-                        location.href =  '';
-                    })
-                }else{
-                    sl.city.hide();
-                }
-            },
-            hide: function(){
-                $('#citylist').animate({'top': '100%'}, 'fast', 'swing');
-            }
-        }
-        var config = {
-            thiscity : '<img src="' + path + 'images/icon-wait.gif" class="top-icon">',
-            city_dic_num : '',
-            city_name : '',
-            //切换城市
-            adcode:'',
-            //获取GPS坐标
-            getuserlocation : function() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition, showError, {
-                        // 指示浏览器获取高精度的位置，默认为false
-                        enableHighAcuracy: true,
-                        // 指定获取地理位置的超时时间，默认不限时，单位为毫秒
-                        timeout: 3000,
-                        // 最长有效期，在重复获取地理位置时，此参数指定多久再次获取位置。
-                        maximumAge: 300000
-                    });
-                } else {
-                    //浏览器不支持获取用户位置
-                    sl.msg("无法定位当前城市，请手动选择");
-                    sl.city.show();
-                }
-                function showPosition(position) {
-                    var surl = 'https://apis.map.qq.com/ws/geocoder/v1/?get_poi=0&coord_type=1&key=3HDBZ-32VRS-RGRO2-6TX6D-FQ73T-26BCA&&output=jsonp&location=';
-                    // $.ajax({
-                    //     type:'get',
-                    //     url: surl  + position.coords.latitude + ',' + position.coords.longitude,
-                    //     dataType: 'jsonp',
-                    //     jsonp: 'callback',
-                    //     success: function(rs) {
-                    //         rs = rs.result;
-                    //         var adcode = String(rs.ad_info.adcode).substring(0,4);
-                    //         if(adcode.substr(-2) == '00'){
-                    //             return;
-                    //         }
-                    //         control.adcode = adcode +'00';
-                    //         control.load();
-                    //     },
-                    //     error:function() {//解析失败
-                    //         sl.msg("无法定位当前城市，请手动选择");
-                    //         sl.city.show();
-                    //     }
-                    // });
-                };
-                function showError(error){
-                    console.log(error)
-                    sl.msg("无法定位当前城市，请手动选择");
-                    sl.city.show();
-                };
-            },
-            load:function(){
-                var adcode = control.adcode;
-                $.post('/model/city/guobiao.htm', {guoBiao:adcode}, function(rs){
-                    if(rs.list != ''){
-                        var myDate = new Date();
-                        var date = myDate.getTime();
-                        control.thiscity = rs.list.k.substring(0,2);
-                        localStorage.city_dic_num = rs.list.dic_num;
-                        localStorage.city_name = rs.list.k.substring(0,2);
-                        var min = 10*60*1000; //10分钟
-                        var time = date + min;
-                        localStorage.end_time = date + min;
-                        localStorage.setItem('mch_key','chezizhu' + control.adcode.substr(0,2));
-                        if(adcode.substr(0,2) != 'chezizhu14'.substring(8)){
-                            $.get('/',{mch_key:'chezizhu' + adcode.substr(0,2)},function(){
-                                location.href =  '';
-                            })
-                        }
-                    }else{
-                        sl.msg("无法定位当前城市，请手动选择");
-                        sl.city.show();
-                    }
-                }, 'json');
-            },
-            init:function(){
-                var mch_key = 'chezizhu14';
-                if (mch_key != localStorage.getItem('mch_key')){
-                    sl.city.show();
-                }else{
-                    //获取地理位置
-                    var myDate = new Date();
-                    var date = myDate.getTime();
-                    if(localStorage.city_dic_num == undefined && localStorage.city_name == undefined) {
-                        control.getuserlocation();
-                    }else if(!localStorage.end_time || localStorage.end_time <= date){
-                        control.getuserlocation();
-                    }else{
-                        control.thiscity = localStorage.city_name;
-                    }
-                }
+</html>
 
-            }
+{include file="public/js"}
 
-        }
-        config.$id = 'page_1540472711585';
-        var control = avalon.define(config);
-        control.init();
-        avalon.scan();
-        /******************初始化成功之后************************/
-        document.title = '【车自主】互联网＋汽车保养专家 为口碑而生'
-        var widths=document.body.clientWidth;
-        if(widths>=768){
-            document.getElementById('banner').style.height='338px';
-            document.getElementById('bycontent').style.height='202px';
-        }else{
-            document.getElementById('banner').style.height=parseInt(widths*282/640) +'px';
-            document.getElementById('bycontent').style.height=parseInt(widths*202/320) +'px';
-        }
-        window.onresize=function(){
-            widths=document.body.clientWidth;
-            if(widths>768){
-                document.getElementById('banner').style.height='338px';
-                document.getElementById('bycontent').style.height='202px';
-            }else{
-                document.getElementById('banner').style.height=parseInt(widths*282/640) +'px';
-                document.getElementById('bycontent').style.height=parseInt(widths*202/320) +'px';
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            styleObject: {
+                color: '#ff4500',
+            },
+            message: 'Hello Vue!',
+            vv: false,
+            images: [
+                'http://static.chezizhu.com/upload/image/2018/09/20180930161936193681578.jpg',
+                'http://static.chezizhu.com/upload/image/2018/07/20180702085837583709813.jpg',
+                'http://static.chezizhu.com/image/2018/02/20180222084643_815.jpg',
+                'http://static.chezizhu.com/upload/image/2018/10/20181022092341234160524.jpg',
+                'http://static.chezizhu.com/image/2018/02/20180222083826_524.jpg',
+            ],
+            icos: [
+                {name: '保养', images: "http://static.chezizhu.com/upload/image/2018/08/20180829203458345811575.png"},
+                {name: '喷漆', images: "http://static.chezizhu.com/upload/image/2018/08/20180829203534353446615.png"},
+                {name: '审车', images: "http://static.chezizhu.com/upload/image/2018/08/20180829203551355119301.png"},
+                {name: '保险', images: "http://static.chezizhu.com/upload/image/2018/08/2018082920360036041522.png"},
+                {name: '估价', images: "http://static.chezizhu.com/upload/image/2018/08/2018082920360936979768.png"},
+            ],
+            city: [],
+            cityname: getCookie('city'),
+            banner:[],
+        },
+        created() {
+            this.GetCityByList();
+
+        },
+        methods: {
+            handeCity() {
+                this.vv = true
+
+            },
+            GetCityByList() {
+                axios.get('/index/index/indexdata/').then(res => {
+                    console.log(res)
+                    this.city = res.data.city
+                    this.banner=res.data.banner
+                })
+            },
+            handecity(row) {
+                this.cityname = row.name
+                setCookie('city', row.name)
+                this.vv = false
             }
         }
-        setTimeout(function(){
-            TouchSlide({
-                slideCell:"#slideBox",
-                titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-                mainCell:".bd ul",
-                effect:"leftLoop",
-                autoPage:true,//自动分页
-                autoPlay:true //自动播放
-//			autoPage:true,//自动分页
-//			autoPlay:true //自动播放
-            });
-        },1)
-    });
+    })
 </script>
 <!-- js-template-end -->

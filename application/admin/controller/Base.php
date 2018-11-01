@@ -18,7 +18,7 @@ class Base extends Controller
 
     public function status()
     {
-        $data = input('get.');
+        $data = input('param.');
         if (empty($data['id'])) {
             $this->error('id不合法');
         }

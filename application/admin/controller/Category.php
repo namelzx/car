@@ -24,7 +24,7 @@ class category extends Base
 
     public function index()
     {
-        $parent_id = input('get.parent_id', 0, 'intval');
+        $parent_id = input('param.parent_id', 0, 'intval');
         $res = categoryModel::getFirstCategorys($parent_id);
         $this->assign('res', $res);
         return view();
@@ -32,7 +32,7 @@ class category extends Base
 
     public function add()
     {
-        $category = $this->obj->getNormalFirstCategory();
+        $category =categoryModel::getNormalFirstCategory();
         $this->assign('categorys', $category);
         return view();
     }
@@ -54,17 +54,17 @@ class category extends Base
 
         $data = input('post.');
 
-        $validate = validate('Category');
-        if (!$validate->check($data)) {
-            $this->error($validate->getError());//调用validate文件下面的验证方法
-        }
+//        $validate = validate('Category');
+//        if (!$validate->check($data)) {
+//            $this->error($validate->getError());//调用validate文件下面的验证方法
+//        }
         // 如果是传送进来是id那么直接做更新操作
         if (!empty($data['id'])) {
-            return $this->update($data);
+            return categoryModel::update($data);
             # code...
         }
         // $data['cname'] = $data['name'];
-        $res = $this->obj->add($data);
+        $res = categoryModel::strict(false)->insert($data);
         if ($res) {
             $this->success('新增成功');
         } else {
@@ -131,14 +131,14 @@ class category extends Base
 
     public function status()
     {
-        $data = input('get.');
+        $data = input('param.');
         // print_r($data);
 
-        $validate = validate('Category');
-        if (!$validate->scene('status')->check($data)) {
-            $this->error($validate->getError());//调用validate文件下面的验证方法
-        }
-        $res = $this->obj->save(['status' => $data['status']], ['id' => $data['id']]);
+//        $validate = validate('Category');
+//        if (!$validate->scene('status')->check($data)) {
+//            $this->error($validate->getError());//调用validate文件下面的验证方法
+//        }
+        $res = categoryModel::update(['status' => $data['status']], ['id' => $data['id']]);
 
         if ($res) {
             $this->success('更新成功');

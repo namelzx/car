@@ -7,13 +7,13 @@ use think\Model;
 class featured	 extends BaseModel
 {
 
- 	// 获取入驻商家列表
- 	public function getfeaturedlist($data=[])
+ 	// 获取入轮播列表
+ 	public static function getfeaturedlist()
  	{
  	
- 			$data['status']	=	['neq',-1];
+
  		$oreder	=	['id'=>'desc'];
- 		$res	=	$this->where($data)->order($oreder)->paginate(10);
+ 		$res	=	self::where('status','neq',-1)->order($oreder)->paginate(10);
  		// echo $this->getlastSql();
  		return $res;
 

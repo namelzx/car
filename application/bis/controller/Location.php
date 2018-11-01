@@ -10,15 +10,15 @@ class location extends Base
     public function index()
     {
         // 获取一级城市
-        $bisid = $this->getlogoinuser()->bis_id;
-        $Bislocation = model('Bislocation')->getlocationlist($bisid);
+        $bisid = 25;
+        $Bislocation = model('Bislocation')->getlocationlist(25);
         $this->assign('Bislocation', $Bislocation);
         return view();
     }
 
     public function add()
     {
-        $bisid = $this->getlogoinuser()->bis_id;
+        $bisid = 25;
         if (request()->isPost()) {
 
             $data = input('post.');

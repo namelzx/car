@@ -1,5 +1,7 @@
 <!--包含头部文件-->
 {include file="public/header" /}
+{load href="__STATIC__/admin/layui/css/layui.css" /}
+
 <body>
 <div class="page-container">
 	<form class="form form-horizontal form-o2o-add" id="form-o2o-add" method="post" action="{:url('category/save')}">
@@ -10,16 +12,17 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
+			<label class="form-label col-xs-4 col-sm-2">推荐位</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<span class="select-box">
-				<select name="parent_id" class="select">
-					<option value="0">一级分类</option>
-					{volist name='categorys' id='vo'}
-					<option value="{$vo.id}">{$vo.name}</option>
-					{/volist}
-				</select>
-				</span>
+
+				<div class="layui-upload">
+					<button type="button" class="layui-btn" id="file_upload">上传logo</button>
+					<div class="layui-upload-list">
+						<img class="layui-upload-img" id="file_upload1">
+						<input type="text" class="form-control" name="image" style="display: none;" id="logo">
+						<p id="demoText"></p>
+					</div>
+				</div>
 			</div>
 		</div>
 		
@@ -35,3 +38,17 @@
 </div>
 <!--包含头部文件-->
 {include file="public/footer" /}
+
+
+{load href="__STATIC__/admin/layui/layui.js" /}
+{load href="__STATIC__/admin/js/image.js" /}
+<script>
+    /**定义页面全局变量**/
+    var SCOPE = {
+        'city_url': "{:url('api/city/getCitysByparentId')}",
+        'category_url': "{:url('api/category/getcategorysByparentId')}",
+        // 'uploadify_swf'	: '__STATIC__/admin/uploadify/uploadify.swf',
+        'image_uploadify': "{:url('api/image/upload')}",
+        // 'uploadlayui_url'	: "{:url('api/image/upload')}"
+    }
+</script>

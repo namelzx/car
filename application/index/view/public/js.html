@@ -1,0 +1,48 @@
+
+<script src="__INDEX__/js/jquery.min.js"></script>
+<script src="__INDEX__/js/layer.js"></script>
+<!--<script src="__INDEX__/js/avalon.mobile.min.js"></script>-->
+<script src="__INDEX__/js/sl.tool.1.0.js?v=1.2.25.51"></script>
+<script src="__INDEX__/js/sl.location.1.0.js?v=1.2.25.51"></script>
+<script src="__INDEX__/vant/vue.min.js"></script>
+<script src="__INDEX__/vant/axios.min.js"></script>
+<script src="__INDEX__/vant/vant.min.js"></script>
+
+<script src="__INDEX__/js/TouchSlide.js"></script>
+
+<script src="__INDEX__/common.js"></script>
+
+<script>
+    $(function(){
+        /******************轮播图************************/
+        document.title = '【车自主】互联网＋汽车保养专家 为口碑而生'
+        var widths=document.body.clientWidth;
+        if(widths>=768){
+            document.getElementById('banner').style.height='338px';
+            document.getElementById('bycontent').style.height='202px';
+        }else{
+            document.getElementById('banner').style.height=parseInt(widths*282/640) +'px';
+            document.getElementById('bycontent').style.height=parseInt(widths*202/320) +'px';
+        }
+        window.onresize=function(){
+            widths=document.body.clientWidth;
+            if(widths>768){
+                document.getElementById('banner').style.height='338px';
+                document.getElementById('bycontent').style.height='202px';
+            }else{
+                document.getElementById('banner').style.height=parseInt(widths*282/640) +'px';
+                document.getElementById('bycontent').style.height=parseInt(widths*202/320) +'px';
+            }
+        }
+        setTimeout(function(){
+            TouchSlide({
+                slideCell:"#slideBox",
+                titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+                mainCell:".bd ul",
+                effect:"leftLoop",
+                autoPage:true,//自动分页
+                autoPlay:true //自动播放
+            });
+        },1)
+    });
+</script>

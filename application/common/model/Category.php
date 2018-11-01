@@ -9,11 +9,12 @@ class category extends Model
     // 添加
     protected $autoWriteTimestamp = true; //默认设置当前时间 给time字段
 
-    public function add($data)
+    public static function add($data)
     {
         $data['status'] = 1;
+        dump($data);
         // $data['create_time'] = time();
-        return $this->save($data);
+        return self::insert($data);
     }
 
     // 获取一级栏目
@@ -74,7 +75,7 @@ class category extends Model
             'id' => 'desc',
 
         ];
-        $result = $this->where($data)
+        $result = self::here($data)
             ->order($order);
         if ($limit) {
             $result = $result->limit($limit);
@@ -97,7 +98,7 @@ class category extends Model
 
         ];
 
-        $result = $this->where($data)
+        $result = self::where($data)
             ->order($order)
             ->select();
         return $result;

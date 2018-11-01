@@ -1,6 +1,7 @@
 <?php
 
 namespace app\admin\controller;
+use  app\common\model\featured as featuredModel;
 
 class featured extends Base
 {
@@ -10,7 +11,7 @@ class featured extends Base
     // 初始化模型
     public function _initialize()
     {
-        $this->obj = model("featured");
+        $this->obj = new featuredModel();
     }
 
     public function index()
@@ -20,10 +21,7 @@ class featured extends Base
         if (!empty($stype)) {
             $sstype = $stype;
         }
-        $data = [
-            'type' => $stype,
-        ];
-        $list = $this->obj->getfeaturedlist($data);
+        $list =featuredModel::getfeaturedlist();
 
         $type = config('featured.featured_type');
         $assign = [

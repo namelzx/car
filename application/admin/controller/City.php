@@ -25,7 +25,7 @@ class city extends Controller
     public function index()
     {
         //
-        $parent_id = input('get.parent_id', 0, 'intval');
+        $parent_id = input('param.parent_id', 0, 'intval');
         $res = CityModel::getNormalCitysByParentId($parent_id);
         $this->assign('res', $res);
         return view();
@@ -33,7 +33,7 @@ class city extends Controller
 
     public function add()
     {
-        $category = $this->obj->getNormalCitysByParentId();
+        $category = CityModel::getNormalCitysByParentId();
         $this->assign('categorys', $category);
         return view();
     }
@@ -52,18 +52,18 @@ class city extends Controller
             # code...
             $this->error('请求失败');
         }
-        $data = input('post.');
-        $validate = validate('Category');
-        if (!$validate->check($data)) {
-            $this->error($validate->getError());//调用validate文件下面的验证方法
-        }
+        $data = input('param.');
+//        $validate = validate('Category');
+//        if (!$validate->check($data)) {
+//            $this->error($validate->getError());//调用validate文件下面的验证方法
+//        }
         // 如果是传送进来是id那么直接做更新操作
         if (!empty($data['id'])) {
             return $this->update($data);
             # code...
         }
         // $data['cname'] = $data['name'];
-        $res = $this->obj->add($data);
+        $res = CityModel::add($data);
         if ($res) {
             $this->success('新增成功');
         } else {
