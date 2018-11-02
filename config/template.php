@@ -35,6 +35,7 @@ return [
     'tpl_replace_string' => [
         '__INDEX__' => '/static/index',
         '__STATIC__' => '/static/',
+        '__Server__' => '/static/server/',
 
     ],
 ];

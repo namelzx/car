@@ -8,7 +8,10 @@
 
 namespace app\index\controller;
 
-
+use app\common\model\Carbrand;
+use app\common\model\Carinfo;
+use app\common\model\Carmodels;
+use app\common\model\Category;
 use think\Controller;
 
 /**
@@ -22,4 +25,33 @@ class Maintenance extends Controller
         return view();
     }
 
+    public function indexdata()
+    {
+        $data = Category::all();
+        return json($data);
+    }
+
+    public function choose()
+    {
+        return view();
+    }
+
+    public function choosedata()
+    {
+        $res = Carbrand::GetDataBylist();
+        return json($res);
+    }
+    //获取车型
+    public function carmodels()
+    {
+        $data=input('param.');
+        $res = Carmodels::where('mid',$data['id'])->select();
+        return json($res);
+    }
+    //获取年份
+    public function carinfo(){
+        $data=input('param.');
+        $res=Carinfo::where('ModelsID',$data['id'])->select();
+        return json($res);
+    }
 }
