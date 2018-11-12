@@ -26,9 +26,7 @@ class user extends Base
         if (!empty($data['start_time']) && !empty($data['end_time']) && strtotime($data['end_time']) > strtotime($data['start_time'])) {
             $sdata['create_time'] = [
                 ['gt', strtotime($data['start_time'])],
-
                 ['lt', strtotime($data['end_time'])],
-
             ];
         }
         if (!empty($data['username'])) {

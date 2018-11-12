@@ -61,7 +61,7 @@
                                 <!--ms-if-->
                             </div>
                             <div class="o-footer-r mt_18 mr_10 ">
-                                <button class="mb_10">确定</button>
+                                <button class="mb_10" @click="handeToch">确定</button>
                             </div>
                         </div>
                     </div>
@@ -111,12 +111,11 @@
                     item.status = false
                 }
                 console.log(this.todos)
-
+            },
+            handeToch(){
+              window.location.href="/index/maintenance/choose"
             }
         },
-
-
-
     })
 </script>
 </html>

@@ -206,7 +206,6 @@ class Config implements \ArrayAccess
 
         if ($this->yaconf) {
             $yaconfName = $this->getYaconfName($name);
-
             if (Yaconf::has($yaconfName)) {
                 $config = Yaconf::get($yaconfName);
                 return isset($this->config[$name]) ? array_merge($this->config[$name], $config) : $config;

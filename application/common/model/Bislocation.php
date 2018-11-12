@@ -38,18 +38,14 @@ class bislocation extends BaseModel
 	 	$res   = $this->where($data)->order($order)->select();
 //	 	echo $this->getlastSql();
 	 	return $res;
-
  	}
-
  	public function getNoramlLocationId($ids)
  	{
  		$data	=	[
  			'id'	=>	['in',$ids],
  			'status'	=>	1,
  		];
-
  		return $this->where($data)->select();
-
  	}
 
 

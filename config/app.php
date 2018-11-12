@@ -143,4 +143,13 @@ return [
     // 异常处理handle类 留空使用 \think\exception\Handle
     'exception_handle'       => '',
 
+    'Map' => [
+        'ak' =>'cUpC6EyNX6XfcvtqQqrw11TGgg9j8ghz',
+        'baidu_map_url'  =>'http://api.map.baidu.com/',
+        'geocoder'	=>	'geocoder/v2/',
+        'width'		=>	400,
+        'height'	=>	300,
+        'staticimage' =>'staticimage/v2',
+        'tencent_map_url' =>'http://apis.map.qq.com/ws/location/v1/'
+    ],
 ];

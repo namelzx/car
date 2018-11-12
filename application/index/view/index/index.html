@@ -326,7 +326,6 @@
             },
             GetCityByList() {
                 axios.get('/index/index/indexdata/').then(res => {
-                    console.log(res)
                     this.city = res.data.city
                     this.banner=res.data.banner
                 })

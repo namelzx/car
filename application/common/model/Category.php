@@ -12,7 +12,6 @@ class category extends Model
     public static function add($data)
     {
         $data['status'] = 1;
-        dump($data);
         // $data['create_time'] = time();
         return self::insert($data);
     }
@@ -53,7 +52,7 @@ class category extends Model
 
         return self::where($data)
             ->order($order)
-            ->select();
+            ->paginate(5);
     }
 
     // public function status()

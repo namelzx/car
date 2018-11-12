@@ -21,25 +21,19 @@ class register extends Controller
     public function add()
     {
         $data = input('post.');
-        // print_r($data);
-        // 判断是否是post提交如果不是返回提示
         if (!request()->isPost()) {
             $this->error('请求错误');
         }
         // 获取表单值
         $data = input('post.');
-        $validate = validate('bis');
-        if (!$validate->scene('add')->check($data)) {
-            $this->error($validate->getError());
-        }
+//        $validate = validate('bis');
+//        if (!$validate->scene('add')->check($data)) {
+//            $this->error($validate->getError());
+//        }
         // 获取经纬度
         // $langlat =	\Map::getLangLat($data['address']);
         $langlat = \Map::getLngLat($data['address']);
-        // if (empty($langlat)||$langlat['status']!=0||$langlat['result']['precise']!=1) {
-        // 	$this->error('无法获取数据,或者匹配的地址不精准');
-        // 	# code...
-        // }
-        //
+//        return json($langlat);
         $accountname = Model('BisAccount')->get(['username' => $data['username']]);
         if ($accountname) {
             $this->error('该用户存在，请重新分配');
@@ -66,23 +60,23 @@ class register extends Controller
 
         // 总店信息
 
-        if (!empty($data['se_category_id'])) {
-
-            $data['cat'] = $data['se_category_id'];
-        }
+//        if (!empty($data['se_category_id'])) {
+//
+//            $data['cat'] = $data['se_category_id'];
+//        }
 // 商户总店基本信息
         $locationData = [
             'bis_id' => $bisid,
             'name' => $data['name'],
-            // 'logo' => $data['logo'],
+             'logo' => $data['logo'],
             'tel' => $data['tel'],
             'contact' => $data['contact'],
-            'category_id' => $data['category_id'],
-            'category_path' => empty($data['se_category_id']) ? '' : implode(',', $data['cat']),
+//            'category_id' => $data['category_id'],
+//            'category_path' => empty($data['se_category_id']) ? '' : implode(',', $data['cat']),
             'city_id' => $data['city_id'],
             'city_path' => empty($data['se_city_id']) ? $data['city_id'] : $data['city_id'] . ',' . $data['se_city_id'],
             'api_address' => $data['address'],
-            'open_time' => $data['open_time'],
+//            'open_time' => $data['open_time'],
             'content' => empty($data['content']) ? '' : $data['content'],
             'is_main' => 1,// 代表的是总店信息
             'xpoint' => $langlat['result']['location']['lng'],
@@ -109,16 +103,6 @@ class register extends Controller
             $this->error('申请失败');
         }
 
-        // 上面三个内容都添加成功后。发送一封邮件给用户
-        $url = request()->domain() . url('bis/register/waiting', ['id' => $bisid]);
-        $title = "红蜻蜓o2o商城商家入驻申请通知";
-        $content = "您提交的入驻申请需要等待平台审核,您可通过点击链接<a href	='" . $url . "'target='_blank'>查看链接</a>查看申请状态";
-        \phpmailer\Email::send($data['email'], $title, $content);
-
-
-        // $this->success("申请成功");
-        // $dcc=$langlat['result']['location']['lng'])?'':$langlat['result']['location']['lat';
-        // 帐号信息
     }
 
     public function waiting($id)

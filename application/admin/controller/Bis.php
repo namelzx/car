@@ -2,8 +2,7 @@
 
 namespace app\admin\controller;
 
-use think\Controller;
-use think\Request;
+use app\common\model\Bis as BisModel;
 
 class bis extends Base
 {
@@ -17,13 +16,13 @@ class bis extends Base
     // 初始化模型
     public function _initialize()
     {
-        $this->obj = model("bis");
+//        $this->obj = ;
     }
 
     // 审核通过的用户
     public function index()
     {
-        $res = $this->obj->getbisbylist(1);
+        $res = model('bis')->getbisbylist(1);
 
         $this->assign('res', $res);
 
@@ -34,7 +33,7 @@ class bis extends Base
     public function dellist()
     {
 
-        $res = $this->obj->getbisbylist(-1);
+        $res =BisModel::getbisbylist(2);
 
         $this->assign('res', $res);
 
@@ -50,12 +49,10 @@ class bis extends Base
      */
     public function apply()
     {
-        $res = $this->obj->getbisbylist();
+        $res = BisModel::getbisbylist();
 
         $this->assign('res', $res);
-
         return view();
-
     }
 
     /**
@@ -113,18 +110,31 @@ class bis extends Base
 
         $id = input('get.id');
 
-        $data['password']=123456;
+        $data['password'] = 123456;
         $data['code'] = mt_rand(100, 1000000);
         $data['password'] = md5($data['password'] . $data['code']);
         $res = model('bisaccount')->update($data, ['id' => $id]);
-        if ($res)
-        {
+        if ($res) {
             return "成功";
-        }
-        else{
+        } else {
             return "失败";
         }
 
+    }
+    /*
+     *修改用户信息
+     */
+    public function Bisstatus()
+    {
+
+        $data=input('param.');
+        $res = BisModel::update(['status' => $data['status']], ['id' => $data['id']]);
+
+        if ($res) {
+            $this->success('更新成功');
+        } else {
+            $this->error('更新失败');
+        }
     }
 
 

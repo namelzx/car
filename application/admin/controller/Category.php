@@ -2,10 +2,8 @@
 
 namespace app\admin\controller;
 
-use think\Controller;
+use app\common\model\category as categoryModel;
 use think\Request;
-use  app\common\model;
-use  app\common\model\category as categoryModel;
 
 class category extends Base
 {
@@ -21,7 +19,6 @@ class category extends Base
     {
         $this->obj = model("category");
     }
-
     public function index()
     {
         $parent_id = input('param.parent_id', 0, 'intval');
@@ -32,7 +29,7 @@ class category extends Base
 
     public function add()
     {
-        $category =categoryModel::getNormalFirstCategory();
+        $category = categoryModel::getNormalFirstCategory();
         $this->assign('categorys', $category);
         return view();
     }
@@ -54,11 +51,6 @@ class category extends Base
 
         $data = input('post.');
 
-//        $validate = validate('Category');
-//        if (!$validate->check($data)) {
-//            $this->error($validate->getError());//调用validate文件下面的验证方法
-//        }
-        // 如果是传送进来是id那么直接做更新操作
         if (!empty($data['id'])) {
             return categoryModel::update($data);
             # code...
@@ -111,7 +103,7 @@ class category extends Base
             $this->success('更新成功');
         } else {
 
-            $tis->error('更新失败');
+            $this->error('更新失败');
         }
         //
     }
@@ -145,5 +137,35 @@ class category extends Base
         } else {
             $this->error('更新失败');
         }
+    }
+
+    public function towindex()
+    {
+        $data = input('param.');
+        $res = db('category_tow')->where('category_id', $data['category_id'])->paginate();
+        $assing=[
+            'category_id'=>$data['category_id'],
+            'res'=>$res
+        ];
+        $this->assign($assing);
+        return view();
+    }
+
+    public function towadd()
+    {
+        $data = input('param.');
+        $this->assign('category_id', $data['category_id']);
+        return view();
+    }
+    public function towsave(){
+        $data=input('param.');
+        $data['create_time']=time();
+        $res = db('category_tow')->strict(false)->insert($data);
+        if ($res) {
+            $this->success('新增成功');
+        } else {
+            $this->error('添加失败');
+        }
+
     }
 }
