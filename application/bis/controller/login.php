@@ -16,6 +16,7 @@ class login extends Controller
             if (!$res || $res->status != 1) {
                 $this->error('该用户不存在，或者用户尚未审核通过');
             }
+            dump(md5($data['password'] . $res->code));
             if ($res->password != md5($data['password'] . $res->code)) {
                 $this->error('密码不正确');
             }

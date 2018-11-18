@@ -4,7 +4,7 @@ namespace app\common\model;
 
 use think\Model;
 
-class bislocation extends BaseModel
+class Bislocation extends BaseModel
 {
     // 获取当前用户门店列表
 

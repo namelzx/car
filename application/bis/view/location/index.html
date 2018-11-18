@@ -26,7 +26,7 @@
                 <td>{$vo.create_time}</td>
                 <td>{$vo.is_main}</td>
                 <td class="td-status"><a href="javascript:void(0)"
-                                         onClick="o2o_edit('','{:url('location/status',['status'=>1,'id'=>$vo.id])}','',300)">{$vo.status|status}</a>
+                                         onClick="o2o_edit('','{:url('location/status',['status'=>1,'id'=>$vo.id])}','',300)">{$vo.status|status|raw}</a>
                 </td>
                 <td class="td-manage"><a
                         style="text-decoration:none" class="ml-5"

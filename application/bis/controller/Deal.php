@@ -2,7 +2,7 @@
 
 namespace app\bis\controller;
 
-use think\Controller;
+use app\common\model\CategoryTow;
 
 class deal extends Base
 {
@@ -16,11 +16,15 @@ class deal extends Base
 
     public function add()
     {
+
+        $server = \app\common\model\category::all();
+
         $bisid = $this->getlogoinuser()->bis_id;
         if (request()->isPost()) {
             $data = input('post.');
             // print_r($data);
             $location = model('Bislocation')->get($data['location_ids'][0]);
+
             $deals = [
                 'bis_id' => $bisid,
                 'name' => $data['name'],
@@ -55,8 +59,23 @@ class deal extends Base
             $bislocation = model('Bislocation')->getNormallocationbyid($bisid);
             $this->assign('categorys', $category);
             $this->assign('bislocation', $bislocation);
+            $this->assign('server', $server);
+
+
             return view();
         }
+    }
+
+    /*
+     * 获取子级服务
+     */
+    public function getCategoryByData()
+    {
+        $data = input('param.');
+        $res = CategoryTow::GetThreeByData($data);
+        return json($res);
+
+
     }
 
     public function edit()
@@ -102,6 +121,7 @@ class deal extends Base
             $this->assign('citys', $citys);
             $category = model('category')->getNormalFirstCategory();
             $bislocation = model('Bislocation')->getNormallocationbyid($bisid);
+//            dump('11');
             $assign = [
                 'categorys' => $category,
                 'bislocation' => $bislocation,

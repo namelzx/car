@@ -17,6 +17,11 @@ class Index extends Controller
      */
     public function index()
     {
+//        echo  phpinfo();
+//        $redis=new \RedisPackage();
+//        $redis::set('cc','哈哈哈');
+//        echo $redis::get('cc');
+//
         return view();
     }
 

@@ -25,6 +25,27 @@ class Maintenance extends Controller
         return view();
     }
 
+    /*
+     * 门店选择
+     */
+    public function shop()
+    {
+
+        return view();
+    }
+
+    /*
+     * 选择当前城市门店列表
+     */
+    public function cityCity()
+    {
+        $data = input('param.');
+        $res = db('bislocation')->where($data)->select();
+        return json($res);
+
+    }
+
+
     public function indexdata()
     {
         $data = Category::all();
@@ -41,21 +62,25 @@ class Maintenance extends Controller
         $res = Carbrand::GetDataBylist();
         return json($res);
     }
+
     //获取车型
     public function carmodels()
     {
-        $data=input('param.');
-        $res = Carmodels::where('mid',$data['id'])->select();
+        $data = input('param.');
+        $res = Carmodels::where('mid', $data['id'])->select();
         return json($res);
     }
+
     //获取年份
-    public function carinfo(){
-        $data=input('param.');
-        $res=Carinfo::where('ModelsID',$data['id'])->select();
+    public function carinfo()
+    {
+        $data = input('param.');
+        $res = Carinfo::where('ModelsID', $data['id'])->select();
         return json($res);
     }
 
     /*
      * 下单
      */
+
 }

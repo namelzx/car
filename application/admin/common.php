@@ -18,7 +18,7 @@ function status($status)
         $str = "<span class='label label-succees radius'>待审</span>";
         # code...
     } elseif ($status == -1) {
-        $str = "<span class='label label-succees radius'>删除</span>";
+        $str = "<span class='label label-succees radius'>未通过</span>";
     } elseif ($status == 2) {
         $str = "<span class='label label-succees radius'>下架</span>";
     }

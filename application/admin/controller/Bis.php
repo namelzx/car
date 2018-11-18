@@ -33,7 +33,7 @@ class bis extends Base
     public function dellist()
     {
 
-        $res =BisModel::getbisbylist(2);
+        $res =BisModel::getbisbylist(-1);
 
         $this->assign('res', $res);
 
@@ -66,21 +66,18 @@ class bis extends Base
             $this->error("传入参数错误");
         }
 
-        // 获取一级城市
-        $citys = model('city')->getNormalCitysByParentId();
-        $this->assign('citys', $citys);
-        // 获取份额里
-        $category = model('category')->getNormalFirstCategory();
+
 
         $bisdata = model('bis')->get($id);
+        $citys = model('city')->where('id',$bisdata['city_id'])->find();
         $locationdata = model('bislocation')->get(['bis_id' => $id, 'is_main' => 1]);
         $accountdata = model('bisaccount')->get(['bis_id' => $id, 'is_main' => 1]);
         $this->assign('citys', $citys);
-        $this->assign('category', $category);
+
         $this->assign('bisdata', $bisdata);
         $this->assign('locationdata', $locationdata);
         $this->assign('accountdata', $accountdata);
-
+//        dump($bisdata);
 
         return view();
     }
