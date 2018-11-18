@@ -107,6 +107,7 @@
                             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                                 <div class="check-box" v-for="(three,inthree) in tow.items">
                                     <input name="category_three[]"
+
                                            @change="changeAllthree(index,intow,inthree,three.id)" type="checkbox"
                                            id="categorythree"
                                            :value="three.id"/>{{three.name}}
@@ -192,6 +193,8 @@
             changeAllthree(index, intow, inthree, id) {
 
                 if (this.selected.length == 0) {
+                    Vue.set(this.categorytow[index].data[intow], 'checked', true)
+
                     this.selected.push(
                         {
                             car_id: this.categorytow[index].data[intow].car_id,
@@ -204,7 +207,6 @@
                                         three: [
                                             {
                                                 three_id: this.categorytow[index].data[intow].items[inthree].id, //子级服务id
-
                                             }
                                         ]
                                     }
@@ -222,41 +224,38 @@
                     for (var k = 0; k < this.selected[i].maintenance.length; k++) {
                         if (this.categorytow[index].data[intow].category_id == this.selected[i].maintenance[k].category_id) {
                             for (var j = 0; j < this.selected[i].maintenance[k].tow.length; j++) {
-                                // if (this.selected[i].maintenance[k].tow[j].tow_id == this.categorytow[index].data[intow].id) {
-                                // for (var x = 0; x < this.selected[i].maintenance[k].tow[j].three.length; x++) {
-                                //     if (this.selected[i].maintenance[k].tow[j].three[x].three_id == this.categorytow[index].data[intow].items[inthree].id) {
-                                //     } else {
-                                //         this.selected[i].maintenance[k].tow[j].three.push(
-                                //             {
-                                //                 three_id: this.categorytow[index].data[intow].items[inthree].id, //子级服务id
-                                //             }
-                                //         )
-                                //         return false
-                                //     }
-                                // }
-                                //     } else {
-                                //         if(this.selected[i].maintenance[k].tow[j].tow_id==this.categorytow[index].data[intow].id){
-                                //             console.log('已经存有')
-                                //         }else{
-                                //             console.log(this.selected[i].maintenance[k].tow[j].tow_id)
-                                //             // console.log(this.categorytow[index].data[intow].id)
-                                //             //添加保养子级项目
-                                //             this.selected[i].maintenance[k].tow.push(
-                                //                 {
-                                //                     tow_id: this.categorytow[index].data[intow].id, //子级服务id
-                                //                     tow_name: this.categorytow[index].data[intow].name, //子级服务id
-                                //                     three: [
-                                //                         {
-                                //                             three_id: this.categorytow[index].data[intow].items[inthree].id, //子级服务id
-                                //                         }
-                                //                     ]
-                                //                 }
-                                //             )
-                                //             // return false;
-                                //         }
-                                //
-                                //
-                                // }
+                                if (this.selected[i].maintenance[k].tow[j].tow_id == this.categorytow[index].data[intow].id) {
+                                    for (var x = 0; x < this.selected[i].maintenance[k].tow[j].three.length; x++) {
+                                        if (this.selected[i].maintenance[k].tow[j].three[x].three_id == this.categorytow[index].data[intow].items[inthree].id) {
+                                            // for(key in this.categorytow[index].data[intow]) {
+                                            // }
+                                        } else {
+                                            this.selected[i].maintenance[k].tow[j].three.push(
+                                                {
+                                                    three_id: this.categorytow[index].data[intow].items[inthree].id, //子级服务id
+                                                    three_name: this.categorytow[index].data[intow].items[inthree].name, //子级服务id
+                                                }
+                                            )
+                                            return false
+                                        }
+                                    }
+                                } else {
+                                    if (this.selected[i].maintenance[k].tow[j].tow_id == this.categorytow[index].data[intow].id) {
+                                    } else {
+                                        //添加保养子级项目
+                                        this.selected[i].maintenance[k].tow.push(
+                                            {
+                                                tow_id: this.categorytow[index].data[intow].id, //子级服务id
+                                                tow_name: this.categorytow[index].data[intow].name, //子级服务id
+                                                three: [
+                                                    {
+                                                        three_id: this.categorytow[index].data[intow].items[inthree].id, //子级服务id
+                                                    }
+                                                ]
+                                            }
+                                        )
+                                    }
+                                }
                             }
                         }
                         else { //如果该保养项目不存在那么就添加保养项目列表c
@@ -297,11 +296,11 @@
                 //     }
                 // }
 
-                // if (this.categorytow[index].data[intow].checked) {
-                //     Vue.set(this.categorytow[index].data[intow], 'checked', false)
-                // } else {
-                //     Vue.set(this.categorytow[index].data[intow], 'checked', true)
-                // }
+                if (this.categorytow[index].data[intow].checked) {
+                    Vue.set(this.categorytow[index].data[intow], 'checked', false)
+                } else {
+                    Vue.set(this.categorytow[index].data[intow], 'checked', true)
+                }
             },
 
             handeladd() {
@@ -382,6 +381,8 @@
             }
         }
     })
+
+
 </script>
 </body>
 </html>
