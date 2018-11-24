@@ -1,166 +1,160 @@
 <!--包含头部文件-->
 {include file="public/header" /}
 {load href="__STATIC__/admin/layui/css/layui.css" /}
-<div class="cl pd-5 bg-1 bk-gray mt-20"> 添加团购商品信息</div>
+<div class="cl pd-5 bg-1 bk-gray mt-20"> 添加商品信息</div>
 <article class="page-container">
-    <form class="form form-horizontal" id="form-article-add" method="post" action="{:url('deal/edit')}">
+    <form class="form form-horizontal" id="app">
         基本信息：
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>团购名称：</label>
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>车型名称：</label>
             <div class="formControls col-xs-8 col-sm-3">
-                <input type="text" class="input-text" value="{$deal.name}" placeholder="" id="" name="name">
+                <input type="text" v-model="temp.models_name" class="input-text" value="" placeholder="" id="" >
             </div>
         </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>所属城市：</label>
-            <div class="formControls col-xs-8 col-sm-2">
-				<span class="select-box">
-				<select name="city_id" class="select cityId">
-					<option value="0">--请选择--</option>
-					{volist name="citys" id="vo"}
-					<option value="{$vo.id}">{$vo.name}</option>
-					{/volist}
-				</select>
-				</span>
-            </div>
-            <div class="formControls col-xs-8 col-sm-2">
-				<span class="select-box">
-				<select name="city_id" class="select se_city_id">
-					<option value="0">--请选择--</option>
-				</select>
-				</span>
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>所属分类：</label>
-            <div class="formControls col-xs-8 col-sm-3"> <span class="select-box">
-				<select name="category_id" class="select categoryId">
-					<option value="0">--请选择--</option>
-					{volist name="categorys" id="vo"}
-					<option value="{$vo.id}">{$vo.name}</option>
-					{/volist}
-				</select>
-				</span>
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">所属子类：</label>
-            <div class="formControls col-xs-8 col-sm-3 skin-minimal">
-                <div class="check-box se_category_id">
-
-                </div>
-            </div>
-        </div>
-
         <div class="row cl">
             <label class="form-label col-xs-9 col-sm-2">支持门店：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
-                <div class="check-box">
-                    {volist name='bislocation' id='vo'}
-                    <input name="location_ids[]" type="checkbox" id="checkbox" value="{$vo.id}"/>{$vo.name}
-                    {/volist}
+                <div class="check-box" v-for="items in bis">
+                    <input type="checkbox" :id="items.name" :value="items.id" v-model="temp.location_ids">
+                    <label :for="items.name">{{items.name}}</label>
                 </div>
+                {{temp.location
+                }}
             </div>
         </div>
-
+        内容添加：
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">缩略图：</label>
-            <div class="formControls col-xs-8 col-sm-9">
+            <div class="row cl">
+                <div class="text-c">
+                    <div class=" ">
+                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>所属车型：</label>
+                        <div class="formControls col-xs-8 col-sm-2">
+                            <div class="select-box">
+                                <select name="car_id" class="select" v-model="bindex" @change="handecurrent">
+                                    <option v-for="(items,index) in carbrand" :value="index">{{items.brand}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>产地：</label>
+                        <div class="formControls col-xs-8 col-sm-2">
+                            <div class="select-box">
+                                <select name="car_id" class="select" v-model="mid" @change="chooseMedicine">
+                                    <option value="0">一级分类</option>
+                                    <option :value="items.id" v-for="(items,index) in manufactor">{{items.manufactor}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>型号：</label>
+                        <div class="formControls col-xs-8 col-sm-2">
+                            <div class="select-box">
+                                <select name="car_id" class="select" v-model="c_id" @change="handelmodel">
+                                    <option value="0">一级分类</option>
+                                    <option :value="models.id" v-for="models in carmodels">{{models.model}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>年份：</label>
+                        <div class="formControls col-xs-8 col-sm-2">
+                            <div class="select-box">
+                                <select v-model="car_id" class="select" @change="handelyear">
+                                    <option value="0">一级分类</option>
+                                    <option :value="models.id" v-for="models in carinfo">
+                                        {{models.year}}-{{models.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a @click="handeladd">添加服务</a>
 
-                <div class="layui-upload">
-                    <button type="button" class="layui-btn" id="file_upload">上传logo</button>
-                    <div class="layui-upload-list">
-                        <img class="layui-upload-img" src="{$deal.image}"  id="file_upload1">
-                        <input type="text" class="form-control" name="image"  style="display: none;" id="logo">
-                        <p id="demoText"></p>
+
+                <div class="row cl" v-for="(items,index) in categorytow">
+
+                    <div class=" row cl">
+                        <label class="form-label  col-xs-4 col-sm-2">
+                            <span class="c-red">*</span>保养项目：</label>
+                        <div class="formControls col-xs-3 col-sm-2">
+                            <div class="select-box">
+                                <select v-model="items.category_id" @change="handelcategory(items,index)"
+                                        class="select">
+                                    <option value="0">一级分类</option>
+                                    {volist name='server' id='vo'}
+                                    <option value="{$vo.id}">{$vo.name}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" row cl">
+                        <label class="form-label  col-xs-4 col-sm-2">
+                            <span class="c-red">*</span>服务费用：</label>
+                        <div class="formControls col-xs-3 col-sm-2">
+                            <div class="select-box">
+                                <input type="text" class="input-text" v-model="items.server" placeholder="" name="name">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-for="(tow,intow) in items.data">
+                        <div class="row cl">
+                            <label class="form-label col-xs-9 col-sm-2">子级服务：</label>
+                            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                                <div class="check-box">
+                                    {{tow.name}}
+                                </div>
+                            </div>
+                            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                                <div class="check-box" v-for="(three,inthree) in tow.items">
+                                    <input name="category_three[]"
+                                           v-model="three.checkbox"
+                                           @change="changeAllthree(index,intow,inthree,three.id)" type="checkbox"
+                                           id="categorythree"
+                                           :value="three.id"/>
+                                    {{three.name}}
+                                    <div>
+                                        商品价格 <input type="text" class="input-text" style="width: 40%"
+                                                    v-model="three.price" placeholder="inthree.price" name="name">
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">团购开始时间：</label>
-            <div class="formControls col-xs-8 col-sm-3">
-
-                <input type="text" name="start_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value="{$deal.start_time|date='Y年m月d日',###}"  >
-
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">团购结束时间:</label>
-            <div class="formControls col-xs-8 col-sm-3">
-
-                <input type="text" name="end_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value="{$deal.end_time|date='Y年m月d日',###}"  >
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">库存数:</label>
-            <div class="formControls col-xs-8 col-sm-3">
-                <input type="text" class="input-text" value="{$deal.total_count}" placeholder="" id=""
-                       name="total_count">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">原价:</label>
-            <div class="formControls col-xs-8 col-sm-3">
-                <input type="text" class="input-text" value="{$deal.origin_price}" placeholder="" id="" name="origin_price">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">团购价:</label>
-            <div class="formControls col-xs-8 col-sm-3">
-                <input type="text" class="input-text" value="{$deal.current_price}" placeholder="" id="" name="current_price">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">消费券生效时间：</label>
-            <div class="formControls col-xs-8 col-sm-3">
-
-                <input type="text" name="coupons_begin_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value="{$deal.coupons_begin_time|date='Y年m月d日',###}"  >
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">消费券结束时间:</label>
-            <div class="formControls col-xs-8 col-sm-3">
-
-                <input type="text" name="coupons_end_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value="{$deal.coupons_end_time|date='Y年m月d日',###}"  >
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">团购描述：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <script id="editor"  type="text/plain" name="description" style="width:80%;height:300px;">{$deal.description}</script>
-                </div>
-                </div>
-                <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2">购买须知：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <script id="editor2"  type="text/plain" name="notes" style="width:80%;height:300px;">{$deal.notes}</script>
-            </div>
-        </div>
-
-        <input type="text" style="display: none" class="input-text" value="{$deal.id}" placeholder="" id="" name="id">
-
-        <div class="row cl">
-            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 申请</button>
-            </div>
+        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+            <button class="btn btn-primary radius"  @click="handePostDeal" ><i class="Hui-iconfont">&#xe632;</i>
+                提交
+            </button>
         </div>
     </form>
+
 </article>
 <script>
     /**定义页面全局变量**/
     var SCOPE = {
-        "city_url" : "{:url('api/city/getCitysByParentId')}",
-        "category_url" : "{:url('api/category/getcategorysByparentId')}",
-        "uploadify_swf" : "__STATIC__/admin/uploadify/uploadify.swf",
-        "image_upload" : "{:url('api/image/upload')}",
+        "city_url": "{:url('api/city/getCitysByParentId')}",
+        "category_url": "{:url('api/category/getcategorysByparentId')}",
+        "uploadify_swf": "__STATIC__/admin/uploadify/uploadify.swf",
+        "image_upload": "{:url('api/image/upload')}",
     };
 
 </script>
 <!--包含头部文件-->
 {include file="public/footer" /}
 <script type="text/javascript" src="__STATIC__/admin/hui/lib/ueditor/1.4.3/ueditor.config.js"></script>
-<script type="text/javascript" src="__STATIC__/admin/hui/lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
+<script type="text/javascript" src="__STATIC__/admin/hui/lib/ueditor/1.4.3/ueditor.all.min.js"></script>
 <script type="text/javascript" src="__STATIC__/admin/hui/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
 <script src="__STATIC__/admin/hui/lib/My97DatePicker/WdatePicker.js"></script>
 
@@ -168,19 +162,164 @@
 {load href="__STATIC__/admin/js/image.js" /}
 
 <script>
-    $(function(){
-        var ue = UE.getEditor('editor');
-        var ue = UE.getEditor('editor2');
-    });
-
-
-    var SCOPE =	{
-        'city_url'	: "{:url('api/city/getCitysByparentId')}",
-        'category_url'	: "{:url('api/category/getcategorysByparentId')}" ,
+    var SCOPE = {
+        'city_url': "{:url('api/city/getCitysByparentId')}",
+        'category_url': "{:url('api/category/getcategorysByparentId')}",
         // 'uploadify_swf'	: '__STATIC__/admin/uploadify/uploadify.swf',
-        'image_uploadify'	: "{:url('api/image/upload')}" ,
+        'image_uploadify': "{:url('api/image/upload')}",
         // 'uploadlayui_url'	: "{:url('api/image/upload')}"
     }
+</script>
+
+
+<script src="__INDEX__/vant/vue.min.js"></script>
+<script src="__INDEX__/vant/axios.min.js"></script>
+
+<script>
+    // @import url("");
+    var app = new Vue({
+        el: "#app",
+        data: {
+            temp: {
+                location_ids: [],
+                models_name: undefined,
+                models_id:undefined
+            },
+
+            bis: [],
+            checked: true,
+            // checkedNames: [],
+            car_id: undefined,
+            category_id: undefined,
+            categorytow: [],
+            c_id: undefined,
+            mid: undefined,
+            couponSelected: undefined,
+            bindex: 1,
+            show: false,
+            activeNames: ['1'],
+            manufactorin: 0,
+            current: 0,
+            carbrand: [],//品牌
+            manufactor: [],
+            carmodels: [],
+            carinfo: [],
+            rolesMenuList: [],
+            menusId: [],
+            checkAll: false,
+            selected: [],
+        },
+        created() {
+            this.GetBrandByList();
+
+        },
+        methods: {
+            changeAllChecked(index, tow) {
+                console.log(this.selected)
+
+                // this.categorytow[index].checkedNames = this.categorytow[index].data[tow]
+            },
+            changeAllthree(index, intow, inthree, id) {
+                console.log(this.categorytow)
+            },
+
+            handeladd() {
+                let cope = {
+                    category_id: "",
+                    data: {},
+
+                };
+                this.categorytow.push(cope);
+            }
+            ,
+            //
+            GetBrandByList() {
+                axios.get('/index/maintenance/choosedata').then(res => {
+                    this.carbrand = res.data;
+                    this.Manufactor = this.carbrand[this.current].course
+
+                }),
+                    axios.get('/bis/deal/GetLocationByData').then(res => {
+
+                        this.bis = res.data
+                    })
+
+
+            }
+            ,
+
+            //获取保养信息
+            handelcategory(row, index) {
+                axios.get('/bis/deal/getCategoryByData', {
+                    params: {
+                        car_id: this.car_id,
+                        category_id: this.categorytow[index].category_id,
+                    }
+                }).then(res => {
+                    this.categorytow[index].data = res.data;
+                })
+            }
+            ,
+
+            handelyear() {
+
+            }
+            ,
+
+
+            handemanu(index, mid) {
+                if (this.manufactorin == index) {
+                    this.manufactorin = -1;
+                } else {
+                    this.manufactorin = index
+                    axios.get('/index/maintenance/carmodels', {
+                        params: {
+                            id: mid
+                        }
+                    }).then(res => {
+                        this.carmodels = res.data
+                    })
+                }
+            }
+            ,
+            chooseMedicine(v) {
+                axios.get('/index/maintenance/carmodels', {
+                    params: {
+                        id: this.mid
+                    }
+                }).then(res => {
+                    console.log(res)
+                    this.carmodels = res.data
+                })
+            }
+            ,
+            handecurrent() {
+                console.log(this.bindex);
+                this.manufactorin = null
+                this.current = this.bindex
+                this.manufactor = this.carbrand[this.bindex].course
+            }
+            ,
+            handelmodel() {
+                axios.get('/index/maintenance/carinfo', {params: {id: this.c_id}}).then(res => {
+                    this.carinfo = res.data
+                    this.show = true
+                    console.log(res)
+                })
+            }
+            ,
+            //提交数据
+            handePostDeal() {
+                console.log(this.temp)
+                this.temp.models_id=this.car_id;
+                console.log(this.categorytow)
+                axios.post('/bis/deal/add', {info: this.temp, serverinfo: this.categorytow}).then(res => {
+                    window.location.href="/bis/deal/index"
+                })
+            },
+        }
+    })
+
 </script>
 </body>
 </html>

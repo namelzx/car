@@ -8,19 +8,18 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>车型名称：</label>
             <div class="formControls col-xs-8 col-sm-3">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="name">
+                <input type="text" v-model="temp.models_name" class="input-text" value="" placeholder="" id="" >
             </div>
         </div>
-
-
         <div class="row cl">
             <label class="form-label col-xs-9 col-sm-2">支持门店：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
-                <div class="check-box">
-                    {volist name='bislocation' id='vo'}
-                    <input name="location_ids[]" type="checkbox" id="checkbox" value="{$vo.id}"/>{$vo.name}
-                    {/volist}
+                <div class="check-box" v-for="items in bis">
+                    <input type="checkbox" :id="items.name" :value="items.id" v-model="temp.location_ids">
+                    <label :for="items.name">{{items.name}}</label>
                 </div>
+                {{temp.location
+                }}
             </div>
         </div>
         内容添加：
@@ -94,31 +93,53 @@
                             </div>
                         </div>
                     </div>
+                    <div class=" row cl">
+                        <label class="form-label  col-xs-4 col-sm-2">
+                            <span class="c-red">*</span>服务费用：</label>
+                        <div class="formControls col-xs-3 col-sm-2">
+                            <div class="select-box">
+                                <input type="text" class="input-text" v-model="items.server" placeholder="" name="name">
+
+                            </div>
+                        </div>
+                    </div>
+
                     <div v-for="(tow,intow) in items.data">
                         <div class="row cl">
                             <label class="form-label col-xs-9 col-sm-2">子级服务：</label>
                             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                                 <div class="check-box">
-                                    <input name="category_tow[]" @change="changeAllChecked(index,intow)"
-                                           v-model="tow.checked" type="checkbox" id="categorytow" :value="tow.id"/>
                                     {{tow.name}}
                                 </div>
                             </div>
                             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                                 <div class="check-box" v-for="(three,inthree) in tow.items">
                                     <input name="category_three[]"
-
+                                           v-model="three.checkbox"
                                            @change="changeAllthree(index,intow,inthree,three.id)" type="checkbox"
                                            id="categorythree"
-                                           :value="three.id"/>{{three.name}}
+                                           :value="three.id"/>
+                                    {{three.name}}
+                                    <div>
+                                        商品价格 <input type="text" class="input-text" style="width: 40%"
+                                                    v-model="three.price" placeholder="inthree.price" name="name">
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{checkedNames}}
-
                 </div>
+            </div>
+        </div>
+        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+            <a class="btn btn-primary radius"  @click="handePostDeal" ><i class="Hui-iconfont">&#xe632;</i>
+                提交
+            </a>
+        </div>
     </form>
+
 </article>
 <script>
     /**定义页面全局变量**/
@@ -155,11 +176,19 @@
 <script src="__INDEX__/vant/axios.min.js"></script>
 
 <script>
+    // @import url("");
     var app = new Vue({
         el: "#app",
         data: {
+            temp: {
+                location_ids: [],
+                models_name: undefined,
+                models_id:undefined
+            },
+
+            bis: [],
             checked: true,
-            checkedNames: [],
+            // checkedNames: [],
             car_id: undefined,
             category_id: undefined,
             categorytow: [],
@@ -191,116 +220,7 @@
                 // this.categorytow[index].checkedNames = this.categorytow[index].data[tow]
             },
             changeAllthree(index, intow, inthree, id) {
-
-                if (this.selected.length == 0) {
-                    Vue.set(this.categorytow[index].data[intow], 'checked', true)
-
-                    this.selected.push(
-                        {
-                            car_id: this.categorytow[index].data[intow].car_id,
-                            maintenance: [{
-                                category_id: this.categorytow[index].data[intow].category_id,//保养服务id
-                                tow: [
-                                    {
-                                        tow_id: this.categorytow[index].data[intow].id, //子级服务id
-                                        tow_name: this.categorytow[index].data[intow].name, //子级服务id
-                                        three: [
-                                            {
-                                                three_id: this.categorytow[index].data[intow].items[inthree].id, //子级服务id
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                            ]
-                        }
-                    )
-                    return false;
-                }
-
-
-                var ai = 0, ak = 0;
-                for (var i = 0; i < this.selected.length; i++) {
-                    for (var k = 0; k < this.selected[i].maintenance.length; k++) {
-                        if (this.categorytow[index].data[intow].category_id == this.selected[i].maintenance[k].category_id) {
-                            for (var j = 0; j < this.selected[i].maintenance[k].tow.length; j++) {
-                                if (this.selected[i].maintenance[k].tow[j].tow_id == this.categorytow[index].data[intow].id) {
-                                    for (var x = 0; x < this.selected[i].maintenance[k].tow[j].three.length; x++) {
-                                        if (this.selected[i].maintenance[k].tow[j].three[x].three_id == this.categorytow[index].data[intow].items[inthree].id) {
-                                            // for(key in this.categorytow[index].data[intow]) {
-                                            // }
-                                        } else {
-                                            this.selected[i].maintenance[k].tow[j].three.push(
-                                                {
-                                                    three_id: this.categorytow[index].data[intow].items[inthree].id, //子级服务id
-                                                    three_name: this.categorytow[index].data[intow].items[inthree].name, //子级服务id
-                                                }
-                                            )
-                                            return false
-                                        }
-                                    }
-                                } else {
-                                    if (this.selected[i].maintenance[k].tow[j].tow_id == this.categorytow[index].data[intow].id) {
-                                    } else {
-                                        //添加保养子级项目
-                                        this.selected[i].maintenance[k].tow.push(
-                                            {
-                                                tow_id: this.categorytow[index].data[intow].id, //子级服务id
-                                                tow_name: this.categorytow[index].data[intow].name, //子级服务id
-                                                three: [
-                                                    {
-                                                        three_id: this.categorytow[index].data[intow].items[inthree].id, //子级服务id
-                                                    }
-                                                ]
-                                            }
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                        else { //如果该保养项目不存在那么就添加保养项目列表c
-                            this.selected[i].maintenance.push(
-                                {
-                                    category_id: this.categorytow[index].data[intow].category_id,//保养服务id
-                                    category_name: this.categorytow[index].data[intow].name,//保养服务id
-                                    tow: [
-                                        {
-                                            tow_id: this.categorytow[index].data[intow].id, //子级服务id
-                                            tow_name: this.categorytow[index].data[intow].name, //子级服务id
-                                            three: [
-                                                {
-                                                    three_id: this.categorytow[index].data[intow].items[inthree].id, //子级服务id
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            )
-                            return false;
-                        }
-                    }
-                }
-
-
-                // if(this.selected.length==0){
-                //     this.selected.push(cope)
-                //     // Vue.set( this.categorytow[index],'checked',true)
-                //     return false;
-                // }
-                // for(var i=0;i<this.selected.length;i++){
-                //     if(this.selected[i].tow_id==this.categorytow[index].data[intow].id){
-                //         console.log('已经存在不用添加，应该去除');
-                //         // Vue.set( this.categorytow[index],'checked',true)
-                //     }else{
-                //         this.selected.push(cope)
-                //     }
-                // }
-
-                if (this.categorytow[index].data[intow].checked) {
-                    Vue.set(this.categorytow[index].data[intow], 'checked', false)
-                } else {
-                    Vue.set(this.categorytow[index].data[intow], 'checked', true)
-                }
+                console.log(this.categorytow)
             },
 
             handeladd() {
@@ -310,15 +230,23 @@
 
                 };
                 this.categorytow.push(cope);
-            },
+            }
+            ,
             //
             GetBrandByList() {
                 axios.get('/index/maintenance/choosedata').then(res => {
                     this.carbrand = res.data;
                     this.Manufactor = this.carbrand[this.current].course
 
-                })
-            },
+                }),
+                    axios.get('/bis/deal/GetLocationByData').then(res => {
+
+                        this.bis = res.data
+                    })
+
+
+            }
+            ,
 
             //获取保养信息
             handelcategory(row, index) {
@@ -328,14 +256,15 @@
                         category_id: this.categorytow[index].category_id,
                     }
                 }).then(res => {
-                    this.categorytow[index].data = res.data
-                    console.log(this.categorytow)
+                    this.categorytow[index].data = res.data;
                 })
-            },
+            }
+            ,
 
             handelyear() {
 
-            },
+            }
+            ,
 
 
             handemanu(index, mid) {
@@ -351,7 +280,8 @@
                         this.carmodels = res.data
                     })
                 }
-            },
+            }
+            ,
             chooseMedicine(v) {
                 axios.get('/index/maintenance/carmodels', {
                     params: {
@@ -361,27 +291,34 @@
                     console.log(res)
                     this.carmodels = res.data
                 })
-            },
+            }
+            ,
             handecurrent() {
                 console.log(this.bindex);
                 this.manufactorin = null
                 this.current = this.bindex
                 this.manufactor = this.carbrand[this.bindex].course
-            },
+            }
+            ,
             handelmodel() {
                 axios.get('/index/maintenance/carinfo', {params: {id: this.c_id}}).then(res => {
                     this.carinfo = res.data
                     this.show = true
                     console.log(res)
                 })
-            },
-            handeinfo(id) {
-                setCookie('carinfo', id)
-                this.show = false
             }
+            ,
+            //提交数据
+            handePostDeal() {
+                console.log(this.temp)
+                this.temp.models_id=this.car_id;
+                console.log(this.categorytow)
+                axios.post('/bis/deal/add', {info: this.temp, serverinfo: this.categorytow}).then(res => {
+                    // window.location.href="/bis/deal/index"
+                })
+            },
         }
     })
-
 
 </script>
 </body>

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="chezizhu">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>【车自主】保养下单</title>
+    <title>保养下单</title>
 
     {include file="public/css"}
     {include file="public/js"}
@@ -28,7 +28,7 @@
                         <div class="block-header">
                             <div class="top">
                                 <div class="top-l">
-                                    <a class="top-l-btn" href="https://m.chezizhu.com/index.htm?rnd="><span><i
+                                    <a class="top-l-btn" href="index"><span><i
                                             class="iconfont icon-arrow-left"></i>&nbsp;返回</span></a>
                                 </div>
                                 <div class="top-c">
@@ -42,8 +42,9 @@
                     <div class="row">
                         <nav class="block-content s-list">
                             <!--repeat485303849591:start-->
-                            <div class="s-list_btn serviceitem relative " :class="{'check':item.status===true}" v-for="(item,index) in list">
-                                <a   target="_blank" @click="HandeCheck(item,index)">
+                            <div class="s-list_btn serviceitem relative " :class="{'check':item.status===true}"
+                                 v-for="(item,index) in list">
+                                <a target="_blank" @click="HandeCheck(item,index)">
                                     <span class="iconfont  icon_03"></span>
                                     <!--ms-if-->
                                     <div><img :src="item.image"></div>
@@ -78,7 +79,7 @@
     var app = new Vue({
         el: "#app",
         data: {
-            check:0,
+            check: 0,
             list: [],
             todos: [],
         },
@@ -95,25 +96,26 @@
                     this.list = res.data
                 })
             },
-            HandeCheck(item,index) {
+            HandeCheck(item, index) {
 
-                for(var i=0;i<this.todos.length;i++ ){
-                    if(this.todos[i].id==item.id){
-                        this.todos.splice(i,1);
+                for (var i = 0; i < this.todos.length; i++) {
+                    if (this.todos[i] == item.id) {
+                        this.todos.splice(i, 1);
                     }
                 }
-                if(item.status==0){
+                if (item.status == 0) {
                     item.status = true
-                    this.check+=1;
-                    this.todos.push(item)
-                }else{
-                    this.check-=1;
+                    this.check += 1;
+                    this.todos.push(item.id)
+                } else {
+                    this.check -= 1;
                     item.status = false
                 }
-                console.log(this.todos)
+                setCookie('by_service',this.todos)
             },
-            handeToch(){
-              window.location.href="/index/maintenance/choose"
+            handeToch() {
+                // console.log(  getCookie('shop_info'))
+                window.location.href = "/index/maintenance/choose"
             }
         },
     })

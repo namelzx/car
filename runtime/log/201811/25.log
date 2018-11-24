@@ -1,0 +1,154 @@
+---------------------------------------------------------------
+[ 2018-11-25T00:02:09+08:00 ] 127.0.0.1 GET 127.0.0.1:8000/index/examcar/usedcar/
+[运行时间：0.057659s] [吞吐率：17.34req/s] [内存消耗：2,282.13kb] [文件加载：84]
+[ info ] [ LANG ] /Users/jon/Documents/项目汇总/车自主/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1:8000',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1:8000/index/examcar/choose.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'insurance=%7B%22companyname%22%3A%22%u5E73%u5B89%u8F66%u8F86%u4FDD%u9669%22%2C%22data%22%3A%5B%7B%22name%22%3A%22%u4EA4%u901A%u4E8B%u6545%u8D23%u4EFB%u5F3A%u5236%u4FDD%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u8239%u7A0E%22%7D%2C%7B%22name%22%3A%22%u673A%u52A8%u8F66%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u65E0%u6CD5%u627E%u5230%u7B2C%u4E09%u65B9%22%7D%2C%7B%22name%22%3A%22%u7B2C%u4E09%u65B9%u8D23%u4EFB%u9669%22%2C%22tname%22%3A%2250%u4E07%22%7D%2C%7B%22name%22%3A%22%u5168%u8F66%u76D7%u62A2%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u4E0A%u4EBA%u5458%u8D23%u4EFB%u9669%22%7D%2C%7B%22name%22%3A%22%u73BB%u7483%u5355%u72EC%u7834%u788E%u9669%22%2C%22tname%22%3A%22%u8FDB%u53E3%22%7D%2C%7B%22name%22%3A%22%u81EA%u71C3%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u8EAB%u5212%u75D5%u9669%22%2C%22tname%22%3A%222%u5343%22%7D%2C%7B%22name%22%3A%22%u4E0D%u8BA1%u514D%u8D54%u7279%u7EA6%u7EBF%22%7D%2C%7B%22name%22%3A%22%u53D1%u52A8%u673A%u6D89%u6C34%u9669%22%7D%2C%7B%22name%22%3A%22%u65B0%u589E%u8BBE%u5907%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u4E0A%u8D27%u7269%u8D23%u4EFB%u9669%22%7D%2C%7B%22name%22%3A%22%u4FEE%u7406%u671F%u95F4%u8D39%u7528%u8865%u507F%u9669%22%7D%5D%7D; usedcar_name=%u963F%u65AF%u987F%B7%u9A6C%u4E01DB9-2013%u6B3E-%u6392%u91CF%uFF1A6L; Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1542875723; city_name=%u67F3%u5DDE; city=%7B%22id%22%3A48%2C%22name%22%3A%22%u67F3%u5DDE%22%2C%22parent_id%22%3A46%2C%22listoreder%22%3A0%2C%22status%22%3A1%2C%22create_time%22%3Anull%2C%22update_time%22%3Anull%2C%22uname%22%3A%22liuzhou%22%2C%22is_default%22%3Anull%7D; PHPSESSID=adc4a494dbb737cd1f81cb16d8b97397',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ VIEW ] /Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/usedcar.html [ array (
+) ]
+---------------------------------------------------------------
+[ 2018-11-25T00:02:09+08:00 ] 127.0.0.1 GET 127.0.0.1:8000/static/index/images/main-image/xiala.png
+[运行时间：0.037625s] [吞吐率：26.58req/s] [内存消耗：1,608.63kb] [文件加载：68]
+[ info ] [ LANG ] /Users/jon/Documents/项目汇总/车自主/thinkphp/lang/zh-cn.php
+---------------------------------------------------------------
+[ 2018-11-25T00:02:10+08:00 ] 127.0.0.1 GET 127.0.0.1:8000/static/index/vant/axios.min.map
+[运行时间：0.038790s] [吞吐率：25.78req/s] [内存消耗：1,608.23kb] [文件加载：68]
+[ info ] [ LANG ] /Users/jon/Documents/项目汇总/车自主/thinkphp/lang/zh-cn.php
+---------------------------------------------------------------
+[ 2018-11-25T00:02:22+08:00 ] 127.0.0.1 GET 127.0.0.1:8000/index/examcar/usedcar/
+[运行时间：0.042290s] [吞吐率：23.65req/s] [内存消耗：2,282.14kb] [文件加载：84]
+[ info ] [ LANG ] /Users/jon/Documents/项目汇总/车自主/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1:8000',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1:8000/index/examcar/choose.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'insurance=%7B%22companyname%22%3A%22%u5E73%u5B89%u8F66%u8F86%u4FDD%u9669%22%2C%22data%22%3A%5B%7B%22name%22%3A%22%u4EA4%u901A%u4E8B%u6545%u8D23%u4EFB%u5F3A%u5236%u4FDD%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u8239%u7A0E%22%7D%2C%7B%22name%22%3A%22%u673A%u52A8%u8F66%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u65E0%u6CD5%u627E%u5230%u7B2C%u4E09%u65B9%22%7D%2C%7B%22name%22%3A%22%u7B2C%u4E09%u65B9%u8D23%u4EFB%u9669%22%2C%22tname%22%3A%2250%u4E07%22%7D%2C%7B%22name%22%3A%22%u5168%u8F66%u76D7%u62A2%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u4E0A%u4EBA%u5458%u8D23%u4EFB%u9669%22%7D%2C%7B%22name%22%3A%22%u73BB%u7483%u5355%u72EC%u7834%u788E%u9669%22%2C%22tname%22%3A%22%u8FDB%u53E3%22%7D%2C%7B%22name%22%3A%22%u81EA%u71C3%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u8EAB%u5212%u75D5%u9669%22%2C%22tname%22%3A%222%u5343%22%7D%2C%7B%22name%22%3A%22%u4E0D%u8BA1%u514D%u8D54%u7279%u7EA6%u7EBF%22%7D%2C%7B%22name%22%3A%22%u53D1%u52A8%u673A%u6D89%u6C34%u9669%22%7D%2C%7B%22name%22%3A%22%u65B0%u589E%u8BBE%u5907%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u4E0A%u8D27%u7269%u8D23%u4EFB%u9669%22%7D%2C%7B%22name%22%3A%22%u4FEE%u7406%u671F%u95F4%u8D39%u7528%u8865%u507F%u9669%22%7D%5D%7D; usedcar_name=%u963F%u65AF%u987F%B7%u9A6C%u4E01DB9-2013%u6B3E-%u6392%u91CF%uFF1A6L; Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1542875723; city_name=%u67F3%u5DDE; city=%7B%22id%22%3A48%2C%22name%22%3A%22%u67F3%u5DDE%22%2C%22parent_id%22%3A46%2C%22listoreder%22%3A0%2C%22status%22%3A1%2C%22create_time%22%3Anull%2C%22update_time%22%3Anull%2C%22uname%22%3A%22liuzhou%22%2C%22is_default%22%3Anull%7D; PHPSESSID=adc4a494dbb737cd1f81cb16d8b97397',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ VIEW ] /Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/usedcar.html [ array (
+) ]
+---------------------------------------------------------------
+[ 2018-11-25T00:02:22+08:00 ] 127.0.0.1 GET 127.0.0.1:8000/static/index/images/main-image/xiala.png
+[运行时间：0.024778s] [吞吐率：40.36req/s] [内存消耗：1,608.63kb] [文件加载：68]
+[ info ] [ LANG ] /Users/jon/Documents/项目汇总/车自主/thinkphp/lang/zh-cn.php
+---------------------------------------------------------------
+[ 2018-11-25T00:02:22+08:00 ] 127.0.0.1 GET 127.0.0.1:8000/static/index/vant/axios.min.map
+[运行时间：0.033756s] [吞吐率：29.62req/s] [内存消耗：1,608.23kb] [文件加载：68]
+[ info ] [ LANG ] /Users/jon/Documents/项目汇总/车自主/thinkphp/lang/zh-cn.php
+---------------------------------------------------------------
+[ 2018-11-25T00:02:43+08:00 ] 127.0.0.1 POST 127.0.0.1:8000/index/examcar/PostUsedcarByData
+[运行时间：0.045651s] [吞吐率：21.91req/s] [内存消耗：3,268.05kb] [文件加载：93]
+[ info ] [ LANG ] /Users/jon/Documents/项目汇总/车自主/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1:8000',
+  'connection' => 'keep-alive',
+  'content-length' => '182',
+  'accept' => 'application/json, text/plain, */*',
+  'origin' => 'http://127.0.0.1:8000',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'content-type' => 'application/json;charset=UTF-8',
+  'referer' => 'http://127.0.0.1:8000/index/examcar/usedcar/',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'insurance=%7B%22companyname%22%3A%22%u5E73%u5B89%u8F66%u8F86%u4FDD%u9669%22%2C%22data%22%3A%5B%7B%22name%22%3A%22%u4EA4%u901A%u4E8B%u6545%u8D23%u4EFB%u5F3A%u5236%u4FDD%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u8239%u7A0E%22%7D%2C%7B%22name%22%3A%22%u673A%u52A8%u8F66%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u65E0%u6CD5%u627E%u5230%u7B2C%u4E09%u65B9%22%7D%2C%7B%22name%22%3A%22%u7B2C%u4E09%u65B9%u8D23%u4EFB%u9669%22%2C%22tname%22%3A%2250%u4E07%22%7D%2C%7B%22name%22%3A%22%u5168%u8F66%u76D7%u62A2%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u4E0A%u4EBA%u5458%u8D23%u4EFB%u9669%22%7D%2C%7B%22name%22%3A%22%u73BB%u7483%u5355%u72EC%u7834%u788E%u9669%22%2C%22tname%22%3A%22%u8FDB%u53E3%22%7D%2C%7B%22name%22%3A%22%u81EA%u71C3%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u8EAB%u5212%u75D5%u9669%22%2C%22tname%22%3A%222%u5343%22%7D%2C%7B%22name%22%3A%22%u4E0D%u8BA1%u514D%u8D54%u7279%u7EA6%u7EBF%22%7D%2C%7B%22name%22%3A%22%u53D1%u52A8%u673A%u6D89%u6C34%u9669%22%7D%2C%7B%22name%22%3A%22%u65B0%u589E%u8BBE%u5907%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u4E0A%u8D27%u7269%u8D23%u4EFB%u9669%22%7D%2C%7B%22name%22%3A%22%u4FEE%u7406%u671F%u95F4%u8D39%u7528%u8865%u507F%u9669%22%7D%5D%7D; usedcar_name=%u963F%u65AF%u987F%B7%u9A6C%u4E01DB9-2013%u6B3E-%u6392%u91CF%uFF1A6L; Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1542875723; city_name=%u67F3%u5DDE; city=%7B%22id%22%3A48%2C%22name%22%3A%22%u67F3%u5DDE%22%2C%22parent_id%22%3A46%2C%22listoreder%22%3A0%2C%22status%22%3A1%2C%22create_time%22%3Anull%2C%22update_time%22%3Anull%2C%22uname%22%3A%22liuzhou%22%2C%22is_default%22%3Anull%7D; PHPSESSID=adc4a494dbb737cd1f81cb16d8b97397',
+)
+[ info ] [ PARAM ] array (
+  'car_name' => '阿斯顿·马丁DB9-2013款-排量：6L',
+  'mileage' => '30',
+  'transmission' => '手动',
+  'color' => '白色',
+  'institutions' => '龙城好车',
+  'name' => '梁泽祥',
+  'phone' => '18577610926',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001430s ] mysql:host=127.0.0.1;dbname=czz;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `clt_usedcar` [ RunTime:0.004415s ]
+[ sql ] [ SQL ] INSERT INTO `clt_usedcar` (`car_name` , `mileage` , `transmission` , `color` , `institutions` , `name` , `phone` , `create_time`) VALUES ('阿斯顿·马丁DB9-2013款-排量：6L' , '30' , '手动' , '白色' , '龙城好车' , '梁泽祥' , '18577610926' , 1543075363) [ RunTime:0.001676s ]
+---------------------------------------------------------------
+[ 2018-11-25T00:03:10+08:00 ] 127.0.0.1 GET 127.0.0.1:8000/index/examcar/usedcar/
+[运行时间：0.045158s] [吞吐率：22.14req/s] [内存消耗：2,282.22kb] [文件加载：84]
+[ info ] [ LANG ] /Users/jon/Documents/项目汇总/车自主/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1:8000',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1:8000/index/examcar/choose.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'insurance=%7B%22companyname%22%3A%22%u5E73%u5B89%u8F66%u8F86%u4FDD%u9669%22%2C%22data%22%3A%5B%7B%22name%22%3A%22%u4EA4%u901A%u4E8B%u6545%u8D23%u4EFB%u5F3A%u5236%u4FDD%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u8239%u7A0E%22%7D%2C%7B%22name%22%3A%22%u673A%u52A8%u8F66%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u65E0%u6CD5%u627E%u5230%u7B2C%u4E09%u65B9%22%7D%2C%7B%22name%22%3A%22%u7B2C%u4E09%u65B9%u8D23%u4EFB%u9669%22%2C%22tname%22%3A%2250%u4E07%22%7D%2C%7B%22name%22%3A%22%u5168%u8F66%u76D7%u62A2%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u4E0A%u4EBA%u5458%u8D23%u4EFB%u9669%22%7D%2C%7B%22name%22%3A%22%u73BB%u7483%u5355%u72EC%u7834%u788E%u9669%22%2C%22tname%22%3A%22%u8FDB%u53E3%22%7D%2C%7B%22name%22%3A%22%u81EA%u71C3%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u8EAB%u5212%u75D5%u9669%22%2C%22tname%22%3A%222%u5343%22%7D%2C%7B%22name%22%3A%22%u4E0D%u8BA1%u514D%u8D54%u7279%u7EA6%u7EBF%22%7D%2C%7B%22name%22%3A%22%u53D1%u52A8%u673A%u6D89%u6C34%u9669%22%7D%2C%7B%22name%22%3A%22%u65B0%u589E%u8BBE%u5907%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u4E0A%u8D27%u7269%u8D23%u4EFB%u9669%22%7D%2C%7B%22name%22%3A%22%u4FEE%u7406%u671F%u95F4%u8D39%u7528%u8865%u507F%u9669%22%7D%5D%7D; usedcar_name=%u963F%u65AF%u987F%B7%u9A6C%u4E01DB9-2013%u6B3E-%u6392%u91CF%uFF1A6L; Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1542875723; city_name=%u67F3%u5DDE; city=%7B%22id%22%3A48%2C%22name%22%3A%22%u67F3%u5DDE%22%2C%22parent_id%22%3A46%2C%22listoreder%22%3A0%2C%22status%22%3A1%2C%22create_time%22%3Anull%2C%22update_time%22%3Anull%2C%22uname%22%3A%22liuzhou%22%2C%22is_default%22%3Anull%7D; PHPSESSID=adc4a494dbb737cd1f81cb16d8b97397',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ VIEW ] /Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/usedcar.html [ array (
+) ]
+---------------------------------------------------------------
+[ 2018-11-25T00:03:11+08:00 ] 127.0.0.1 GET 127.0.0.1:8000/static/index/images/main-image/xiala.png
+[运行时间：0.027940s] [吞吐率：35.79req/s] [内存消耗：1,608.63kb] [文件加载：68]
+[ info ] [ LANG ] /Users/jon/Documents/项目汇总/车自主/thinkphp/lang/zh-cn.php
+---------------------------------------------------------------
+[ 2018-11-25T00:03:11+08:00 ] 127.0.0.1 GET 127.0.0.1:8000/static/index/vant/axios.min.map
+[运行时间：0.031380s] [吞吐率：31.87req/s] [内存消耗：1,608.23kb] [文件加载：68]
+[ info ] [ LANG ] /Users/jon/Documents/项目汇总/车自主/thinkphp/lang/zh-cn.php
+---------------------------------------------------------------
+[ 2018-11-25T00:03:25+08:00 ] 127.0.0.1 POST 127.0.0.1:8000/index/examcar/PostUsedcarByData
+[运行时间：0.037365s] [吞吐率：26.76req/s] [内存消耗：3,268.13kb] [文件加载：93]
+[ info ] [ LANG ] /Users/jon/Documents/项目汇总/车自主/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1:8000',
+  'connection' => 'keep-alive',
+  'content-length' => '182',
+  'accept' => 'application/json, text/plain, */*',
+  'origin' => 'http://127.0.0.1:8000',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'content-type' => 'application/json;charset=UTF-8',
+  'referer' => 'http://127.0.0.1:8000/index/examcar/usedcar/',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'insurance=%7B%22companyname%22%3A%22%u5E73%u5B89%u8F66%u8F86%u4FDD%u9669%22%2C%22data%22%3A%5B%7B%22name%22%3A%22%u4EA4%u901A%u4E8B%u6545%u8D23%u4EFB%u5F3A%u5236%u4FDD%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u8239%u7A0E%22%7D%2C%7B%22name%22%3A%22%u673A%u52A8%u8F66%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u65E0%u6CD5%u627E%u5230%u7B2C%u4E09%u65B9%22%7D%2C%7B%22name%22%3A%22%u7B2C%u4E09%u65B9%u8D23%u4EFB%u9669%22%2C%22tname%22%3A%2250%u4E07%22%7D%2C%7B%22name%22%3A%22%u5168%u8F66%u76D7%u62A2%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u4E0A%u4EBA%u5458%u8D23%u4EFB%u9669%22%7D%2C%7B%22name%22%3A%22%u73BB%u7483%u5355%u72EC%u7834%u788E%u9669%22%2C%22tname%22%3A%22%u8FDB%u53E3%22%7D%2C%7B%22name%22%3A%22%u81EA%u71C3%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u8EAB%u5212%u75D5%u9669%22%2C%22tname%22%3A%222%u5343%22%7D%2C%7B%22name%22%3A%22%u4E0D%u8BA1%u514D%u8D54%u7279%u7EA6%u7EBF%22%7D%2C%7B%22name%22%3A%22%u53D1%u52A8%u673A%u6D89%u6C34%u9669%22%7D%2C%7B%22name%22%3A%22%u65B0%u589E%u8BBE%u5907%u635F%u5931%u9669%22%7D%2C%7B%22name%22%3A%22%u8F66%u4E0A%u8D27%u7269%u8D23%u4EFB%u9669%22%7D%2C%7B%22name%22%3A%22%u4FEE%u7406%u671F%u95F4%u8D39%u7528%u8865%u507F%u9669%22%7D%5D%7D; usedcar_name=%u963F%u65AF%u987F%B7%u9A6C%u4E01DB9-2013%u6B3E-%u6392%u91CF%uFF1A6L; Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1542875723; city_name=%u67F3%u5DDE; city=%7B%22id%22%3A48%2C%22name%22%3A%22%u67F3%u5DDE%22%2C%22parent_id%22%3A46%2C%22listoreder%22%3A0%2C%22status%22%3A1%2C%22create_time%22%3Anull%2C%22update_time%22%3Anull%2C%22uname%22%3A%22liuzhou%22%2C%22is_default%22%3Anull%7D; PHPSESSID=adc4a494dbb737cd1f81cb16d8b97397',
+)
+[ info ] [ PARAM ] array (
+  'car_name' => '阿斯顿·马丁DB9-2013款-排量：6L',
+  'mileage' => '30',
+  'transmission' => '自动',
+  'color' => '黑色',
+  'institutions' => '龙城好车',
+  'name' => '梁泽祥',
+  'phone' => '18577610926',
+)
+[ info ] [ DB ] INIT mysql
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000458s ] mysql:host=127.0.0.1;dbname=czz;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `clt_usedcar` [ RunTime:0.002978s ]
+[ sql ] [ SQL ] INSERT INTO `clt_usedcar` (`car_name` , `mileage` , `transmission` , `color` , `institutions` , `name` , `phone` , `create_time`) VALUES ('阿斯顿·马丁DB9-2013款-排量：6L' , '30' , '自动' , '黑色' , '龙城好车' , '梁泽祥' , '18577610926' , 1543075405) [ RunTime:0.000641s ]

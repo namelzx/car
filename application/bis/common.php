@@ -30,7 +30,7 @@ function status($status)
 function Hstatus($status)
 {
     if ($status == 1) {
-        $str = "<span class='label label-success radius'>已使用</span>";
+        $str = "<span class='label label-success radius'>已审核</span>";
     } elseif ($status == 0) {
         $str = "<span class='label label-succees radius'>未使用</span>";
         # code...

@@ -147,7 +147,7 @@
         <!--菜单title-->
         <div class="bg_white sl-flex" style="padding: 12px 0px;">
             <div class="cell" style="text-align: center;" v-for="item in icos">
-                <a style="cursor: pointer;" href="/index/maintenance/shop">
+                <a style="cursor: pointer;" :href="item.url">
                     <div class="ticon">
                         <img :src="item.images" alt=""/>
                     </div>
@@ -205,41 +205,7 @@
             时间：2015-08-25
             描述：
         -->
-        <div class="us-nav">
-            <a href="/main.htm#/model/servicer/list.htm" class="us-nav-item ">
-                <figure class="mt_3">
-                    <i class="iconfont icon-dianpu font-s22"></i>
-                </figure>
-                <span>门店导航</span>
-            </a>
-            <a href="http://p.qiao.baidu.com/cps/mobileChat?siteId=9908599&userId=22334706&type=1&reqParam=&appId=&referer=&lightapp=2"
-               class="us-nav-item ">
-                <figure class="mt_3">
-                    <i class="iconfont icon-zaixiankefuzhuanhuan font-s22"></i>
-                </figure>
-                <span>在线客服</span>
-            </a>
-            <a href="/jfshop/jfshop_list.htm" class="us-nav-item" style="display:none">
-                <figure class="mt_3">
-                    <i class="iconfont icon-icon1 font-s22"></i>
-                </figure>
-                <span>积分商城</span>
-            </a>
-            <a href="/main.htm#/model/evaluation_list.htm" class="us-nav-item ">
-                <figure class="mt_3">
-                    <i class="iconfont icon-pingjia font-s22"></i>
-                </figure>
-                <span>服务评价</span>
-                <!--http://static.chezizhu.com/m/gywm.html?v=1.2.25.51-->
-            </a>
-            <a href="/user/center.htm?rnd=" class="us-nav-item ">
-                <figure class="mt_3">
-                    <i class="iconfont icon-30 font-s22"></i>
-                </figure>
-                <span>个人中心</span>
-            </a>
-
-        </div>
+        {include file="public/footer"}
     </div>
 </div>
 
@@ -305,14 +271,14 @@
                 'http://static.chezizhu.com/image/2018/02/20180222083826_524.jpg',
             ],
             icos: [
-                {name: '保养', images: "http://static.chezizhu.com/upload/image/2018/08/20180829203458345811575.png"},
-                {name: '喷漆', images: "http://static.chezizhu.com/upload/image/2018/08/20180829203534353446615.png"},
-                {name: '审车', images: "http://static.chezizhu.com/upload/image/2018/08/20180829203551355119301.png"},
-                {name: '保险', images: "http://static.chezizhu.com/upload/image/2018/08/2018082920360036041522.png"},
-                {name: '估价', images: "http://static.chezizhu.com/upload/image/2018/08/2018082920360936979768.png"},
+                {name: '保养', images: "http://static.chezizhu.com/upload/image/2018/08/20180829203458345811575.png",url:'/index/maintenance/shop'},
+                {name: '喷漆', images: "http://static.chezizhu.com/upload/image/2018/08/20180829203534353446615.png",url:'/index/examcar/index'},
+                {name: '审车', images: "http://static.chezizhu.com/upload/image/2018/08/20180829203551355119301.png",url:'/index/examcar/index'},
+                {name: '保险', images: "http://static.chezizhu.com/upload/image/2018/08/2018082920360036041522.png",url:'/index/examcar/insure'},
+                {name: '估价', images: "http://static.chezizhu.com/upload/image/2018/08/2018082920360936979768.png",url:'/index/examcar/usedcar'},
             ],
             city: [],
-            cityname: getCookie('city'),
+            cityname: getCookie('city_name'),
             banner:[],
         },
         created() {
@@ -332,7 +298,7 @@
             },
             handecity(row) {
                 this.cityname = row.name
-                setCookie('city',  row.name)
+                setCookie('city_name',  row.name)
 
 
                 var str = JSON.stringify(row);//独享转字符串

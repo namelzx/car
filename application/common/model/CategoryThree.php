@@ -14,7 +14,7 @@ class CategoryThree extends BaseModel
     public static function GetByList($data)
     {
 
-        $res = self::where('t_id',$data['t_id'])->select();
+        $res = self::where('t_id',$data['t_id'])->paginate();
         return $res;
     }
 

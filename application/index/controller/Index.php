@@ -5,6 +5,7 @@ namespace app\index\controller;
 
 use app\common\model\City;
 use app\common\model\Featured;
+use EasyWeChat\Factory;
 use think\Controller;
 use think\Request;
 
@@ -17,11 +18,8 @@ class Index extends Controller
      */
     public function index()
     {
-//        echo  phpinfo();
-//        $redis=new \RedisPackage();
-//        $redis::set('cc','哈哈哈');
-//        echo $redis::get('cc');
-//
+//        $app = Factory::officialAccount(config('weixin'));
+
         return view();
     }
 

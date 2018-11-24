@@ -14,30 +14,19 @@ class Order extends Base
     public function index()
     {
         $bisid = $this->getlogoinuser()->bis_id;
-
         $sdata = [
-
-            'bis_id'=>$bisid,
-
+            'bis_id' => $bisid,
         ];
-        $data = input('post.');
-
-
-        if (!empty($data['code'])) {
-            $sdata['code'] = ['like', '%' . $data['code'] . '%'];
-
+        $bislocation = db('bislocation')->where($sdata)->field('id as bis_id')->select();
+        $whereorder = [];
+        foreach ($bislocation as $v => $item) {
+            $whereorder[$v] = $bislocation[$v]['bis_id'];
         }
-
-
-
-
+        $order = db('order')->whereIn('bis_id', $whereorder)->paginate();
         $params = request()->param();//这个是获取地址栏参数。。主要作用是分页的时候带参数
-
-        $res = model('order')->getlocalhostorderlist($sdata);
         $assign = [
-            'order' => $res,
+            'order' => $order,
             'params' => $params,
-            'code'=>empty($data['code']) ? '' : $data['code'],
         ];
         $this->assign($assign);
         return view();

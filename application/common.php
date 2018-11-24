@@ -110,3 +110,16 @@
 //    }
 //
 //}
+
+
+/**
+ * 统一返回信息
+ * @param $status
+ * @param $data
+ * @param $msg
+ * @return array
+ */
+function msg($status, $data = '', $msg = '')
+{
+    return compact('status', 'data', 'msg');
+}

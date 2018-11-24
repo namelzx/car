@@ -3,20 +3,32 @@
 namespace app\common\model;
 
 use think\Db;
-use think\Model;
 
-class order extends basemodel
+class Order extends BaseModel
 {
+    protected $autoWriteTimestamp = true; //默认设置当前时间 给time字段
+
     public function member()
     {
         return $this->belongsTo('Deal');
     }
 
-    public function add($data)
+    public function bis()
+    {
+        return $this->hasOne('Bislocation', 'id', 'bis_id');
+    }
+
+    public static function GetMainOrderByList($data)
+    {
+        $res = self::with('bis')->where('user_id', 1)->paginate($data['limit'], false, ['query' => $data['page'],]);;
+        return $res;
+    }
+
+    public static function PostOrderByData($data)
     {
         $data['status'] = 1;
-        $this->allowfield(true)->save($data);
-        return $this->id;
+        $id = self::insertGetId($data);
+        return $id;
     }
 
 
