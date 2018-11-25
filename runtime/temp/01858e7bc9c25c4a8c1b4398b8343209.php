@@ -1,4 +1,4 @@
-<?php /*a:4:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/index/index.html";i:1543127405;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/menu.html";i:1543135344;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
+<?php /*a:4:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/index/index.html";i:1543127405;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/menu.html";i:1543144535;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
 ﻿<!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -115,7 +115,32 @@
                 <ul>
                     <li><a _href="<?php echo url('deal/index',['status'=>0]); ?>" data-title="待审核审车订单" href="javascript:void(0)">待审核审车订单</a>
                     </li>
-                    <li><a _href="<?php echo url('deal/index',['status'=>1]); ?>" data-title="已审核审车订单" href="javascript:void(0)">已审核审车订单</a></li>
+                    <li><a _href="<?php echo url('deal/index',['status'=>1]); ?>" data-title="已审核审车订单" href="javascript:void(0)">已审核审车订单</a>
+                    </li>
+
+                </ul>
+            </dd>
+        </dl>
+        <dl id="menu-product">
+            <dt><i class="Hui-iconfont">&#xe620;</i> 估价预约管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a _href="<?php echo url('deal/usedcar',['status'=>0]); ?>" data-title="未审核二手机估价" href="javascript:void(0)">未审核二手机估价</a>
+                    </li>
+                    <li><a _href="<?php echo url('deal/usedcar',['status'=>1]); ?>" data-title="审核二手机估价" href="javascript:void(0)">未审核二手机估价</a>
+                    </li>
+
+                </ul>
+            </dd>
+        </dl>
+        <dl id="menu-product">
+            <dt><i class="Hui-iconfont">&#xe620;</i> 保险询价管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a _href="<?php echo url('deal/insurance',['status'=>0]); ?>" data-title="未审核保险预约" href="javascript:void(0)">未审核二手机估价</a>
+                    </li>
+                    <li><a _href="<?php echo url('deal/insurance',['status'=>1]); ?>" data-title="已审核二手机估价" href="javascript:void(0)">未审核二手机估价</a>
+                    </li>
 
                 </ul>
             </dd>
@@ -131,6 +156,7 @@
                 </ul>
             </dd>
         </dl>
+
         <dl id="menu-member">
             <dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
