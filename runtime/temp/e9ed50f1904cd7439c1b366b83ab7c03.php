@@ -1,4 +1,4 @@
-<?php /*a:3:{s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/infor.html";i:1543059923;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1541004298;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:3:{s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/infor.html";i:1543059976;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1541004298;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -321,10 +321,8 @@
                 // this.postData.data=Gc.data
                 this.postdata.temp = this.temp
                 axios.post('/index/examcar/InsuranceAdd', this.postdata).then(res => {
-                    console.log(res)
                     _this.$toast(res.data.msg);
                 })
-                // console.log(this.postdata)
             }
         }
 

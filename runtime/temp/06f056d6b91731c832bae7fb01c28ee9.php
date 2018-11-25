@@ -1,4 +1,4 @@
-<?php /*a:2:{s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/user/index.html";i:1542811187;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1541004298;}*/ ?>
+<?php /*a:2:{s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/user/index.html";i:1543075904;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1541004298;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,25 +63,28 @@
                                 <i class="iconfont icon-rightArrow-copy mr_15 font-s15 pt_2 absolute-r"></i>
                             </div>
                         </a>
-                        <div class="row relative bg_white border-b">
-                            <i class="iconfont icon-tetepenqiqingxi ml_15 font-s20  absolute-l mt_2"></i> <span
-                                class="ml_45">喷漆订单</span>
-                            <i class="iconfont icon-rightArrow-copy fr mr_15 font-s15 pt_2 absolute-r"></i>
-                        </div>
-                        <div class="row relative bg_white border-b">
-                            <i class="iconfont icon-xinxifuwuyewuyujingcheliangniandushenyan ml_15 font-s20  absolute-l mt_2"></i>
-                            <span class="ml_45">审车订单</span>
-                            <i class="iconfont icon-rightArrow-copy fr mr_15 font-s15 pt_2 absolute-r"></i>
-                        </div>
-                        <div class="row relative bg_white border-b">
-                            <i class="iconfont icon-chexianguanli ml_15 font-s20  absolute-l"></i> <span class="ml_45">保险订单</span>
-                            <i class="iconfont icon-rightArrow-copy fr mr_15 font-s15 pt_2 absolute-r"></i>
-                        </div>
-                        <div class="row relative bg_white border-b">
-                            <i class="iconfont icon-12 ml_15 font-s20  absolute-l mt_2"></i> <span
-                                class="ml_45">二手车估价订单</span>
-                            <i class="iconfont icon-rightArrow-copy fr mr_15 font-s15 pt_2 absolute-r"></i>
-                        </div>
+                        <a href="<?php echo url('index/user/whosecar'); ?>">
+                            <div class="row relative bg_white border-b">
+                                <i class="iconfont icon-xinxifuwuyewuyujingcheliangniandushenyan ml_15 font-s20  absolute-l mt_2"></i>
+                                <span class="ml_45">审车订单</span>
+                                <i class="iconfont icon-rightArrow-copy fr mr_15 font-s15 pt_2 absolute-r"></i>
+                            </div>
+                        </a>
+
+                        <a href="<?php echo url('index/user/insurance'); ?>">
+                            <div class="row relative bg_white border-b">
+                                <i class="iconfont icon-chexianguanli ml_15 font-s20  absolute-l"></i> <span
+                                    class="ml_45">保险订单</span>
+                                <i class="iconfont icon-rightArrow-copy fr mr_15 font-s15 pt_2 absolute-r"></i>
+                            </div>
+                        </a>
+                        <a href="<?php echo url('index/user/usedcar'); ?>">
+                            <div class="row relative bg_white border-b">
+                                <i class="iconfont icon-12 ml_15 font-s20  absolute-l mt_2"></i> <span
+                                    class="ml_45">二手车估价订单</span>
+                                <i class="iconfont icon-rightArrow-copy fr mr_15 font-s15 pt_2 absolute-r"></i>
+                            </div>
+                        </a>
                         <div class="row relative bg_white border-b mt_5">
                             <i class="iconfont icon-huodong ml_15 font-s20  absolute-l mt_2"></i> <span class="ml_45">我的优惠券</span>
                             <i class="iconfont icon-rightArrow-copy fr mr_15 font-s15 pt_2 absolute-r"></i>

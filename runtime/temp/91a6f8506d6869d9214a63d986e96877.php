@@ -1,4 +1,4 @@
-<?php /*a:3:{s:82:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/city/index.html";i:1540982037;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
+<?php /*a:3:{s:82:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/deal/index.html";i:1543135762;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
 <!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -40,39 +40,51 @@
   }
 </style>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 分类管理 <span class="c-gray en">&gt;</span> 分类列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 待审核审车列表</nav>
 <div class="page-container">
-	
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> <a class="btn btn-primary radius" onclick="o2o_s_edit('添加生活服务分类','<?php echo url('city/add'); ?>','','300')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加城市</a></span> <span class="r"></span> </div>
-	<div class="mt-20">
-		<table class="table table-border table-bordered table-bg table-hover table-sort">
-			<thead>
-				<tr class="text-c">
-					<th width="40"><input name="" type="checkbox" value=""></th>
-					<th width="80">ID</th>
-					<th width="100">分类</th>
-					<th width="30">排序序号</th>
-					<th width="150">新增时间</th>
-					<th width="60">发布状态</th>
-					<th width="100">操作</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php if(is_array($res) || $res instanceof \think\Collection || $res instanceof \think\Paginator): $i = 0; $__LIST__ = $res;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-				<tr class="text-c">
-					<td><input name="" type="checkbox" value=""></td>
-					<td><?php echo htmlentities($vo['id']); ?></td>
-					<td><?php echo htmlentities($vo['name']); ?></td>
-					<td class="text-c listoreder"><input type="text" size="3" attr-id=<?php echo htmlentities($vo['id']); ?> name="listoreder" value="<?php echo htmlentities($vo['listoreder']); ?>"></td>
-					<td><?php echo htmlentities($vo['create_time']); ?></td>
-					<td class="td-status"><a href="<?php echo url('city/status',['id'=>$vo['id'],'status'=>$vo['status']==1?0:1]); ?>" title="点击修改状态"><?php echo status($vo['status']); ?></a></td>
-					<td class="td-manage"><a href="<?php echo url('city/index',['parent_id'=>$vo['id']]); ?>">获取子栏目</a><a style="text-decoration:none" class="ml-5" onClick="o2o_s_edit('编辑','<?php echo url('city/edit',['id'=>$vo['id']]); ?>','',300)" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="o2o_del('<?php echo url('city/status',['id'=>$vo['id'],'status'=>-1]); ?>','')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-				</tr>
-				<?php endforeach; endif; else: echo "" ;endif; ?>
-			</tbody>
-		</table>
+    <!--<form id="form-o2o-add" method="post" action="<?php echo url('deal/index'); ?>">-->
+    <!--<div class="cl pd-5 bg-1 bk-gray mt-20">-->
+    <!--<div class="text-c">-->
 
-	</div>
+    <!--&lt;!&ndash;<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索&ndash;&gt;-->
+    <!--&lt;!&ndash;</button>&ndash;&gt;-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</form>-->
+    <div class="mt-20">
+        <table class="table table-border table-bordered table-bg table-hover table-sort">
+            <thead>
+            <tr class="text-c">
+                <th width="20">ID</th>
+                <th width="100">预约用户</th>
+                <th width="40">联系电话</th>
+                <th width="40">上户时间</th>
+                <th width="40">当前状态</th>
+                <th width="80">提交时间</th>
+                <th width="80">车辆状况</th>
+                <th width="40">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if(is_array($res) || $res instanceof \think\Collection || $res instanceof \think\Paginator): $i = 0; $__LIST__ = $res;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+            <tr class="text-c">
+                <td><?php echo htmlentities($vo['id']); ?></td>
+                <td><?php echo htmlentities($vo['name']); ?></td>
+                <td><?php echo htmlentities($vo['phone']); ?></td>
+                <td><?php echo htmlentities($vo['doortime']); ?></td>
+                <td><?php echo Tstatus($vo['status']); ?></td>
+                <td><?php echo htmlentities(date("Y-m-d H:s",!is_numeric($vo['create_time'])? strtotime($vo['create_time']) : $vo['create_time'])); ?></td>
+                <td><a onclick="o2o_s_edit('车辆状况','<?php echo url('deal/infolist',['id'=>$vo['id']]); ?>','','300')">查看</a></td>
+                <td class="td-manage"><a style="text-decoration:none" class="ml-5"
+                                         onclick="o2o_del('/admin/deal/status?id=<?php echo htmlentities($vo['id']); ?>&status=1','审核通过')"
+                                         href="javascript:;" title="审核">审核</a></td>
+            </tr>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+
+            </tbody>
+        </table>
+        <?php echo $res; ?>
+    </div>
 </div>
 <!--包含头部文件-->
 <script type="text/javascript" src="/static//admin/hui/lib/jquery/1.9.1/jquery.min.js"></script>
@@ -86,12 +98,4 @@
 <script type="text/javascript" src="/static//admin/js/common.js"></script>
 <script type="text/javascript" src="/static//admin/uploadify/jquery.uploadify.min.js"></script>
 <!--<script type="text/javascript" src="/static//admin/js/image.js"></script>-->
-<script>
-
-	var SCOPE = {
-		'listoreder_URL' : "<?php echo url('category/listoreder'); ?>",
-
-	};
-
-
-</script>
+<script src="/static//admin/hui/lib/My97DatePicker/WdatePicker.js"></script>

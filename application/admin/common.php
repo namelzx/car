@@ -39,13 +39,27 @@ function Hstatus($status)
     return $str;
 }
 
+
+function Tstatus($status)
+{
+    $str="";
+    if ($status == 1) {
+        $str = "<span class='label label-success radius'>已审核</span>";
+    } elseif ($status == 0) {
+        $str = "<span class='label label-succees radius'>未审核</span>";
+        # code...
+    }
+
+    return $str;
+}
+
 //  百度地图api方法
 // $url
 // int $type - get 1 post
 // array $data
 function doCurl($url, $type = 0, $data = [])
 {
-    ini_set('arg_separator.output','&');
+    ini_set('arg_separator.output', '&');
     $ch = curl_init();//初始化
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

@@ -1,4 +1,4 @@
-<?php /*a:3:{s:82:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/city/index.html";i:1540982037;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
+<?php /*a:3:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/bis/dellist.html";i:1542027345;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
 <!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -40,38 +40,41 @@
   }
 </style>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 分类管理 <span class="c-gray en">&gt;</span> 分类列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 商户列表 </nav>
 <div class="page-container">
 	
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> <a class="btn btn-primary radius" onclick="o2o_s_edit('添加生活服务分类','<?php echo url('city/add'); ?>','','300')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加城市</a></span> <span class="r"></span> </div>
+	
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 			<thead>
 				<tr class="text-c">
-					<th width="40"><input name="" type="checkbox" value=""></th>
 					<th width="80">ID</th>
-					<th width="100">分类</th>
-					<th width="30">排序序号</th>
-					<th width="150">新增时间</th>
-					<th width="60">发布状态</th>
+					<th width="100">商户名称</th>
+					<th width="30">法人</th>
+					<th width="150">联系电话</th>
+					<th width="60">申请时间</th>
+					<th width="60">状态</th>
 					<th width="100">操作</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php if(is_array($res) || $res instanceof \think\Collection || $res instanceof \think\Paginator): $i = 0; $__LIST__ = $res;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 				<tr class="text-c">
-					<td><input name="" type="checkbox" value=""></td>
 					<td><?php echo htmlentities($vo['id']); ?></td>
 					<td><?php echo htmlentities($vo['name']); ?></td>
-					<td class="text-c listoreder"><input type="text" size="3" attr-id=<?php echo htmlentities($vo['id']); ?> name="listoreder" value="<?php echo htmlentities($vo['listoreder']); ?>"></td>
+					<td class="text-c"><?php echo htmlentities($vo['faren']); ?></td>
+					<td class="text-c"><?php echo htmlentities($vo['faren_tel']); ?></td>
 					<td><?php echo htmlentities($vo['create_time']); ?></td>
-					<td class="td-status"><a href="<?php echo url('city/status',['id'=>$vo['id'],'status'=>$vo['status']==1?0:1]); ?>" title="点击修改状态"><?php echo status($vo['status']); ?></a></td>
-					<td class="td-manage"><a href="<?php echo url('city/index',['parent_id'=>$vo['id']]); ?>">获取子栏目</a><a style="text-decoration:none" class="ml-5" onClick="o2o_s_edit('编辑','<?php echo url('city/edit',['id'=>$vo['id']]); ?>','',300)" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="o2o_del('<?php echo url('city/status',['id'=>$vo['id'],'status'=>-1]); ?>','')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					<td class="td-status"><?php echo status($vo['status']); ?></td>
+					<td class="td-manage"> <a style="text-decoration:none" class="ml-5" onClick="o2o_edit('商户入驻详情数据','<?php echo url('bis/detail',['id'=>$vo['id']]); ?>','',300)" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+						<a style="text-decoration:none" class="ml-5" onClick="o2o_del('<?php echo url('bis/status',['id'=>$vo['id'],'status'=>-1]); ?>')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						<a style="text-decoration:none" class="ml-5"  onClick="o2o_status('<?php echo url('bis/Bisstatus',['status'=>1,'id'=>$vo['id']]); ?>')"   href="javascript:;" title="拒绝通过">通过</a>
+
+					</td>
 				</tr>
 				<?php endforeach; endif; else: echo "" ;endif; ?>
 			</tbody>
 		</table>
-
 	</div>
 </div>
 <!--包含头部文件-->
@@ -86,12 +89,3 @@
 <script type="text/javascript" src="/static//admin/js/common.js"></script>
 <script type="text/javascript" src="/static//admin/uploadify/jquery.uploadify.min.js"></script>
 <!--<script type="text/javascript" src="/static//admin/js/image.js"></script>-->
-<script>
-
-	var SCOPE = {
-		'listoreder_URL' : "<?php echo url('category/listoreder'); ?>",
-
-	};
-
-
-</script>

@@ -3,167 +3,41 @@
 namespace app\admin\controller;
 
 use think\Controller;
-use think\Request;
 
 class  deal extends Controller
 {
-    private $obj;
 
-    // 初始化模型
-    public function _initialize()
-    {
-        $this->obj = model("deal");
-    }
-
+    /*
+     * 审车预约
+     */
     public function index()
     {
-        $sdata = [];
-        $data = input('post.');
+        $data = input('param.');
+        $res = db('Whosecar')->where('status', $data['status'])->paginate();
 
-        if (!empty($data['start_time']) && !empty($data['end_time']) && strtotime($data['end_time']) > strtotime($data['start_time'])) {
-            $sdata['create_time'] = [
-                ['gt', strtotime($data['start_time'])],
-
-                ['lt', strtotime($data['end_time'])],
-
-            ];
-        }
-        if (!empty($data['category_id'])) {
-            $sdata['category_id'] = $data['category_id'];
-        }
-        if (!empty($data['city_id'])) {
-            $sdata['city_id'] = $data['city_id'];
-        }
-
-        if (!empty($data['name'])) {
-            $sdata['name'] = ['like', '%' . $data['name'] . '%'];
-        }
-        // if(!empty($data))
-        // {
-        // 	$gl 		= 	[
-        // 	'city_id' =>$data['city_id'],
-        // 	'category_id' =>$data['category_id'],
-        // 	'start_time' =>$data['start_time'],
-        // 	'end_time' =>$data['end_time'],
-        // 	'name' =>$data['name'],
-        // ];
-        // }
-
-        $gl = [
-            'city_id' => empty($data['city_id']) ? '' : $data['city_id'],
-            'category_id' => empty($data['category_id']) ? '' : $data['category_id'],
-            'start_time' => empty($data['start_time']) ? '' : $data['start_time'],
-            'end_time' => empty($data['end_time']) ? '' : $data['end_time'],
-            'name' => empty($data['name']) ? '' : $data['name'],
-
-        ];
-        $this->assign('gl', $gl);
-
-        $params = request()->param();//这个是获取地址栏参数。。主要作用是分页的时候带参数
-
-
-        $deallist = $this->obj->getNormaldeall($sdata, 1);
-        $this->assign('deallist', $deallist);
-
-        $categorysArrs = [];
-
-        $categorys = model('category')->getNormalFirstCategory();//获取城市一级分类
-        foreach ($categorys as $category) {
-            $categorysArrs[$category->id] = $category->name;
-            # code...
-        }
-        $this->assign('categorys', $categorys);
-        $cityArrs = [];
-        $citys = model('city')->getNormalCitys();
-        foreach ($citys as $city) {
-            $cityArrs[$city->id] = $city->name;
-            # code...
-        }
-
-
-        $arrslist = [
-            'categorysArrs' => $categorysArrs,
-            'cityArrs' => $cityArrs,
-
-        ];
-        $this->assign($arrslist);
-
-        $this->assign('citys', $citys);
+        $this->assign('res', $res);
         return view();
     }
 
-    public function auditlist()
+    /*
+     * 审车预约车辆状况
+     */
+    public function infolist()
     {
-
-        $sdata = [];
-        $data = input('post.');
-
-        if (!empty($data['start_time']) && !empty($data['end_time']) && strtotime($data['end_time']) > strtotime($data['start_time'])) {
-            $sdata['create_time'] = [
-                ['gt', strtotime($data['start_time'])],
-
-                ['lt', strtotime($data['end_time'])],
-
-            ];
-        }
-        if (!empty($data['category_id'])) {
-            $sdata['category_id'] = $data['category_id'];
-        }
-        if (!empty($data['city_id'])) {
-            $sdata['city_id'] = $data['city_id'];
-        }
-
-        if (!empty($data['name'])) {
-            $sdata['name'] = ['like', '%' . $data['name'] . '%'];
-        }
-
-        $gl = [
-            'city_id' => empty($data['city_id']) ? '' : $data['city_id'],
-            'category_id' => empty($data['category_id']) ? '' : $data['category_id'],
-            'start_time' => empty($data['start_time']) ? '' : $data['start_time'],
-            'end_time' => empty($data['end_time']) ? '' : $data['end_time'],
-            'name' => empty($data['name']) ? '' : $data['name'],
-
-        ];
-        $this->assign('gl', $gl);
-        $deallist = $this->obj->getNormaldeall($sdata);
-
-        $this->assign('deallist', $deallist);
-        $categorysArrs = [];
-
-        $categorys = model('category')->getNormalFirstCategory();//获取城市一级分类
-        foreach ($categorys as $category) {
-            $categorysArrs[$category->id] = $category->name;
-            # code...
-        }
-        $this->assign('categorys', $categorys);
-        $cityArrs = [];
-        $citys = model('city')->getNormalCitys();
-        foreach ($citys as $city) {
-            $cityArrs[$city->id] = $city->name;
-            # code...
-        }
-
-
-        $arrslist = [
-            'categorysArrs' => $categorysArrs,
-            'cityArrs' => $cityArrs,
-
-        ];
-        $this->assign($arrslist);
-
-        $this->assign('citys', $citys);
+        $data = input('param.');
+        $res = db('Whosecar_child')->where('whosecar_id', $data['id'])->select();
+        $this->assign('res', $res);
         return view();
     }
 
-    // 审核状态修改
-    public function status()
+    /*
+     * 审车预约状态修改
+     */
+    public function wstatus()
     {
-        $data = input('get.');
+        $data = input('param.');
         // print_r($data);
-
-
-        $res = $this->obj->save(['status' => $data['status']], ['id' => $data['id']]);
+        $res = db('Whosecar')->where('id', $data['id'])->data(['status' => $data['status']])->update();
 
         if ($res) {
             $this->success('更新成功');

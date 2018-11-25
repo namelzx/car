@@ -1,4 +1,4 @@
-<?php /*a:4:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/index/index.html";i:1516085408;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1541476479;s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/menu.html";i:1542027180;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
+<?php /*a:4:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/index/index.html";i:1543127405;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/menu.html";i:1543135344;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
 ﻿<!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -30,8 +30,8 @@
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <title>汽车主后台</title>
-<meta name="keywords" content="tp5打造o2o平台系统">
-<meta name="description" content="o2o平台">
+<meta name="keywords" content="车之界主后台">
+<meta name="description" content="车之界">
 </head>
 <style>
   .layui-upload-img{
@@ -42,7 +42,7 @@
 <body>
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="">o2o平台</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href=""></a> <span class="logo navbar-slogan f-l mr-10 hidden-xs"></span> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="">车之界主后台</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href=""></a> <span class="logo navbar-slogan f-l mr-10 hidden-xs"></span> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 				<ul class="cl">
@@ -72,84 +72,87 @@
 </header>
 <!--包含菜单文件-->
 <aside class="Hui-aside">
-	<input runat="server" id="divScrollValue" type="hidden" value="" />
-	<div class="menu_dropdown bk_2">
-		<dl id="menu-article">
-			<dt><i class="Hui-iconfont">&#xe616;</i> 保养管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a _href="<?php echo url('category/index'); ?>" data-title="保养管理" href="javascript:void(0)">保养管理</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-article">
-			<dt><i class="Hui-iconfont">&#xe616;</i> 服务项添加<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a _href="<?php echo url('Maintenance/index'); ?>" data-title="服务项列表" href="javascript:void(0)">服务项列表</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-article">
-			<dt><i class="Hui-iconfont">&#xe616;</i> 城市管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a _href="<?php echo url('city/index'); ?>" data-title="城市分类" href="javascript:void(0)">城市分类</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-article">
-			<dt><i class="Hui-iconfont">&#xe613;</i> 商家管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a _href="<?php echo url('bis/index'); ?>" data-title="商家列表" href="javascript:void(0)">商户列表</a></li>
-					<li><a _href="<?php echo url('bis/apply'); ?>" data-title="商家入驻申请" href="javascript:void(0)">商家入驻申请</a></li>
-					<li><a _href="<?php echo url('bis/dellist'); ?>" data-title="删除的商户" href="javascript:void(0)">已拒绝商户</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a _href="<?php echo url('deal/auditlist'); ?>" data-title="商家团购提交" href="javascript:void(0)">商家团购提交</a></li>
-					<li><a _href="<?php echo url('deal/index'); ?>" data-title="团购列表" href="javascript:void(0)">团购列表</a></li>
-					
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 推荐位管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a _href="<?php echo url('featured/add'); ?>" data-title="添加推荐位内容" href="javascript:void(0)">添加推荐位内容</a></li>
-					<li><a _href="<?php echo url('featured/index'); ?>" data-title="推荐位列表" href="javascript:void(0)">推荐位列表</a></li>
-					
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-member">
-			<dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a _href="<?php echo url('user/index'); ?>" data-title="会员列表" href="javascript:;">会员列表</a></li>
-					<li><a _href="<?php echo url('user/deleindex'); ?>" data-title="删除的会员" href="javascript:;">删除的会员</a></li>
-				
-				</ul>
-			</dd>
-		</dl>
-		<!--<dl id="menu-product">-->
-			<!--<dt><i class="Hui-iconfont">&#xe620;</i> 订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>-->
-			<!--<dd>-->
-				<!--<ul>-->
-					<!--<li><a _href="" data-title="订单列表" href="javascript:void(0)">订单列表</a></li>-->
-					<!--<li><a _href="" data-title="删除的订单" href="javascript:void(0)">删除的订单</a></li>-->
-					<!---->
-				<!--</ul>-->
-			<!--</dd>-->
-		<!--</dl>-->
-		
-	</div>
+    <input runat="server" id="divScrollValue" type="hidden" value=""/>
+    <div class="menu_dropdown bk_2">
+        <dl id="menu-article">
+            <dt><i class="Hui-iconfont">&#xe616;</i> 保养管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a _href="<?php echo url('category/index'); ?>" data-title="保养管理" href="javascript:void(0)">保养管理</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <dl id="menu-article">
+            <dt><i class="Hui-iconfont">&#xe616;</i> 服务项添加<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a _href="<?php echo url('Maintenance/index'); ?>" data-title="服务项列表" href="javascript:void(0)">服务项列表</a>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+        <dl id="menu-article">
+            <dt><i class="Hui-iconfont">&#xe616;</i> 城市管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a _href="<?php echo url('city/index'); ?>" data-title="城市分类" href="javascript:void(0)">城市分类</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <dl id="menu-article">
+            <dt><i class="Hui-iconfont">&#xe613;</i> 商家管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a _href="<?php echo url('bis/index'); ?>" data-title="商家列表" href="javascript:void(0)">商户列表</a></li>
+                    <li><a _href="<?php echo url('bis/apply'); ?>" data-title="商家入驻申请" href="javascript:void(0)">商家入驻申请</a></li>
+                    <li><a _href="<?php echo url('bis/dellist'); ?>" data-title="删除的商户" href="javascript:void(0)">已拒绝商户</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <dl id="menu-product">
+            <dt><i class="Hui-iconfont">&#xe620;</i> 审车订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a _href="<?php echo url('deal/index',['status'=>0]); ?>" data-title="待审核审车订单" href="javascript:void(0)">待审核审车订单</a>
+                    </li>
+                    <li><a _href="<?php echo url('deal/index',['status'=>1]); ?>" data-title="已审核审车订单" href="javascript:void(0)">已审核审车订单</a></li>
+
+                </ul>
+            </dd>
+        </dl>
+        <dl id="menu-product">
+            <dt><i class="Hui-iconfont">&#xe620;</i> 推荐位管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a _href="<?php echo url('featured/add'); ?>" data-title="添加推荐位内容" href="javascript:void(0)">添加推荐位内容</a>
+                    </li>
+                    <li><a _href="<?php echo url('featured/index'); ?>" data-title="推荐位列表" href="javascript:void(0)">推荐位列表</a></li>
+
+                </ul>
+            </dd>
+        </dl>
+        <dl id="menu-member">
+            <dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a _href="<?php echo url('user/index'); ?>" data-title="会员列表" href="javascript:;">会员列表</a></li>
+                    <li><a _href="<?php echo url('user/deleindex'); ?>" data-title="删除的会员" href="javascript:;">删除的会员</a></li>
+
+                </ul>
+            </dd>
+        </dl>
+        <!--<dl id="menu-product">-->
+        <!--<dt><i class="Hui-iconfont">&#xe620;</i> 订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>-->
+        <!--<dd>-->
+        <!--<ul>-->
+        <!--<li><a _href="" data-title="订单列表" href="javascript:void(0)">订单列表</a></li>-->
+        <!--<li><a _href="" data-title="删除的订单" href="javascript:void(0)">删除的订单</a></li>-->
+        <!---->
+        <!--</ul>-->
+        <!--</dd>-->
+        <!--</dl>-->
+
+    </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <section class="Hui-article-box">

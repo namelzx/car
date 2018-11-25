@@ -11,12 +11,25 @@ namespace app\common\model;
 
 class Whosecar extends BisModels
 {
+
+    public function items()
+    {
+        return $this->hasMany('WhosecarChild', 'whosecar_id');
+    }
+
     public static function PostDataByAdd($data)
     {
-
         $data['create_time'] = time();
         $res = self::insertGetId($data);
         return $res;
     }
+
+    public static function GetWhOrderByList($data)
+    {
+        $res = self::with('items')->where('user_id', $data['user_id'])->paginate($data['limit'], false, ['query' => $data['page'],]);;
+        return $res;
+    }
+
+
 
 }

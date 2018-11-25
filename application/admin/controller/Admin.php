@@ -16,18 +16,16 @@ class Admin extends Controller
     public function login()
     {
         if (request()->isPost()) {
-            $data = input('post.');
-            $res = model('admin')->get(['username' => $data['username']]);
+            $data = input('param.');
+            $res = db('admin')->get(['username' => $data['username']]);
             if ($res) {
-                if ($res['password']==$data['password'])
-                {
-                    session('aid',$res['id']);
-                    return $this->success("登录成功",url('index/index'));
-                }
-                else{
+                if ($res['password'] == $data['password']) {
+                    session('aid', $res['id']);
+                    return $this->success("登录成功", url('index/index'));
+                } else {
                     return $this->error("密码错误");
                 }
-            }else{
+            } else {
                 return $this->error("没有这个管理员");
             }
         }

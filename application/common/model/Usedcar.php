@@ -22,4 +22,10 @@ class Usedcar extends BisModels
 
     }
 
+    public static function GetUseOrderByList($data)
+    {
+        $res = self::where('user_id', $data['user_id'])->paginate($data['limit'], false, ['query' => $data['page'],]);;
+        return $res;
+    }
+
 }

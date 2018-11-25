@@ -1,4 +1,4 @@
-<?php /*a:3:{s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/index.html";i:1543064002;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1541004298;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:3:{s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/index.html";i:1543073330;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1541004298;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -183,10 +183,10 @@
         },
         methods: {
             handeClick(index) {
-                if( this.list[index].che){
-                    this.list[index].che=false
-                }else{
-                    this.list[index].che=true
+                if (this.list[index].che) {
+                    this.list[index].che = false
+                } else {
+                    this.list[index].che = true
                 }
                 // this.list[index].che = !this.list[index].che
 

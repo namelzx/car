@@ -1,13 +1,14 @@
+<?php /*a:1:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/admin/login.html";i:1543126984;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="__STATIC__/admin/css/reset.css"/>
-    <link rel="stylesheet" href="__STATIC__/admin/css/loginn.css"/>
-    <script type="text/javascript" src="__STATIC__/admin/js/jquery.min.js"></script>
-    <script type="text/javascript" src="__STATIC__/admin/js/login.js"></script>
+    <link rel="stylesheet" href="/static//admin/css/reset.css"/>
+    <link rel="stylesheet" href="/static//admin/css/loginn.css"/>
+    <script type="text/javascript" src="/static//admin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static//admin/js/login.js"></script>
 </head>
 <body>
 <div class="page">
@@ -50,6 +51,6 @@
         CanvasParticle(config);
     }
 </script>
-<script type="text/javascript" src="__STATIC__/admin/js/canvas-particle.js"></script>
+<script type="text/javascript" src="/static//admin/js/canvas-particle.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@ class Index extends Controller
     public function welcome(){
 
 
-      echo "红蜻蜓o2o商户主后台管理平台";
+      echo "车之界主后台";
     
     }
     public function map(){

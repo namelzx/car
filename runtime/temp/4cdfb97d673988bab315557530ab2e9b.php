@@ -1,4 +1,4 @@
-<?php /*a:4:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/index/view/index/index.html";i:1543073431;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1541004298;s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/footer.html";i:1542810755;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:4:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/index/view/index/index.html";i:1543126384;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1541004298;s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/footer.html";i:1543126400;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -187,37 +187,37 @@
             </a>
         </div>
         <!--服务项目套餐s-->
-        <div class="bycontent" id="bycontent">
-            <div class="relative over border-b bg_white">
-                <div class="left " style="border-bottom:0px;height:100%;padding-bottom:1px;">
-                    <a href="https://hd.chezizhu.com/wx/fixed/180927164935.htm?mch_key=chezizhu14"><img
-                            src="http://static.chezizhu.com/upload/image/2018/09/20180930162026202628924.jpg" alt=""
-                            width="100%"/>
-                    </a>
-                </div>
-                <div class="right absolute-r">
-                    <a href="http://wap.chebaobei.cc/user/buy/package/main.htm">
-                        <img src="http://static.chezizhu.com/image/2018/03/20180301112847_936.jpg" alt="" width="100%"
-                             class="h50 border-b">
-                    </a>
-                    <a href="http://hd.chezizhu.com/wx/fixed/180224142257.htm">
-                        <img src="http://static.chezizhu.com/image/2018/03/20180308152754_567.jpg" alt="" width="100%"
-                             class="h50" style="border-bottom:0px;"/>
-                    </a>
-                </div>
-            </div>
-            <div class="border-b relative over">
-                <div class="left fl"><a href="http://hd.chezizhu.com/wx/fixed/180529150258.htm?mch_key=chezizhu14"><img
-                        src="http://static.chezizhu.com/upload/image/2018/07/2018070210021921939038.jpg" alt=""
-                        width="100%"/></a></div>
-                <div class="right fr">
-                    <a href="http://hd.chezizhu.com/wx/fixed/171228132246.htm">
-                        <img src="http://static.chezizhu.com/image/2017/12/20171206114550_874.jpg" alt="" width="100%"/>
-                    </a>
-                </div>
-                <div style="clear:both;"></div>
-            </div>
-        </div>
+        <!--<div class="bycontent" id="bycontent">-->
+            <!--<div class="relative over border-b bg_white">-->
+                <!--<div class="left " style="border-bottom:0px;height:100%;padding-bottom:1px;">-->
+                    <!--<a href="https://hd.chezizhu.com/wx/fixed/180927164935.htm?mch_key=chezizhu14"><img-->
+                            <!--src="http://static.chezizhu.com/upload/image/2018/09/20180930162026202628924.jpg" alt=""-->
+                            <!--width="100%"/>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="right absolute-r">-->
+                    <!--<a href="http://wap.chebaobei.cc/user/buy/package/main.htm">-->
+                        <!--<img src="http://static.chezizhu.com/image/2018/03/20180301112847_936.jpg" alt="" width="100%"-->
+                             <!--class="h50 border-b">-->
+                    <!--</a>-->
+                    <!--<a href="http://hd.chezizhu.com/wx/fixed/180224142257.htm">-->
+                        <!--<img src="http://static.chezizhu.com/image/2018/03/20180308152754_567.jpg" alt="" width="100%"-->
+                             <!--class="h50" style="border-bottom:0px;"/>-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="border-b relative over">-->
+                <!--<div class="left fl"><a href="http://hd.chezizhu.com/wx/fixed/180529150258.htm?mch_key=chezizhu14"><img-->
+                        <!--src="http://static.chezizhu.com/upload/image/2018/07/2018070210021921939038.jpg" alt=""-->
+                        <!--width="100%"/></a></div>-->
+                <!--<div class="right fr">-->
+                    <!--<a href="http://hd.chezizhu.com/wx/fixed/171228132246.htm">-->
+                        <!--<img src="http://static.chezizhu.com/image/2017/12/20171206114550_874.jpg" alt="" width="100%"/>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div style="clear:both;"></div>-->
+            <!--</div>-->
+        <!--</div>-->
         <!--服务项目套餐e-->
         <!--menu-->
         <div style="height:55px;"></div>
@@ -252,7 +252,7 @@
         <figure class="mt_3">
             <i class="iconfont icon-30 font-s22"></i>
         </figure>
-        <span>个人中心1</span>
+        <span>个人中心</span>
     </a>
 
 </div>
