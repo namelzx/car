@@ -52,7 +52,7 @@
     }
 </style>
 <body class="" avalonctrl="czz">
-<div id="app">
+<div id="app" v-clock>
     <div class="row">
         <div class="block-header">
             <div class="top">
@@ -81,10 +81,10 @@
                     <span class="ml_22" id="fw">&nbsp;&nbsp;已选{{listsum}}项服务</span>
                 </div>
                 <!--<div class="o-title-box-top_right relative" style="width:50px;">-->
-                    <!--<a class="">-->
-                        <!--<figure class="icon-left"><img src="__INDEX__/images/icon-plus.png" class="w100"></figure>-->
-                        <!--添加-->
-                    <!--</a>-->
+                <!--<a class="">-->
+                <!--<figure class="icon-left"><img src="__INDEX__/images/icon-plus.png" class="w100"></figure>-->
+                <!--添加-->
+                <!--</a>-->
                 <!--</div>-->
             </div>
             <!--title end-->
@@ -285,6 +285,7 @@
                         _this.$toast(res.data.msg);
                     } else if (res.data.status == 200) {
                         _this.$toast(res.data.msg);
+                        setTimeout(window.location.href = '/index/user/maintenance', 500)
                     }
                 })
             }

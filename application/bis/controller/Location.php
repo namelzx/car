@@ -23,12 +23,7 @@ class location extends Base
             $data = input('post.');
 
 
-            // 门店入库操作
-            // 总店相关信息入库
-//            if (!empty($data['se_category_id'])) {
-//
-//                $data['cat'] = $data['se_category_id'];
-//            }
+
             $langlat = \Map::getLngLat($data['address']);
             $locationData = [
                 'bis_id' => $bisid,
@@ -36,13 +31,9 @@ class location extends Base
                 'logo' => $data['logo'],
                 'tel' => $data['tel'],
                 'contact' => $data['contact'],
-//                'category_id' => $data['category_id'],
                 'category_path' => empty($data['se_category_id']) ? '' : implode(',', $data['cat']),
                 'city_id' => $data['city_id'],
-//                'city_path' => empty($data['se_city_id']) ? $data['city_id'] : $data['city_id'] . ',' . $data['se_city_id'],
                 'api_address' => $data['address'],
-//                'open_time' => $data['open_time'],
-//                'content' => empty($data['content']) ? '' : $data['content'],
                 'is_main' => 0,// 代表的是总店信息
                 'xpoint' => $langlat['result']['location']['lng'],
                 'ypoint' => $langlat['result']['location']['lat'],

@@ -45,22 +45,30 @@ function Hstatus($status)
 // array $data
 function doCurl($url, $type = 0, $data = [])
 {
-    ini_set('arg_separator.output','&');
-    $ch = curl_init();//初始化
+
+    $ch = curl_init();
+    $timeout = 5;
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    if ($type = 1) {
-        // post
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-
-    }
-    // 执行并获取内容
-    $output = curl_exec($ch);
-    // 释放curl
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+    $contents = curl_exec($ch);
     curl_close($ch);
-    return $output;
+//
+//    $ch = curl_init();//初始化
+//    curl_setopt($ch, CURLOPT_URL, $url);
+//    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//    curl_setopt($ch, CURLOPT_HEADER, 0);
+//    if ($type = 1) {
+//        // post
+//        curl_setopt($ch, CURLOPT_POST, 1);
+//        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+//
+//    }
+//    // 执行并获取内容
+//    $output = curl_exec($ch);
+//    // 释放curl
+//    curl_close($ch);
+    return $contents;
 }
 
 // 商户入驻申请文案

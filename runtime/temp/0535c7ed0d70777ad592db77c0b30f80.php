@@ -1,4 +1,4 @@
-<?php /*a:3:{s:89:"/Users/jon/Documents/项目汇总/车自主/application/index/view/maintenance/order.html";i:1542806150;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1541004298;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:3:{s:89:"/Users/jon/Documents/项目汇总/车自主/application/index/view/maintenance/order.html";i:1543288095;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +10,9 @@
     <meta name="description" content="chezizhu">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>保养下单</title>
-    
-<!--style-->
-<link href="/static/index/css/font_138813_d8pljrpjjz6.css?v=1.2.25.51" rel="stylesheet" type="text/css" />
-<link href="/static/index/css/jfshop.css?v=1.2.25.51" rel="stylesheet" type="text/css" />
+    <!--style-->
+<link href="/static/index/css/font_138813_d8pljrpjjz6.css?v=1.2.25.51" rel="stylesheet" type="text/css"/>
+<link href="/static/index/css/jfshop.css?v=1.2.25.51" rel="stylesheet" type="text/css"/>
 <link href="/static/index/css/yy.base.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/wap_reset.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/wap_common.css?v=1.2.25.51" rel="stylesheet" type="text/css">
@@ -21,14 +20,24 @@
 <link href="/static/index/css/popup.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/select_car.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/yy.ui.css?v=1.2.25.51" rel="stylesheet" type="text/css">
-<link href="/static/index/css/bp.css?v=3" rel="stylesheet" type="text/css" />
-<link href="/static/index/css/banpen.css?v=2" rel="stylesheet" type="text/css" />
+<link href="/static/index/css/bp.css?v=3" rel="stylesheet" type="text/css"/>
+<link href="/static/index/css/banpen.css?v=2" rel="stylesheet" type="text/css"/>
 
-<link href="/static/index/vant/index.css" rel="stylesheet" type="text/css" />
+<link href="/static/index/vant/index.css" rel="stylesheet" type="text/css"/>
 <style>
-    [v-clock] { display: none; }
-    .ms-controller{
+    [v-clock] {
+        display: none;
+    }
+
+    .ms-controller {
         visibility: visible;
+    }
+
+    .us-nav-item {
+        width: 33% !important;
+    }
+    [v-clock] {
+        display: none;
     }
 </style>
     <link rel="stylesheet" href="/static/index/css/icheck-bootstrap.css">
@@ -73,7 +82,7 @@
     }
 </style>
 <body class="" avalonctrl="czz">
-<div id="app">
+<div id="app" v-clock>
     <div class="row">
         <div class="block-header">
             <div class="top">
@@ -102,10 +111,10 @@
                     <span class="ml_22" id="fw">&nbsp;&nbsp;已选{{listsum}}项服务</span>
                 </div>
                 <!--<div class="o-title-box-top_right relative" style="width:50px;">-->
-                    <!--<a class="">-->
-                        <!--<figure class="icon-left"><img src="/static/index/images/icon-plus.png" class="w100"></figure>-->
-                        <!--添加-->
-                    <!--</a>-->
+                <!--<a class="">-->
+                <!--<figure class="icon-left"><img src="/static/index/images/icon-plus.png" class="w100"></figure>-->
+                <!--添加-->
+                <!--</a>-->
                 <!--</div>-->
             </div>
             <!--title end-->
@@ -314,6 +323,7 @@
                         _this.$toast(res.data.msg);
                     } else if (res.data.status == 200) {
                         _this.$toast(res.data.msg);
+                        setTimeout(window.location.href = '/index/user/maintenance', 500)
                     }
                 })
             }

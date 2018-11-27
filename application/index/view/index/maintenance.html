@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://unpkg.com/vue"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    {include file="public/css"}
+
+</head>
+<style>
+    .van-tabs__wrap--scrollable .van-tab {
+        flex: 0 0 35%;
+    }
+    body{
+        background: #fff;
+
+    }
+    .van-tab__pane{
+        border-bottom: 1px solid #eee;
+    }
+    .van-tab--active {
+        font-weight: bold;
+        font-size: 17px;
+    }
+
+    .title {
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        text-indent: 35px;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        background-color: #eee;
+        color: black;
+    }
+
+</style>
+<body>
+<main>
+
+    <div id="app">
+        <van-tabs v-model="active" @click="onClick" >
+            <van-tab v-for="items in list" :title="items.name">
+
+                <div class="title">你的爱车有以下几项服务需要保养</div>
+                <van-cell
+                        v-for="item in data"
+                        :key="item.id"
+                        :title="item.name"
+                />
+            </van-tab>
+            <!--<van-tab title="标签 2">内容 2</van-tab>-->
+        </van-tabs>
+    </div>
+
+
+    {include file="public/js"}
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    active: 0,
+                    list: [],
+                    data: [],
+                }
+            },
+            created() {
+                this.GetDataByList()
+            },
+            methods: {
+                onClick(index, title) {
+                    this.data = this.list[index].items
+                    if(this.data.length<1){
+                        this.$toast('该年份尚未有数据');
+
+                    }
+                },
+                GetDataByList() {
+                    axios.get('/index/index/mainyear/').then(res => {
+                        this.list = res.data
+                        this.data = res.data[0].items
+                    })
+                }
+
+            }
+
+        })
+    </script>
+</body>
+</html>

@@ -117,6 +117,7 @@ class Maintenance extends Controller
      */
     public function PostOrder()
     {
+        $user_info = session('czj_user');
         $data = input('param.');
         $che = 0;
 
@@ -132,7 +133,7 @@ class Maintenance extends Controller
         $ordertable['phone'] = $data['userinfo']['phone'];
         $ordertable['bis_id'] = $data['userinfo']['bis_id'];
         $ordertable['total_price'] = $data['userinfo']['sum_price'];
-
+        $ordertable['user_id']=$user_info['id'];
         $ordertable['create_time'] = time();
         $oser_id = Order::PostOrderByData($ordertable);
 

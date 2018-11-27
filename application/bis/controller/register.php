@@ -18,6 +18,7 @@ class register extends Controller
         $this->assign('category', $category);
         return view();
     }
+
     public function add()
     {
         $data = input('post.');
@@ -26,14 +27,8 @@ class register extends Controller
         }
         // 获取表单值
         $data = input('post.');
-//        $validate = validate('bis');
-//        if (!$validate->scene('add')->check($data)) {
-//            $this->error($validate->getError());
-//        }
         // 获取经纬度
-        // $langlat =	\Map::getLangLat($data['address']);
         $langlat = \Map::getLngLat($data['address']);
-//        return json($langlat);
         $accountname = Model('BisAccount')->get(['username' => $data['username']]);
         if ($accountname) {
             $this->error('该用户存在，请重新分配');
@@ -60,23 +55,16 @@ class register extends Controller
 
         // 总店信息
 
-//        if (!empty($data['se_category_id'])) {
-//
-//            $data['cat'] = $data['se_category_id'];
-//        }
 // 商户总店基本信息
         $locationData = [
             'bis_id' => $bisid,
             'name' => $data['name'],
-             'logo' => $data['logo'],
+            'logo' => $data['logo'],
             'tel' => $data['tel'],
             'contact' => $data['contact'],
-//            'category_id' => $data['category_id'],
-//            'category_path' => empty($data['se_category_id']) ? '' : implode(',', $data['cat']),
             'city_id' => $data['city_id'],
             'city_path' => empty($data['se_city_id']) ? $data['city_id'] : $data['city_id'] . ',' . $data['se_city_id'],
             'api_address' => $data['address'],
-//            'open_time' => $data['open_time'],
             'content' => empty($data['content']) ? '' : $data['content'],
             'is_main' => 1,// 代表的是总店信息
             'xpoint' => $langlat['result']['location']['lng'],

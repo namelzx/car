@@ -1,4 +1,4 @@
-<?php /*a:3:{s:88:"/Users/jon/Documents/项目汇总/车自主/application/index/view/maintenance/shop.html";i:1542806105;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1541004298;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:3:{s:88:"/Users/jon/Documents/项目汇总/车自主/application/index/view/maintenance/shop.html";i:1543286534;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0050)https://m.chezizhu.com/main.htm#/apot/services.htm -->
 <html>
@@ -12,10 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>保养下单</title>
 
-    
-<!--style-->
-<link href="/static/index/css/font_138813_d8pljrpjjz6.css?v=1.2.25.51" rel="stylesheet" type="text/css" />
-<link href="/static/index/css/jfshop.css?v=1.2.25.51" rel="stylesheet" type="text/css" />
+    <!--style-->
+<link href="/static/index/css/font_138813_d8pljrpjjz6.css?v=1.2.25.51" rel="stylesheet" type="text/css"/>
+<link href="/static/index/css/jfshop.css?v=1.2.25.51" rel="stylesheet" type="text/css"/>
 <link href="/static/index/css/yy.base.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/wap_reset.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/wap_common.css?v=1.2.25.51" rel="stylesheet" type="text/css">
@@ -23,14 +22,24 @@
 <link href="/static/index/css/popup.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/select_car.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/yy.ui.css?v=1.2.25.51" rel="stylesheet" type="text/css">
-<link href="/static/index/css/bp.css?v=3" rel="stylesheet" type="text/css" />
-<link href="/static/index/css/banpen.css?v=2" rel="stylesheet" type="text/css" />
+<link href="/static/index/css/bp.css?v=3" rel="stylesheet" type="text/css"/>
+<link href="/static/index/css/banpen.css?v=2" rel="stylesheet" type="text/css"/>
 
-<link href="/static/index/vant/index.css" rel="stylesheet" type="text/css" />
+<link href="/static/index/vant/index.css" rel="stylesheet" type="text/css"/>
 <style>
-    [v-clock] { display: none; }
-    .ms-controller{
+    [v-clock] {
+        display: none;
+    }
+
+    .ms-controller {
         visibility: visible;
+    }
+
+    .us-nav-item {
+        width: 33% !important;
+    }
+    [v-clock] {
+        display: none;
     }
 </style>
 
@@ -80,7 +89,7 @@
 <body class="" avalonctrl="czz">
 <div>
     <div class="header"></div>
-    <div class="content" id="app">
+    <div class="content" id="app" v-clock>
         <div>
         </div>
         <div class="block-content" sign="page_apot_c" avalonctrl="page_apot_c">
@@ -158,7 +167,8 @@
                                 <div class="rowsbox-door-address">{{items.api_address}}</div>
                             </div>
                             <!--ms-if-->
-                        </div><!--repeat335871475479-->
+                        </div>
+                        <!--repeat335871475479-->
 
                         <!--ms-if-->
                     </div>
@@ -206,7 +216,7 @@
             GetCityByList() {
                 var acity = getCookie('city');
                 this.city = JSON.parse(acity)
-                axios.get('/index/maintenance/cityCity/city_id=' + this.city.id,).then(res => {
+                axios.get('/index/maintenance/cityCity?city_id=' + this.city.id,).then(res => {
 
                     this.list = res.data
                     console.log(res.data)

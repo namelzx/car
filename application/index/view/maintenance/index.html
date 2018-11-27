@@ -18,7 +18,7 @@
 <body class="" avalonctrl="czz">
 <div>
     <div class="header"></div>
-    <div class="content" id="app">
+    <div class="content" id="app" v-clock>
         <div>
         </div>
         <div class="block"><!--each377921076914:start-->
@@ -114,6 +114,10 @@
                 setCookie('by_service',this.todos)
             },
             handeToch() {
+                if(  this.todos.length<1){
+                    this.$toast('最少选择一项');
+                    return false;
+                }
                 // console.log(  getCookie('shop_info'))
                 window.location.href = "/index/maintenance/choose"
             }

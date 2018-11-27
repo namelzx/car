@@ -5,11 +5,9 @@ namespace app\index\controller;
 
 use app\common\model\City;
 use app\common\model\Featured;
-use EasyWeChat\Factory;
-use think\Controller;
-use think\Request;
+use app\common\model\MainYear;
 
-class Index extends Controller
+class Index extends Base
 {
     /**
      * 显示资源列表
@@ -18,10 +16,9 @@ class Index extends Controller
      */
     public function index()
     {
-//        $app = Factory::officialAccount(config('weixin'));
-
         return view();
     }
+
 
     public function indexdata()
     {
@@ -30,70 +27,16 @@ class Index extends Controller
         return json(['city' => $City, 'banner' => $Banner]);
     }
 
-    /**
-     * 显示创建资源表单页.
-     *
-     * @return \think\Response
-     */
-    public function create()
+    public function maintenance()
     {
-        //
-        return "添加页";
+
+
+        return view();
     }
 
-    /**
-     * 保存新建的资源
-     *
-     * @param  \think\Request $request
-     * @return \think\Response
-     */
-    public function save(Request $request)
+    public function mainyear()
     {
-        //
-    }
-
-    /**
-     * 显示指定的资源
-     *
-     * @param  int $id
-     * @return \think\Response
-     */
-    public function read($id)
-    {
-        //
-    }
-
-    /**
-     * 显示编辑资源表单页.
-     *
-     * @param  int $id
-     * @return \think\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * 保存更新的资源
-     *
-     * @param  \think\Request $request
-     * @param  int $id
-     * @return \think\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * 删除指定资源
-     *
-     * @param  int $id
-     * @return \think\Response
-     */
-    public function delete($id)
-    {
-        //
+        $res = MainYear::GetDataByList();
+        return json($res);
     }
 }

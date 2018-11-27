@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div class="content" id="app">
+<div class="content" id="app" v-clock>
     <div>
     </div>
     <div class="block"><!--each582889476975:start-->
@@ -182,6 +182,7 @@
                 this.data.data = this.list;
                 axios.post('/index/examcar/WhosecarAdd', this.data).then(res => {
                     _this.$toast(res.data.msg);
+                    setTimeout(window.location.href = '/index/user/whosecar', 500)
                 })
             }
         }

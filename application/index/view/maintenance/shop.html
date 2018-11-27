@@ -51,7 +51,7 @@
 <body class="" avalonctrl="czz">
 <div>
     <div class="header"></div>
-    <div class="content" id="app">
+    <div class="content" id="app" v-clock>
         <div>
         </div>
         <div class="block-content" sign="page_apot_c" avalonctrl="page_apot_c">
@@ -129,7 +129,8 @@
                                 <div class="rowsbox-door-address">{{items.api_address}}</div>
                             </div>
                             <!--ms-if-->
-                        </div><!--repeat335871475479-->
+                        </div>
+                        <!--repeat335871475479-->
 
                         <!--ms-if-->
                     </div>
@@ -177,7 +178,7 @@
             GetCityByList() {
                 var acity = getCookie('city');
                 this.city = JSON.parse(acity)
-                axios.get('/index/maintenance/cityCity/city_id=' + this.city.id,).then(res => {
+                axios.get('/index/maintenance/cityCity?city_id=' + this.city.id,).then(res => {
 
                     this.list = res.data
                     console.log(res.data)

@@ -20,7 +20,7 @@ class Order extends BaseModel
 
     public static function GetMainOrderByList($data)
     {
-        $res = self::with('bis')->where('user_id', 1)->paginate($data['limit'], false, ['query' => $data['page'],]);;
+        $res = self::with('bis')->where('user_id', $data['user_id'])->paginate($data['limit'], false, ['query' => $data['page'],]);;
         return $res;
     }
 

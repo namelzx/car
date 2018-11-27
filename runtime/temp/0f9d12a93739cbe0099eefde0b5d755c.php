@@ -1,4 +1,4 @@
-<?php /*a:3:{s:92:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/maintenance/threeadd.html";i:1541499248;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1541476479;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
+<?php /*a:3:{s:92:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/maintenance/threeadd.html";i:1542627514;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
 <!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -30,8 +30,8 @@
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <title>汽车主后台</title>
-<meta name="keywords" content="tp5打造o2o平台系统">
-<meta name="description" content="o2o平台">
+<meta name="keywords" content="车之界主后台">
+<meta name="description" content="车之界">
 </head>
 <style>
   .layui-upload-img{
@@ -52,7 +52,6 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品价格：</label>
             <div class="formControls col-xs-8 col-sm-9">
-
                 <input type="text" class="input-text" value="" placeholder="" id="price" name="price">
                 <input type="text" class="input-text" value="<?php echo htmlentities($t_id); ?>" placeholder="" id="t_id" name="t_id">
             </div>

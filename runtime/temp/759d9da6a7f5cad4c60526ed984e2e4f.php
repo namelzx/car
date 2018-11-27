@@ -1,4 +1,4 @@
-<?php /*a:3:{s:90:"/Users/jon/Documents/项目汇总/车自主/application/index/view/maintenance/choose.html";i:1542775072;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1541004298;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:3:{s:90:"/Users/jon/Documents/项目汇总/车自主/application/index/view/maintenance/choose.html";i:1543286585;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +12,9 @@
     <title></title>
 </head>
 <body>
-
 <!--style-->
-<link href="/static/index/css/font_138813_d8pljrpjjz6.css?v=1.2.25.51" rel="stylesheet" type="text/css" />
-<link href="/static/index/css/jfshop.css?v=1.2.25.51" rel="stylesheet" type="text/css" />
+<link href="/static/index/css/font_138813_d8pljrpjjz6.css?v=1.2.25.51" rel="stylesheet" type="text/css"/>
+<link href="/static/index/css/jfshop.css?v=1.2.25.51" rel="stylesheet" type="text/css"/>
 <link href="/static/index/css/yy.base.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/wap_reset.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/wap_common.css?v=1.2.25.51" rel="stylesheet" type="text/css">
@@ -23,14 +22,24 @@
 <link href="/static/index/css/popup.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/select_car.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/yy.ui.css?v=1.2.25.51" rel="stylesheet" type="text/css">
-<link href="/static/index/css/bp.css?v=3" rel="stylesheet" type="text/css" />
-<link href="/static/index/css/banpen.css?v=2" rel="stylesheet" type="text/css" />
+<link href="/static/index/css/bp.css?v=3" rel="stylesheet" type="text/css"/>
+<link href="/static/index/css/banpen.css?v=2" rel="stylesheet" type="text/css"/>
 
-<link href="/static/index/vant/index.css" rel="stylesheet" type="text/css" />
+<link href="/static/index/vant/index.css" rel="stylesheet" type="text/css"/>
 <style>
-    [v-clock] { display: none; }
-    .ms-controller{
+    [v-clock] {
+        display: none;
+    }
+
+    .ms-controller {
         visibility: visible;
+    }
+
+    .us-nav-item {
+        width: 33% !important;
+    }
+    [v-clock] {
+        display: none;
     }
 </style>
 <div class="content">
@@ -61,7 +70,7 @@
                     -webkit-overflow-scrolling: touch;
                 }
             </style>
-            <div class="" sign="page_car" style="height: 100%;" avalonctrl="page_car" id="app">
+            <div class="" sign="page_car" style="height: 100%;" avalonctrl="page_car" id="app" v-clock>
 
                 <div class="car-index">
                     <div class="block-l">

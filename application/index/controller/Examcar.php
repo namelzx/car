@@ -26,7 +26,8 @@ class Examcar extends Base
     public function WhosecarAdd()
     {
         $data = input('param.');
-        $user_id = session('user_id');
+        $user_info = session('czj_user');
+        $user_id = $user_info['id'];
         $data['temp']['user_id'] = $user_id;
         $whosecar_id = Whosecar::PostDataByAdd($data['temp']);
         $arr = [];
@@ -55,10 +56,10 @@ class Examcar extends Base
      */
     public function InsuranceAdd()
     {
-        session('user_id', 1);
-        $user_id = session('user_id');
+
         $data = input('param.');
-        $data['temp']['user_id'] = $user_id;
+        $user_info = session('czj_user');
+        $data['temp']['user_id'] = $user_info['id'];
         $insurance_id = Insurance::PostDataByAdd($data['temp']);
         $arr = [];
         for ($i = 0; $i < count($data['data']); $i++) {
@@ -89,6 +90,8 @@ class Examcar extends Base
     public function PostUsedcarByData()
     {
         $data = input('param.');
+        $user_info = session('czj_user');
+        $data['user_id'] = $user_info['id'];
         $res = Usedcar::PostDataByAdd($data);
         return json(msg(200, $res, '估价已提交，等待后台人员联系'));
     }

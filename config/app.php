@@ -155,9 +155,6 @@ return [
     'weixin' => [
         'appId' => 'wx87196822148cc331',
         'appSecret' => '0029f59279c8a87856dc83dc6086ed57',
-//        'redirect_uri' => 'https://new.10huisp.com/index/index/',
-//        'mch_id' => '1448578902',
-//        'apiKey' => 'zxcvbnmasdfghjklqwertyuiop123456'
     ],
     'aliyun_oss' => [
         'KeyId' => 'LTAI4G7m7lF5SkXU',  //您的Access Key ID

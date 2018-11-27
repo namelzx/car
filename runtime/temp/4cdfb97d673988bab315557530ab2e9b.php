@@ -1,4 +1,4 @@
-<?php /*a:4:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/index/view/index/index.html";i:1543126384;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1541004298;s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/footer.html";i:1543126400;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:4:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/index/view/index/index.html";i:1543247889;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/footer.html";i:1543286325;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,10 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" media="screen"/>
     <!--style-->
-    
-<!--style-->
-<link href="/static/index/css/font_138813_d8pljrpjjz6.css?v=1.2.25.51" rel="stylesheet" type="text/css" />
-<link href="/static/index/css/jfshop.css?v=1.2.25.51" rel="stylesheet" type="text/css" />
+    <!--style-->
+<link href="/static/index/css/font_138813_d8pljrpjjz6.css?v=1.2.25.51" rel="stylesheet" type="text/css"/>
+<link href="/static/index/css/jfshop.css?v=1.2.25.51" rel="stylesheet" type="text/css"/>
 <link href="/static/index/css/yy.base.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/wap_reset.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/wap_common.css?v=1.2.25.51" rel="stylesheet" type="text/css">
@@ -21,14 +20,24 @@
 <link href="/static/index/css/popup.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/select_car.css?v=1.2.25.51" rel="stylesheet" type="text/css">
 <link href="/static/index/css/yy.ui.css?v=1.2.25.51" rel="stylesheet" type="text/css">
-<link href="/static/index/css/bp.css?v=3" rel="stylesheet" type="text/css" />
-<link href="/static/index/css/banpen.css?v=2" rel="stylesheet" type="text/css" />
+<link href="/static/index/css/bp.css?v=3" rel="stylesheet" type="text/css"/>
+<link href="/static/index/css/banpen.css?v=2" rel="stylesheet" type="text/css"/>
 
-<link href="/static/index/vant/index.css" rel="stylesheet" type="text/css" />
+<link href="/static/index/vant/index.css" rel="stylesheet" type="text/css"/>
 <style>
-    [v-clock] { display: none; }
-    .ms-controller{
+    [v-clock] {
+        display: none;
+    }
+
+    .ms-controller {
         visibility: visible;
+    }
+
+    .us-nav-item {
+        width: 33% !important;
+    }
+    [v-clock] {
+        display: none;
     }
 </style>
 </head>
@@ -38,11 +47,13 @@
     .banner {
         min-height: 150px;
     }
+
     a {
         -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
     }
+
     -->
 </style>
 <!--
@@ -143,28 +154,13 @@
             </div>
         </header>
         <div style="height:50px"></div>
-        <!--banner-->
-        <div class="banner" id="banner">
-            <div id="slideBox" class="slideBox">
-                <div class="bd">
-                    <div class="tempWrap">
-                        <ul>
-                            <li v-for="(item,index) in banner  ">
-                                <a href="https://hd.chezizhu.com/wx/fixed/180927164935.htm?mch_key=chezizhu14">
-                                    <img :src="item.image"
-                                         data-src="" width="100%">
-                                </a>
-                            </li>
 
-                        </ul>
-                    </div>
-                </div>
-                <div class="hd">
-                    <ul>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <van-swipe :autoplay="3000" indicator-color="white">
+            <van-swipe-item v-for="(image, index) in banner" :key="index">
+                <img :src="image.image"
+                     data-src="" width="100%">
+            </van-swipe-item>
+        </van-swipe>
         <!--菜单title-->
         <div class="bg_white sl-flex" style="padding: 12px 0px;">
             <div class="cell" style="text-align: center;" v-for="item in icos">
@@ -178,7 +174,7 @@
         </div>
         <!--菜单title-->
         <div class="bycon mt_5 mb_5 relative bg_white">
-            <a href="/bysc.html?v=1.2.25.51">
+            <a href="<?php echo url('/index/index/maintenance'); ?>">
                 <div class="left ff4500 relative pt_5 pb_5"><img src="/static/index/images/by-icon.png" alt=""/></div>
                 <div class="right pr_20">
                     <div class="bydirect">不懂要做什么保养项目,去看看</div>
@@ -188,35 +184,35 @@
         </div>
         <!--服务项目套餐s-->
         <!--<div class="bycontent" id="bycontent">-->
-            <!--<div class="relative over border-b bg_white">-->
-                <!--<div class="left " style="border-bottom:0px;height:100%;padding-bottom:1px;">-->
-                    <!--<a href="https://hd.chezizhu.com/wx/fixed/180927164935.htm?mch_key=chezizhu14"><img-->
-                            <!--src="http://static.chezizhu.com/upload/image/2018/09/20180930162026202628924.jpg" alt=""-->
-                            <!--width="100%"/>-->
-                    <!--</a>-->
-                <!--</div>-->
-                <!--<div class="right absolute-r">-->
-                    <!--<a href="http://wap.chebaobei.cc/user/buy/package/main.htm">-->
-                        <!--<img src="http://static.chezizhu.com/image/2018/03/20180301112847_936.jpg" alt="" width="100%"-->
-                             <!--class="h50 border-b">-->
-                    <!--</a>-->
-                    <!--<a href="http://hd.chezizhu.com/wx/fixed/180224142257.htm">-->
-                        <!--<img src="http://static.chezizhu.com/image/2018/03/20180308152754_567.jpg" alt="" width="100%"-->
-                             <!--class="h50" style="border-bottom:0px;"/>-->
-                    <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="border-b relative over">-->
-                <!--<div class="left fl"><a href="http://hd.chezizhu.com/wx/fixed/180529150258.htm?mch_key=chezizhu14"><img-->
-                        <!--src="http://static.chezizhu.com/upload/image/2018/07/2018070210021921939038.jpg" alt=""-->
-                        <!--width="100%"/></a></div>-->
-                <!--<div class="right fr">-->
-                    <!--<a href="http://hd.chezizhu.com/wx/fixed/171228132246.htm">-->
-                        <!--<img src="http://static.chezizhu.com/image/2017/12/20171206114550_874.jpg" alt="" width="100%"/>-->
-                    <!--</a>-->
-                <!--</div>-->
-                <!--<div style="clear:both;"></div>-->
-            <!--</div>-->
+        <!--<div class="relative over border-b bg_white">-->
+        <!--<div class="left " style="border-bottom:0px;height:100%;padding-bottom:1px;">-->
+        <!--<a href="https://hd.chezizhu.com/wx/fixed/180927164935.htm?mch_key=chezizhu14"><img-->
+        <!--src="http://static.chezizhu.com/upload/image/2018/09/20180930162026202628924.jpg" alt=""-->
+        <!--width="100%"/>-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--<div class="right absolute-r">-->
+        <!--<a href="http://wap.chebaobei.cc/user/buy/package/main.htm">-->
+        <!--<img src="http://static.chezizhu.com/image/2018/03/20180301112847_936.jpg" alt="" width="100%"-->
+        <!--class="h50 border-b">-->
+        <!--</a>-->
+        <!--<a href="http://hd.chezizhu.com/wx/fixed/180224142257.htm">-->
+        <!--<img src="http://static.chezizhu.com/image/2018/03/20180308152754_567.jpg" alt="" width="100%"-->
+        <!--class="h50" style="border-bottom:0px;"/>-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="border-b relative over">-->
+        <!--<div class="left fl"><a href="http://hd.chezizhu.com/wx/fixed/180529150258.htm?mch_key=chezizhu14"><img-->
+        <!--src="http://static.chezizhu.com/upload/image/2018/07/2018070210021921939038.jpg" alt=""-->
+        <!--width="100%"/></a></div>-->
+        <!--<div class="right fr">-->
+        <!--<a href="http://hd.chezizhu.com/wx/fixed/171228132246.htm">-->
+        <!--<img src="http://static.chezizhu.com/image/2017/12/20171206114550_874.jpg" alt="" width="100%"/>-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--<div style="clear:both;"></div>-->
+        <!--</div>-->
         <!--</div>-->
         <!--服务项目套餐e-->
         <!--menu-->
@@ -227,27 +223,27 @@
             描述：
         -->
         <div class="us-nav">
-    <a href="/main.htm#/model/servicer/list.htm" class="us-nav-item ">
+    <a href="/" class="us-nav-item" style="text-align:center;">
+        <figure class="mt_3">
+            <i class="iconfont icon-shouye font-s22"></i>
+        </figure>
+        <span>返回首页</span>
+    </a>
+    <a href="<?php echo url('index/servicer/index'); ?>" class="us-nav-item ">
         <figure class="mt_3">
             <i class="iconfont icon-dianpu font-s22"></i>
         </figure>
         <span>门店导航</span>
     </a>
-    <a href="http://p.qiao.baidu.com/cps/mobileChat?siteId=9908599&userId=22334706&type=1&reqParam=&appId=&referer=&lightapp=2"
-       class="us-nav-item ">
-        <figure class="mt_3">
-            <i class="iconfont icon-zaixiankefuzhuanhuan font-s22"></i>
-        </figure>
-        <span>在线客服</span>
-    </a>
 
-    <a href="/main.htm#/model/evaluation_list.htm" class="us-nav-item ">
-        <figure class="mt_3">
-            <i class="iconfont icon-pingjia font-s22"></i>
-        </figure>
-        <span>服务评价</span>
-        <!--http://static.chezizhu.com/m/gywm.html?v=1.2.25.51-->
-    </a>
+
+    <!--<a href="/main.htm#/model/evaluation_list.htm" class="us-nav-item ">-->
+        <!--<figure class="mt_3">-->
+            <!--<i class="iconfont icon-pingjia font-s22"></i>-->
+        <!--</figure>-->
+        <!--<span>服务评价</span>-->
+        <!--&lt;!&ndash;http://static.chezizhu.com/m/gywm.html?v=1.2.25.51&ndash;&gt;-->
+    <!--</a>-->
     <a href="<?php echo url('index/user/index'); ?>" class="us-nav-item ">
         <figure class="mt_3">
             <i class="iconfont icon-30 font-s22"></i>
@@ -329,15 +325,35 @@
                 'http://static.chezizhu.com/image/2018/02/20180222083826_524.jpg',
             ],
             icos: [
-                {name: '保养', images: "http://static.chezizhu.com/upload/image/2018/08/20180829203458345811575.png",url:'/index/maintenance/shop'},
-                {name: '喷漆', images: "http://static.chezizhu.com/upload/image/2018/08/20180829203534353446615.png",url:'/index/examcar/index'},
-                {name: '审车', images: "http://static.chezizhu.com/upload/image/2018/08/20180829203551355119301.png",url:'/index/examcar/index'},
-                {name: '保险', images: "http://static.chezizhu.com/upload/image/2018/08/2018082920360036041522.png",url:'/index/examcar/insure'},
-                {name: '估价', images: "http://static.chezizhu.com/upload/image/2018/08/2018082920360936979768.png",url:'/index/examcar/usedcar'},
+                {
+                    name: '保养',
+                    images: "http://static.chezizhu.com/upload/image/2018/08/20180829203458345811575.png",
+                    url: '/index/maintenance/shop'
+                },
+                {
+                    name: '喷漆',
+                    images: "http://static.chezizhu.com/upload/image/2018/08/20180829203534353446615.png",
+                    url: '/index/examcar/index'
+                },
+                {
+                    name: '审车',
+                    images: "http://static.chezizhu.com/upload/image/2018/08/20180829203551355119301.png",
+                    url: '/index/examcar/index'
+                },
+                {
+                    name: '保险',
+                    images: "http://static.chezizhu.com/upload/image/2018/08/2018082920360036041522.png",
+                    url: '/index/examcar/insure'
+                },
+                {
+                    name: '估价',
+                    images: "http://static.chezizhu.com/upload/image/2018/08/2018082920360936979768.png",
+                    url: '/index/examcar/usedcar'
+                },
             ],
             city: [],
             cityname: getCookie('city_name'),
-            banner:[],
+            banner: [],
         },
         created() {
             this.GetCityByList();
@@ -351,16 +367,16 @@
             GetCityByList() {
                 axios.get('/index/index/indexdata/').then(res => {
                     this.city = res.data.city
-                    this.banner=res.data.banner
+                    this.banner = res.data.banner
                 })
             },
             handecity(row) {
                 this.cityname = row.name
-                setCookie('city_name',  row.name)
+                setCookie('city_name', row.name)
 
 
                 var str = JSON.stringify(row);//独享转字符串
-                setCookie('city',str)
+                setCookie('city', str)
                 var str1 = JSON.parse(str);//字符串转对象
                 console.log(str1.id)
                 this.vv = false
@@ -368,38 +384,5 @@
         }
     })
 
-
-     $(function(){
-            /******************轮播图************************/
-            document.title = '【车自主】互联网＋汽车保养专家 为口碑而生'
-            var widths=document.body.clientWidth;
-            if(widths>=768){
-                document.getElementById('banner').style.height='338px';
-                document.getElementById('bycontent').style.height='202px';
-            }else{
-                document.getElementById('banner').style.height=parseInt(widths*282/640) +'px';
-                document.getElementById('bycontent').style.height=parseInt(widths*202/320) +'px';
-            }
-            window.onresize=function(){
-                widths=document.body.clientWidth;
-                if(widths>768){
-                    document.getElementById('banner').style.height='338px';
-                    document.getElementById('bycontent').style.height='202px';
-                }else{
-                    document.getElementById('banner').style.height=parseInt(widths*282/640) +'px';
-                    document.getElementById('bycontent').style.height=parseInt(widths*202/320) +'px';
-                }
-            }
-            setTimeout(function(){
-                TouchSlide({
-                    slideCell:"#slideBox",
-                    titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-                    mainCell:".bd ul",
-                    effect:"leftLoop",
-                    autoPage:true,//自动分页
-                    autoPlay:true //自动播放
-                });
-            },1)
-        });
 </script>
 <!-- js-template-end -->

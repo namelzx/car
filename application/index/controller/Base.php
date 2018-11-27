@@ -9,10 +9,22 @@
 namespace app\index\controller;
 
 
+use think\App;
 use think\Controller;
 
 class Base extends Controller
 {
+
+    public function __construct(App $app = null)
+    {
+        parent::__construct($app);
+        /*
+         * 判断用户是否登录
+         */
+        if (empty(session('czj_user'))) {
+            $this->redirect('/index/user/login');
+        }
+    }
 
     public function upload()
     {
@@ -25,17 +37,18 @@ class Base extends Controller
         if ($info) {
             $path = $info->getSaveName();
             $fileName = 'uploads/' . $info->getSaveName();
-            $fil= $this->uploadFile($config['Bucket'], $fileName, $info->getPathname());
-            if($fil){
+            $fil = $this->uploadFile($config['Bucket'], $fileName, $info->getPathname());
+            if ($fil) {
                 unlink($fileName);
             }
-            return json(array('state' => 1, 'path' => $config['url'].$fileName));
+            return json(array('state' => 1, 'path' => $config['url'] . $fileName));
         } else {
             // 上传失败获取错误信息
             echo $file->getError();
         }
         return json($file);
     }
+
     /**
      * 实例化阿里云OSS
      * @return object 实例化得到的对象

@@ -26,7 +26,7 @@
         height: 58px;
     }
 </style>
-<div class="content" id="app">
+<div class="content" id="app" v-clock>
     <div>
     </div>
     <div class="block"><!--each170229716974:start-->
@@ -181,7 +181,7 @@
                     ShenFenzhengZ: "",//身份证正面
                     ShenFenzhengF: "",//身份证反面
                     name: "",//用户名
-                    phone: "手机号码"
+                    phone: ""
                 },
                 postdata: {
                     temp: {},
@@ -293,6 +293,8 @@
                 this.postdata.temp = this.temp
                 axios.post('/index/examcar/InsuranceAdd', this.postdata).then(res => {
                     _this.$toast(res.data.msg);
+                    setTimeout(window.location.href = '/index/user/Insurance', 500)
+
                 })
             }
         }
