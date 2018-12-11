@@ -13,7 +13,7 @@ class Order extends Base
 {
     public function index()
     {
-        $bisid = $this->getlogoinuser()->bis_id;
+        $bisid = session('bis_id');
         $sdata = [
             'bis_id' => $bisid,
         ];

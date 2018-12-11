@@ -2,26 +2,27 @@
 
 namespace app\bis\controller;
 
+use app\common\model\Bislocation;
 use app\common\model\BisModels;
 use app\common\model\CategoryTow;
 
-class deal extends Base
+class Deal extends Base
 {
     public function index()
     {
-        // dump(session('bisaccount'));
 //        $data = model('deal')->getdeallist();
-        $bisid = $this->getlogoinuser()->bis_id;
-        $data=BisModels::GetModelsByList($bisid);
+        $bisid = session('bis_id');
+        $data = BisModels::GetModelsByList($bisid);
         $this->assign('data', $data);
         return view();
     }
+
     public function add()
     {
-        $server = \app\common\model\category::all();
-        $bisid = $this->getlogoinuser()->bis_id;
+        $server = \app\common\model\Category::all();
+        $bisid = session('bis_id');
         if (request()->isPost()) {
-            $data = input('post.');
+            $data = input('param.');
             //商户添加 商家车型表
             $models['models_name'] = $data['info']['models_name'];
             if (empty($data['info']['location_ids'])) {
@@ -77,12 +78,10 @@ class deal extends Base
             $citys = model('city')->getNormalCitysByParentId();
             $this->assign('citys', $citys);
             $category = model('category')->getNormalFirstCategory();
-            $bislocation = model('Bislocation')->getNormallocationbyid($bisid);
+            $bislocation = Bislocation::getNormallocationbyid($bisid);
             $this->assign('categorys', $category);
             $this->assign('bislocation', $bislocation);
             $this->assign('server', $server);
-
-
             return view();
         }
     }
@@ -92,12 +91,10 @@ class deal extends Base
      */
     public function GetLocationByData()
     {
-        $bisid = $this->getlogoinuser()->bis_id;
+        $bisid = session('bis_id');
         $bislocation = model('Bislocation')->getNormallocationbyid($bisid);
         return json($bislocation);
-
     }
-
     /*
      * 获取子级服务
      */
@@ -163,9 +160,11 @@ class deal extends Base
             return view();
         }
     }
-    public function del($id){
-        $data=new BisModels();
-        $data->where('id',$id)->delete();
+
+    public function del($id)
+    {
+        $data = new BisModels();
+        $data->where('id', $id)->delete();
         return $this->success("删除成功");
     }
 }

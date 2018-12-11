@@ -1,4 +1,4 @@
-<?php /*a:3:{s:81:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/bis/index.html";i:1542013279;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
+<?php /*a:3:{s:81:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/bis/index.html";i:1543562447;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
 <!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -68,7 +68,7 @@
 					<td class="td-status"><?php echo status($vo['status']); ?></td>
 					<td class="td-manage"> <a style="text-decoration:none" class="ml-5" onClick="o2o_edit('商户入驻详情数据','<?php echo url('bis/detail',['id'=>$vo['id']]); ?>','',300)" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
 						<a style="text-decoration:none" class="ml-5" onClick="o2o_del('<?php echo url('bis/status',['id'=>$vo['id'],'status'=>-1]); ?>')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
-						<a style="text-decoration:none" class="ml-5"  onClick="o2o_status('<?php echo url('bis/Bisstatus',['status'=>2,'id'=>$vo['id']]); ?>')"   href="javascript:;" title="拒绝通过">不通过</a>
+						<a style="text-decoration:none" class="ml-5"  onClick="o2o_status('<?php echo url('bis/Bisstatus',['status'=>0,'id'=>$vo['id']]); ?>')"   href="javascript:;" title="拒绝通过">不通过</a>
 						<a style="text-decoration:none" class="ml-5"  onClick="o2o_edit('重置密码','<?php echo url('bis/pas',['id'=>$vo['id']]); ?>','',300)"   href="javascript:;" title="重置密码">重置密码</a>
 					</td>
 				</tr>

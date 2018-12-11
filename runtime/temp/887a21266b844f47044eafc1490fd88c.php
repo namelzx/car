@@ -1,4 +1,4 @@
-<?php /*a:3:{s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/index.html";i:1543288725;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:3:{s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/index.html";i:1544433221;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,20 +40,23 @@
     }
 </style>
 
+
 </head>
 <body>
-
+<style>
+    /*.examcarin .mains .cond{*/
+        /*font-size: 1.4rem;*/
+        /*margin-right: 20px;*/
+        /*display: -webkit-box;*/
+    /*}*/
+</style>
 <div class="content" id="app" v-clock>
     <div>
     </div>
     <div class="block"><!--each582889476975:start-->
         <div data-include-loaded="loaded" data-include-rendered="rendered"><!--ms-include-->
             <div class="block-content" sign="bd_examcar_index" avalonctrl="bd_examcar_index">
-                <!--
-                    作者：894468157@qq.com
-                    时间：2016-10-12
-                    描述：审车预约
-                -->
+
                 <div class="examcarin">
                     <!--header-->
                     <div class="row">
@@ -101,10 +104,16 @@
                                 <div class="ml_35 line-h32 pb_10">
                                     <!--repeat873335798026:start-->
 
+                                    <li v-for="country in countries">{{country}}</li>
+
+
                                     <div class="cond co666" v-for="(items,index) in list">
-                                        <input :id="items.id" class="chat-button-location-radio-input" type="checkbox"
-                                               name="items.name" value="cl"/>
-                                        <label :for="items.id" @click="handeClick(index)">{{items.name}}</label>
+                                        <input type='checkbox' :id='items.id' :value='items.name'  v-model='countries'/>
+                                        <label :for='items.id' >{{items.name}}</label>
+
+                                        <!--<input :id="items.id" class="chat-button-location-radio-input" type="checkbox"-->
+                                              <!--value="cl"/>-->
+                                        <!--<label :for="items.id" @click="handeClick(index)">{{items.name}}</label>-->
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +162,7 @@
         el: "#app",
         data() {
             return {
-
+                countries: [],
                 data: {
                     temp: {
                         name: "",//用户名
@@ -169,9 +178,9 @@
                     che: false
                 }, {
                     id: 2,
-                    name: "保险未过期",
+                    name: "非营运",
                     che: false
-                }, {
+                },  {
                     id: 3,
                     name: "车辆无改装",
                     che: false
@@ -179,11 +188,11 @@
                     id: 4,
                     name: "七座及七座以上",
                     che: false
-                }, {
+                },{
                     id: 5,
-                    name: "非营运",
+                    name: "保险未过期",
                     che: false
-                }]
+                },]
             }
         },
         created() {
@@ -192,11 +201,12 @@
         },
         methods: {
             handeClick(index) {
-                if (this.list[index].che) {
+                if (this.list[index].che===true) {
                     this.list[index].che = false
                 } else {
                     this.list[index].che = true
                 }
+                console.log(     this.list[index].che)
                 // this.list[index].che = !this.list[index].che
 
 
@@ -208,17 +218,17 @@
                     return false
                 }
                 var checou = 0;
-                for (var i = 0; i < this.list.length; i++) {
-                    if (this.list[i].che == true) {
+                for (var i = 0; i < _this.countries.length; i++) {
                         checou++;
-                        console.log(i)
-                    }
                 }
                 if (checou < 1) {
                     _this.$toast('最少选择一个车辆情况选项')
+                    return false
                 }
-                this.data.data = this.list;
-                axios.post('/index/examcar/WhosecarAdd', this.data).then(res => {
+                // return false
+                _this.data.data = _this.countries;
+                axios.post('/index/examcar/WhosecarAdd', _this.data).then(res => {
+                    console.log(res)
                     _this.$toast(res.data.msg);
                     setTimeout(window.location.href = '/index/user/whosecar', 500)
                 })

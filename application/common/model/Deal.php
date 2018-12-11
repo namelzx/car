@@ -4,7 +4,7 @@ namespace app\common\model;
 
 use think\Model;
 
-class deal extends BaseModel
+class Deal extends BaseModel
 {
 
  	public function getdeallist(){

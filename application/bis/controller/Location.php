@@ -3,21 +3,23 @@
 namespace app\bis\controller;
 
 
-class location extends Base
+class Location extends Base
 {
 
 
     public function index()
     {
         // 获取一级城市
-        $bisid = $this->getlogoinuser()->bis_id;
+        $bis=session('bis_id');
+        $bisid = $bis;
         $Bislocation = model('Bislocation')->getlocationlist($bisid);
         $this->assign('Bislocation', $Bislocation);
         return view();
+
     }
     public function add()
     {
-        $bisid = $this->getlogoinuser()->bis_id;
+        $bisid = session('bis_id')  ;
         if (request()->isPost()) {
 
             $data = input('post.');
@@ -67,9 +69,8 @@ class location extends Base
 
     public function status()
     {
-        $data = input('get.');
+        $data = input('param.');
 
-        // print_r($data);
 
         //
         $locationdata = model('bislocation')->save(['status' => $data['status']], ['id' => $data['id']]);

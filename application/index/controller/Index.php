@@ -23,14 +23,12 @@ class Index extends Base
     public function indexdata()
     {
         $City = City::all();
-        $Banner = Featured::all();
+        $Banner = Featured::where('status',1)->select();
         return json(['city' => $City, 'banner' => $Banner]);
     }
 
     public function maintenance()
     {
-
-
         return view();
     }
 

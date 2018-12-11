@@ -19,7 +19,7 @@ class Maintenance extends Controller
         $data = input('param.');
         if (!empty($data['category_id'])) {
 
-            $category = \app\common\model\category::all();
+            $category = \app\common\model\Category::all();
             $assign = [
                 'category' => $category
             ];
@@ -31,7 +31,7 @@ class Maintenance extends Controller
             $this->assign($assign);
             return view();
         } else {
-            $category = \app\common\model\category::all();
+            $category = \app\common\model\Category::all();
             $assign = [
                 'category' => $category
             ];
@@ -48,7 +48,7 @@ class Maintenance extends Controller
 
     public function add()
     {
-        $res = \app\common\model\category::all();
+        $res = \app\common\model\Category::all();
         $assign = [
             'res' => $res
         ];

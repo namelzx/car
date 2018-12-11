@@ -13,13 +13,13 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => '127.0.0.1',
+    'hostname'        => '39.108.101.229',
     // 数据库名
-    'database'        => 'czz',
+    'database'        => 'czz_10huisp_com',
     // 用户名
-    'username'        => 'root',
+    'username'        => 'czz_10huisp_com',
     // 密码
-    'password'        => '',
+    'password'        => 'YMkz32pC3y',
     // 端口
     'hostport'        => '',
     // 连接dsn

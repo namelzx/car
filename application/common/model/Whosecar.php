@@ -26,10 +26,8 @@ class Whosecar extends BisModels
 
     public static function GetWhOrderByList($data)
     {
-        $res = self::with('items')->where('user_id', $data['user_id'])->paginate($data['limit'], false, ['query' => $data['page'],]);;
+        $res = self::with('items')->where('user_id', $data['user_id'])->order('id desc')->paginate($data['limit'], false, ['query' => $data['page'],]);;
         return $res;
     }
-
-
 
 }

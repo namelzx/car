@@ -21,14 +21,10 @@ class city extends Controller
             $this->error('ID不合法');
         }
         $citys = $this->obj->getNormalCitysByParentId($id);
-
-
         if (!$citys) {
             return show(0, '失败', $citys);
         } else {
             return show(1, '成功', $citys);
         }
-
-        // return show(1,$id,$citys);
     }
 }

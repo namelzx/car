@@ -1,10 +1,10 @@
-<?php /*a:3:{s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/infor.html";i:1543288940;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:3:{s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/infor.html";i:1544444689;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>保险询价下单</title>
     <meta name="renderer" content="webkit">
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -317,7 +317,7 @@
                 this.temp.companyname = Gc.companyname
 
                 if (this.temp.ShenFenzhengF == "" || this.temp.ShenFenzhengZ == "" || this.temp.JiaShiBenZ == "" || this.temp.JiaShiBenF == "") {
-                    _this.$toast('请检查证件是否t提交');
+                    _this.$toast('请检查证件是否提交');
                     return false
                 }
                 if (this.temp.name == "" || this.temp.phone == "") {

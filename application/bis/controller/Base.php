@@ -1,6 +1,6 @@
 <?php
 
-namespace app\bis\controller;
+namespace app\bis\Controller;
 
 use think\Controller;
 
@@ -10,13 +10,11 @@ class Base extends Controller
 
     public function _initialize()
     {
-
+        parent::__construct();
         $islogin = $this->islogin();
         if (!$islogin) {
             return $this->redirect(url('login/index'));
         }
-
-        // 判断用户是否登录
     }
 
     public function islogin()

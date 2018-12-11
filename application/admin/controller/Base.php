@@ -2,14 +2,17 @@
 
 namespace app\admin\controller;
 
-use Symfony\Component\DomCrawler\Tests\Field\InputFormFieldTest;
 use think\Controller;
 
 class Base extends Controller
 {
 
-    public function _initialize()
+    public function __construct()
     {
+        parent::__construct();
+        /*
+         * 判断用户是否登录
+         */
         if (!session('aid'))
         {
             return $this->error('请先登录',url('admin/login'));

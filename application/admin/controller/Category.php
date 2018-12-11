@@ -2,10 +2,10 @@
 
 namespace app\admin\controller;
 
-use app\common\model\category as categoryModel;
+use app\common\model\Category as categoryModel;
 use think\Request;
 
-class category extends Base
+class Category extends Base
 {
     /**
      * 显示资源列表

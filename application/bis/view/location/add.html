@@ -3,12 +3,12 @@
 {load href="__STATIC__/admin/layui/css/layui.css" /}
 <div class="cl pd-5 bg-1 bk-gray mt-20"> 添加分店信息</div>
 <article class="page-container" id="app">
-    <form class="form form-horizontal" >
+    <form class="form form-horizontal">
         基本信息：
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分店名称：</label>
             <div class="formControls col-xs-8 col-sm-3">
-                <input type="text" class="input-text" value="" placeholder=""  v-model="temp.name">
+                <input type="text" class="input-text" value="" placeholder="" v-model="temp.name">
             </div>
         </div>
 
@@ -51,23 +51,22 @@
         </div>
 
 
-
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">地址：</label>
             <div class="formControls col-xs-8 col-sm-3">
-                <input type="text" class="input-text" value="" placeholder="" v-model="temp.address" >
+                <input type="text" class="input-text" value="" placeholder="" v-model="temp.address">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">电话:</label>
             <div class="formControls col-xs-8 col-sm-3">
-                <input type="text" class="input-text" value="" placeholder=""  v-model="temp.tel"  >
+                <input type="text" class="input-text" value="" placeholder="" v-model="temp.tel">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">联系人:</label>
             <div class="formControls col-xs-8 col-sm-3">
-                <input type="text" class="input-text" value="" placeholder="" v-model="temp.contact"   >
+                <input type="text" class="input-text" value="" placeholder="" v-model="temp.contact">
             </div>
         </div>
 
@@ -134,9 +133,10 @@
         },
         methods: {
             GetBrandByList() {
-                axios.get('/index/index/indexdata/').then(res => {
+                console.log(11)
+                axios.get('/bis/index/indexdata/').then(res => {
+                    console.log(11)
                     this.area = res.data.city
-                    this.banner = res.data.banner
                 })
             },
             handemanu(index, mid) {
@@ -198,8 +198,8 @@
                 this.temp.logo = logo;
                 console.log(this.temp)
                 axios.post('/bis/location/add', this.temp).then(res => {
-                    console.log(res
-                    )
+                    alert('申请成功');
+                    window.location.href = "/bis/location/index"
                 })
             }
         }

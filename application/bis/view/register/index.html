@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">营业执照：</label>
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>营业执照：</label>
             <div class="formControls col-xs-8 col-sm-9">
 
 
@@ -63,10 +63,7 @@
                     <div class="layui-upload-list">
                         <img class="layui-upload-img" id="file_upload2">
                         <input id="licenece_logo" name="licenece_logo" type="hidden" multiple="true" value="">
-                        <!--<input type="text" style="display: none" class="form-control" name="licenece_logo"-->
-                        <!--id="licenece_logo">-->
 
-                        <!--<p id="demoText"></p>-->
                     </div>
                 </div>
             </div>
@@ -90,13 +87,13 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">法人:</label>
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>法人:</label>
             <div class="formControls col-xs-8 col-sm-3">
                 <input type="text" class="input-text" value="" placeholder="" name="faren" v-model="temp.faren">
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">法人电话:</label>
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>法人电话:</label>
             <div class="formControls col-xs-8 col-sm-3">
                 <input type="text" class="input-text" value="" placeholder="" name="faren_tel" v-model="temp.faren_tel">
             </div>
@@ -122,11 +119,11 @@
         </div>
 
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">商户地址：</label>
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商户地址：</label>
             <div class="formControls col-xs-8 col-sm-3">
                 <input type="text" class="input-text" value="" placeholder="" name="address" v-model="temp.address">
             </div>
-            <a class="btn btn-default radius ml-10 maptag">标注</a>
+            <!--<a class="btn btn-default radius ml-10 maptag">标注</a>-->
         </div>
 
         账号信息：
@@ -197,15 +194,15 @@
             city: [],//所在城市
         },
         created() {
-
+            console.log('11')
             this.GetBrandByList();
 
         },
         methods: {
             GetBrandByList() {
-                axios.get('/index/index/indexdata/').then(res => {
+                axios.get('/bis/index/indexdata/').then(res => {
+                console.log(res)
                     this.area = res.data.city
-                    this.banner = res.data.banner
                 })
             },
             handemanu(index, mid) {
@@ -269,8 +266,8 @@
                 this.temp.logo = logo;
                 this.temp.licenece_logo = licenece_logo;
                 axios.post('/bis/register/add', this.temp).then(res => {
-                    console.log(res
-                    )
+                    alert('申请成功，等待后台审核')
+                    window.location.href = "/bis/login/index"
                 })
             }
         }

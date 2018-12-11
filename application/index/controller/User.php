@@ -19,6 +19,7 @@ class User extends Controller
 {
     public function index()
     {
+        $this->assign('user', session('czj_user'));
         return view();
     }
 

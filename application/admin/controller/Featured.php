@@ -1,9 +1,9 @@
 <?php
 
 namespace app\admin\controller;
-use  app\common\model\featured as featuredModel;
+use  app\common\model\Featured as featuredModel;
 
-class featured extends Base
+class Featured extends Base
 {
 
     private $obj;

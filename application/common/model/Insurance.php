@@ -14,7 +14,7 @@ class Insurance extends BisModels
 
     public function items()
     {
-        return $this->hasMany('insurancechild', 'insurance_id');
+        return $this->hasMany('InsuranceChild', 'insurance_id');
     }
 
     /*

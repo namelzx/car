@@ -8,7 +8,7 @@ use think\Request;
 use app\common\model\User as us;
 
 
-class user extends Base
+class User extends Base
 {
     private $obj;
 

@@ -32,11 +32,11 @@ class Examcar extends Base
         $whosecar_id = Whosecar::PostDataByAdd($data['temp']);
         $arr = [];
         foreach ($data['data'] as $v => $item) {
-            if ($data['data'][$v]['che']) {
-                $arr[$v]['name'] = $data['data'][$v]['name'];
+
+                $arr[$v]['name'] = $data['data'][$v];
                 $arr[$v]['whosecar_id'] = $whosecar_id;
-            }
         }
+
         $res = db('whosecar_child')->insertAll($arr);
         return json(msg(200, $res, '预约成功'));
     }

@@ -4,7 +4,7 @@ namespace app\common\model;
 
 use think\Model;
 
-class featured	 extends BaseModel
+class Featured	 extends BaseModel
 {
 
  	// 获取入轮播列表

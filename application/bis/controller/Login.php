@@ -16,20 +16,20 @@ class login extends Controller
             if (!$res || $res->status != 1) {
                 $this->error('该用户不存在，或者用户尚未审核通过');
             }
-            dump(md5($data['password'] . $res->code));
             if ($res->password != md5($data['password'] . $res->code)) {
                 $this->error('密码不正确');
             }
             model('bisaccount')->updatebyId(['last_login_ip' => time()], $res->id);
             // 保存登录用户信息
             // bis是作用域只可以在bis模块下使用
-            session('bisaccount', $res, 'bis');
+            session('bis_id', $res->bis_id);
+//            dump(md5($data['password'] . $res->code));
             return $this->success("登录成功", url('index/index'));
         } else {
             // 获取session
-            $account = session('bisaccount', '', 'bis');
-            print_r($account);
-            if ($account && $account->id) {
+            $bis = session('bis_id');
+            print_r($bis);
+            if ($bis) {
                 return $this->redirect(url('index/index'));
             }
             return view();
@@ -40,9 +40,8 @@ class login extends Controller
 
     public function logout()
     {
-
         // 清楚session
-        session(null, 'bis');
+        session('bis_id',null);
         return $this->redirect(url('login/index'));
     }
 

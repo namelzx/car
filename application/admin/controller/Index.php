@@ -1,22 +1,23 @@
 <?php
-namespace app\admin\controller;
-use think\Controller;
 
-class Index extends Controller
+namespace app\admin\controller;
+
+class Index extends Base
 {
     public function index()
     {
-       // return $this->fetch();
-       return view();
+        return view();
     }
-    public function welcome(){
 
+    public function welcome()
+    {
 
-      echo "车之界主后台";
-    
+        echo "车之界主后台";
+
     }
-    public function map(){
-      return   \Map::staticimage("北京昌平");
 
+    public function map()
+    {
+        return \Map::staticimage("北京昌平");
     }
 }

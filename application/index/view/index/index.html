@@ -284,18 +284,20 @@
                     url: '/index/examcar/usedcar'
                 },
             ],
+            // banner:[],
             city: [],
             cityname: getCookie('city_name'),
             banner: [],
         },
         created() {
             this.GetCityByList();
-
+            if (this.cityname == null) {
+                this.vv = true
+            }
         },
         methods: {
             handeCity() {
                 this.vv = true
-
             },
             GetCityByList() {
                 axios.get('/index/index/indexdata/').then(res => {

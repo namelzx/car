@@ -25,7 +25,7 @@ class Bislocation extends BaseModel
 
     }
 
-    public function getNormallocationbyid($bisid)
+    public static function getNormallocationbyid($bisid)
     {
         $data = [
             'bis_id' => $bisid,
@@ -34,8 +34,7 @@ class Bislocation extends BaseModel
         $order = [
             'id' => 'desc',
         ];
-        $res = $this->where($data)->order($order)->select();
-//	 	echo $this->getlastSql();
+        $res = self::where($data)->order($order)->select();
         return $res;
     }
 

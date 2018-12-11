@@ -13,7 +13,7 @@ class MainYear extends BisModels
 {
     public function items()
     {
-        return $this->hasMany('mainchild', 'year_id');
+        return $this->hasMany('MainChild', 'year_id');
     }
 
     public static function GetDataByList()

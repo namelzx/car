@@ -4,7 +4,7 @@ namespace app\common\model;
 
 use think\Model;
 
-class category extends Model
+class Category extends Model
 {
     // 添加
     protected $autoWriteTimestamp = true; //默认设置当前时间 给time字段

@@ -1,4 +1,4 @@
-<?php /*a:3:{s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/user/whosecar.html";i:1543289052;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:3:{s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/user/whosecar.html";i:1544430701;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +55,6 @@
         .content {
             margin: 10px;
         }
-
         .van-cell {
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
@@ -90,7 +89,7 @@
                                     <div class="top-l"><span><i class="iconfont icon-arrow-left"></i>&nbsp;返回</span>
                                     </div>
                                 </a>
-                                <div class="top-c">保养订单</div>
+                                <div class="top-c">审车订单</div>
                             </div>
                         </header>
                         <div style="height:51px;">
@@ -98,7 +97,7 @@
 
                         </div>
                         <!--repeat69053984852:start--><!--repeat69053984852:end-->
-                        <div class="mn-nolist" v-show="show">还没有提交保养订单</div>
+                        <div class="mn-nolist" v-show="show">还没有提交审车订单</div>
                         <!--ms-if-->
                         <div class="ht60">
 

@@ -4,7 +4,7 @@ namespace app\common\model;
 
 use think\Model;
 
-class bisaccount extends BaseModel
+class Bisaccount extends BaseModel
 {
 
     public function updatebyId($data,$id){

@@ -1,4 +1,4 @@
-<?php /*a:4:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/index/index.html";i:1543127405;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/menu.html";i:1543283252;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
+<?php /*a:4:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/index/index.html";i:1543329052;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:83:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/menu.html";i:1544429135;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
 ﻿<!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -51,7 +51,7 @@
 						<ul class="dropDown-menu menu radius box-shadow">
 							<li><a href="#">个人信息</a></li>
 							<li><a href="#">切换账户</a></li>
-							<li><a href="#">退出</a></li>
+							<li><a href="<?php echo url('admin/logout'); ?>">退出</a></li>
 						</ul>
 					</li>
 					<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
@@ -105,7 +105,7 @@
                 <ul>
                     <li><a _href="<?php echo url('bis/index'); ?>" data-title="商家列表" href="javascript:void(0)">商户列表</a></li>
                     <li><a _href="<?php echo url('bis/apply'); ?>" data-title="商家入驻申请" href="javascript:void(0)">商家入驻申请</a></li>
-                    <li><a _href="<?php echo url('bis/dellist'); ?>" data-title="删除的商户" href="javascript:void(0)">已拒绝商户</a></li>
+                    <!--<li><a _href="<?php echo url('bis/dellist'); ?>" data-title="删除的商户" href="javascript:void(0)">已拒绝商户</a></li>-->
                 </ul>
             </dd>
         </dl>
@@ -125,9 +125,9 @@
             <dt><i class="Hui-iconfont">&#xe620;</i> 估价预约管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a _href="<?php echo url('deal/usedcar',['status'=>0]); ?>" data-title="未审核二手机估价" href="javascript:void(0)">未审核二手机估价</a>
+                    <li><a _href="<?php echo url('deal/usedcar',['status'=>0]); ?>" data-title="未审核二手机估价" href="javascript:void(0)">未审核二手车估价</a>
                     </li>
-                    <li><a _href="<?php echo url('deal/usedcar',['status'=>1]); ?>" data-title="审核二手机估价" href="javascript:void(0)">未审核二手机估价</a>
+                    <li><a _href="<?php echo url('deal/usedcar',['status'=>1]); ?>" data-title="审核二手机估价" href="javascript:void(0)">已审核二手车估价</a>
                     </li>
 
                 </ul>
@@ -138,10 +138,10 @@
             <dd>
                 <ul>
                     <li><a _href="<?php echo url('deal/insurance',['status'=>0]); ?>" data-title="未审核保险预约"
-                           href="javascript:void(0)">未审核二手机估价</a>
+                           href="javascript:void(0)">未审核保险预约</a>
                     </li>
-                    <li><a _href="<?php echo url('deal/insurance',['status'=>1]); ?>" data-title="已审核二手机估价"
-                           href="javascript:void(0)">未审核二手机估价</a>
+                    <li><a _href="<?php echo url('deal/insurance',['status'=>1]); ?>" data-title="已审核保险预约"
+                           href="javascript:void(0)">已审核保险预约</a>
                     </li>
 
                 </ul>
@@ -170,16 +170,16 @@
             </dd>
         </dl>
 
-        <dl id="menu-member">
-            <dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a _href="<?php echo url('user/index'); ?>" data-title="会员列表" href="javascript:;">会员列表</a></li>
-                    <li><a _href="<?php echo url('user/deleindex'); ?>" data-title="删除的会员" href="javascript:;">删除的会员</a></li>
+        <!--<dl id="menu-member">-->
+            <!--<dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>-->
+            <!--<dd>-->
+                <!--<ul>-->
+                    <!--<li><a _href="<?php echo url('user/index'); ?>" data-title="会员列表" href="javascript:;">会员列表</a></li>-->
+                    <!--<li><a _href="<?php echo url('user/deleindex'); ?>" data-title="删除的会员" href="javascript:;">删除的会员</a></li>-->
 
-                </ul>
-            </dd>
-        </dl>
+                <!--</ul>-->
+            <!--</dd>-->
+        <!--</dl>-->
         <!--<dl id="menu-product">-->
         <!--<dt><i class="Hui-iconfont">&#xe620;</i> 订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>-->
         <!--<dd>-->

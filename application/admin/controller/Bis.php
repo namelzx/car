@@ -3,8 +3,9 @@
 namespace app\admin\controller;
 
 use app\common\model\Bis as BisModel;
+use app\common\model\Bisaccount;
 
-class bis extends Base
+class Bis extends Base
 {
     /**
      * 显示资源列表
@@ -33,7 +34,7 @@ class bis extends Base
     public function dellist()
     {
 
-        $res =BisModel::getbisbylist(-1);
+        $res = BisModel::getbisbylist(-1);
 
         $this->assign('res', $res);
 
@@ -67,9 +68,8 @@ class bis extends Base
         }
 
 
-
         $bisdata = model('bis')->get($id);
-        $citys = model('city')->where('id',$bisdata['city_id'])->find();
+        $citys = model('city')->where('id', $bisdata['city_id'])->find();
         $locationdata = model('bislocation')->get(['bis_id' => $id, 'is_main' => 1]);
         $accountdata = model('bisaccount')->get(['bis_id' => $id, 'is_main' => 1]);
         $this->assign('citys', $citys);
@@ -86,7 +86,6 @@ class bis extends Base
     {
         $data = input('get.');
 
-        // print_r($data);
 
         //
         $res = $this->obj->save(['status' => $data['status']], ['id' => $data['id']]);
@@ -105,12 +104,12 @@ class bis extends Base
     public function pas()
     {
 
-        $id = input('get.id');
+        $id = input('param.');
 
         $data['password'] = 123456;
         $data['code'] = mt_rand(100, 1000000);
         $data['password'] = md5($data['password'] . $data['code']);
-        $res = model('bisaccount')->update($data, ['id' => $id]);
+        $res = db('bisaccount')->where(['bis_id' => $id['id']])->data($data)->update();
         if ($res) {
             return "成功";
         } else {
@@ -118,13 +117,14 @@ class bis extends Base
         }
 
     }
+
     /*
      *修改用户信息
      */
     public function Bisstatus()
     {
 
-        $data=input('param.');
+        $data = input('param.');
         $res = BisModel::update(['status' => $data['status']], ['id' => $data['id']]);
 
         if ($res) {

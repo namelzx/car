@@ -8,7 +8,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>车型名称：</label>
             <div class="formControls col-xs-8 col-sm-3">
-                <input type="text" v-model="temp.models_name" class="input-text" value="" placeholder="" id="" >
+                <input type="text" v-model="temp.models_name" class="input-text" value="" placeholder="" id="">
             </div>
         </div>
         <div class="row cl">
@@ -134,7 +134,7 @@
             </div>
         </div>
         <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-            <a class="btn btn-primary radius"  @click="handePostDeal" ><i class="Hui-iconfont">&#xe632;</i>
+            <a class="btn btn-primary radius" @click="handePostDeal"><i class="Hui-iconfont">&#xe632;</i>
                 提交
             </a>
         </div>
@@ -183,7 +183,7 @@
             temp: {
                 location_ids: [],
                 models_name: undefined,
-                models_id:undefined
+                models_id: undefined
             },
 
             bis: [],
@@ -283,18 +283,20 @@
             }
             ,
             chooseMedicine(v) {
+
                 axios.get('/index/maintenance/carmodels', {
                     params: {
                         id: this.mid
                     }
                 }).then(res => {
-                    console.log(res)
+
                     this.carmodels = res.data
                 })
             }
             ,
             handecurrent() {
-                console.log(this.bindex);
+                this.temp.models_name = this.carbrand[this.bindex].brand
+
                 this.manufactorin = null
                 this.current = this.bindex
                 this.manufactor = this.carbrand[this.bindex].course
@@ -311,10 +313,11 @@
             //提交数据
             handePostDeal() {
                 console.log(this.temp)
-                this.temp.models_id=this.car_id;
+                this.temp.models_id = this.car_id;
                 console.log(this.categorytow)
                 axios.post('/bis/deal/add', {info: this.temp, serverinfo: this.categorytow}).then(res => {
-                    // window.location.href="/bis/deal/index"
+                    alert('提交成功。返回列表页');
+                    window.location.href = "/bis/deal/index"
                 })
             },
         }

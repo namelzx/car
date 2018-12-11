@@ -1,9 +1,9 @@
-<?php /*a:3:{s:87:"/Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/usedcar.html";i:1543288997;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:3:{s:87:"/Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/usedcar.html";i:1544446075;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>二手车估价</title>
     <meta name="renderer" content="webkit">
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -43,6 +43,20 @@
     <link rel="stylesheet" href="/static/index/css/icheck-bootstrap.css">
 </head>
 <body>
+<style>
+    .van-icon {
+        font-size: 25px;
+        margin-top: 16px;
+    }
+
+    .borders img {
+        width: 58px;
+        height: 58px;
+    }
+    .insureinfor .mains .right{
+        margin-top: 20px;
+    }
+</style>
 
 <div class="content" id="app" v-clock>
     <div>
@@ -75,7 +89,7 @@
 
                         <div class="title relative border-t">
                             <div class="absolute-l"><i class="iconfont icon-chexing"></i> 当前车型：</div>
-                            <div class="right relative">
+                            <div class="right ">
                                 <div class=" chexing">
                                     <div class="chexingww">{{temp.car_name}}</div>
                                 </div>
@@ -86,7 +100,6 @@
                                 </a>
                             </div>
                         </div>
-                        <!--ms-if-->
                         <div class="title relative border-t">
                             <div class="absolute-l"><i class="iconfont icon-licheng1"></i> 行驶里程：</div>
                             <div class="right relative">
@@ -96,6 +109,9 @@
                                 </div>
                             </div>
                         </div>
+
+
+
                         <div class="title relative border-t">
                             <div class="absolute-l"><i class="iconfont icon-icon"></i> 变速箱：</div>
                             <div class="right relative">
@@ -128,7 +144,7 @@
                             <div class="right">
                                 <select v-model="temp.institutions" id="" class="co333">
                                     <option value="">请选择评估机构</option>
-                                    <option value="龙城好车">龙城好车</option>
+                                    <option value="4S店">4S店</option>
                                 </select>
                             </div>
 
@@ -153,6 +169,51 @@
 
                     </div>
                 </div>
+                <div class="insureinfor">
+                    <div class="mains">
+                <div class="title relative border-t">
+
+                    <div class="right">
+                        <!--<div class="font-s12 mr_10">-->
+                        <!--<input type="file" id="choose" class="hide" accept="image/*">-->
+                        <!--<div class="fl text-c mr_20" v-for="(items,index) in list ">-->
+                        <!--<div class="borders relative " data-role="1">-->
+                        <!--<van-uploader :after-read="add_img" >-->
+                        <!--<van-icon name="photograph"></van-icon>-->
+                        <!--</van-uploader>-->
+                        <!--</div>-->
+                        <!--<div>{{items.name}}</div>-->
+                        <!--</div>-->
+                        <!--<div style="clear:both;"></div>-->
+                        <!--</div>-->
+
+                        <div class="font-s12 mr_10">
+                            <div class="fl text-c mr_20">
+                                <div class="borders relative " data-role="1">
+                                    <img :src="temp.appearance" v-show="!ShenFenzhengshow">
+                                    <van-uploader :after-read="add_SFZ" v-show="ShenFenzhengshow">
+                                        <van-icon name="photograph"></van-icon>
+                                    </van-uploader>
+                                </div>
+                                <div>外观照</div>
+                            </div>
+                            <div class="fl text-c">
+                                <div class="borders relative" data-role="2">
+                                    <img :src="temp.interior" v-show="!ShenFenzhengfshow">
+                                    <van-uploader :after-read="add_SFF" v-show="ShenFenzhengfshow">
+                                        <van-icon name="photograph"></van-icon>
+                                    </van-uploader>
+                                </div>
+                                <div>内饰照</div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+
+                    </div>
+                </div>
+                    </div>
+                </div>
+
                 <div class="row">
                     <a @click="PostDataAdd">
                         <div class="footerbtn">
@@ -182,6 +243,8 @@
         el: "#app",
         data() {
             return {
+                ShenFenzhengshow:true,
+                ShenFenzhengfshow:true,
                 temp: {
                     car_name: getCookie('usedcar_name'),//汽车名称
                     mileage: undefined,//行驶里程
@@ -194,14 +257,60 @@
             }
         },
         created() {
-            console.log(getCookie('usedcar_name'));
+
+            console.log();
+            if(getCookie('usedcar_name')==null){
+                this.temp.car_name="选择车型"
+            }
         },
         methods: {
+            add_SFZ(event) {
+                var _this = this;
+                _this.$toast.loading({
+                    duration: 0,
+                    mask: true,
+                    message: '上传中...'
+                });
+                let param = new FormData(); //创建form对象
+                param.append("file", event.file, event.file.name); //通过append向form对象添加数据
+                axios.post('/index/Examcar/upload', param).then(res => {
+                    _this.$toast.clear();
+                    _this.temp.appearance = res.data.path
+                    _this.ShenFenzhengshow = false
+                    // console.log(res)
+                })
+
+            },
+            add_SFF(event) {
+                var _this = this;
+                _this.$toast.loading({
+                    duration: 0,
+                    mask: true,
+                    message: '上传中...'
+                });
+                let param = new FormData(); //创建form对象
+                param.append("file", event.file, event.file.name); //通过append向form对象添加数据
+                axios.post('/index/Examcar/upload', param).then(res => {
+                    _this.$toast.clear();
+                    _this.temp.interior = res.data.path
+                    _this.ShenFenzhengfshow = false
+                    // console.log(res)
+                })
+
+            },
             PostDataAdd() {
                 var data = this.temp;
                 var _this = this;
                 if (data.car_name.length < 1 || data.mileage == undefined || data.transmission.length < 1 || data.color.length < 1 || data.institutions.length < 1 || data.name.length < 1 || data.phone.length < 1) {
                     _this.$toast('请检查是否填写相关信息');
+                    return false;
+                }
+                if(data.interior.length<1){
+                    _this.$toast('请检查内饰照是否上传');
+                    return false;
+                }
+                if(data.appearance.length<1){
+                    _this.$toast('请检查外观照是否上传');
                     return false;
                 }
                 axios.post('/index/examcar/PostUsedcarByData',data).then(res=>{

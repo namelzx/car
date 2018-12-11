@@ -4,7 +4,7 @@ namespace app\bis\controller;
 
 use think\Controller;
 
-class register extends Controller
+class Register extends Controller
 {
 
 
@@ -29,12 +29,11 @@ class register extends Controller
         $data = input('post.');
         // 获取经纬度
         $langlat = \Map::getLngLat($data['address']);
-        $accountname = Model('BisAccount')->get(['username' => $data['username']]);
+
+        $accountname = db('Bisaccount')->get(['username' => $data['username']]);
         if ($accountname) {
             $this->error('该用户存在，请重新分配');
         }
-
-
         // 商户基本信息入库
         $bisData = [
             'name' => $data['name'],
@@ -51,11 +50,9 @@ class register extends Controller
             'email' => $data['email'],
             'status' => 0, //申请状态中
         ];
-        $bisid = model('Bis')->add($bisData);
+        $bisid = db('Bis')->insertGetId($bisData);
 
-        // 总店信息
-
-// 商户总店基本信息
+        // 商户总店基本信息
         $locationData = [
             'bis_id' => $bisid,
             'name' => $data['name'],
@@ -71,7 +68,7 @@ class register extends Controller
             'ypoint' => $langlat['result']['location']['lat'],
 
         ];
-        $locationid = model('Bis_location')->add($locationData);
+        db('bislocation')->insert($locationData);
 
         // 账户相关检验
         // 自动生成 密码的加盐字符串
@@ -86,7 +83,7 @@ class register extends Controller
 
         ];
 
-        $accountID = model('bisaccount')->add($accounData);
+        $accountID = db('bisaccount')->insert($accounData);
         if (!$accountID) {
             $this->error('申请失败');
         }

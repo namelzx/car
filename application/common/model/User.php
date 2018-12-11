@@ -4,7 +4,7 @@ namespace app\common\model;
 
 use think\Model;
 
-class User extends baseModel
+class User extends BaseModel
 {
 
     public function add($data = [])

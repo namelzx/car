@@ -1,4 +1,4 @@
-<?php /*a:3:{s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/user/index.html";i:1543286353;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/footer.html";i:1543286325;}*/ ?>
+<?php /*a:3:{s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/user/index.html";i:1543312987;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/footer.html";i:1543326325;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +59,7 @@
                                      alt="" width="100%">
                             </div>
                             <div class="us-user-info mt_10">
-                                J-R梁泽祥<br><span>18577610926</span><br>
+                                <?php echo htmlentities($user['username']); ?><br><span><?php echo htmlentities($user['mobile']); ?></span><br>
                             </div>
 
                         </div>
@@ -95,14 +95,15 @@
                             </div>
                         </a>
                         <!--<div class="row relative bg_white border-b mt_5">-->
-                            <!--<i class="iconfont icon-huodong ml_15 font-s20  absolute-l mt_2"></i> <span class="ml_45">我的优惠券</span>-->
-                            <!--<i class="iconfont icon-rightArrow-copy fr mr_15 font-s15 pt_2 absolute-r"></i>-->
+                        <!--<i class="iconfont icon-huodong ml_15 font-s20  absolute-l mt_2"></i> <span class="ml_45">我的优惠券</span>-->
+                        <!--<i class="iconfont icon-rightArrow-copy fr mr_15 font-s15 pt_2 absolute-r"></i>-->
                         <!--</div>-->
-                     <!---->
+                        <!---->
                         <a href="<?php echo url('index/user/login'); ?>">
-                        <div class="row relative bg_white border-b">
-                            <i class="iconfont icon-zhuxiao ml_15 font-s20 absolute-l mt_2"></i> <span class="ml_45">安全退出</span>
-                        </div>
+                            <div class="row relative bg_white border-b">
+                                <i class="iconfont icon-zhuxiao ml_15 font-s20 absolute-l mt_2"></i> <span
+                                    class="ml_45">安全退出</span>
+                            </div>
                         </a>
                     </div>
                     <div class="ht60"></div>
@@ -111,7 +112,7 @@
         <figure class="mt_3">
             <i class="iconfont icon-shouye font-s22"></i>
         </figure>
-        <span>返回首页</span>
+        <span>首页</span>
     </a>
     <a href="<?php echo url('index/servicer/index'); ?>" class="us-nav-item ">
         <figure class="mt_3">

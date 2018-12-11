@@ -1,4 +1,4 @@
-<?php /*a:4:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/index/view/index/index.html";i:1543247889;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/footer.html";i:1543286325;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:4:{s:83:"/Users/jon/Documents/项目汇总/车自主/application/index/view/index/index.html";i:1543469560;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:85:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/footer.html";i:1543326325;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -227,7 +227,7 @@
         <figure class="mt_3">
             <i class="iconfont icon-shouye font-s22"></i>
         </figure>
-        <span>返回首页</span>
+        <span>首页</span>
     </a>
     <a href="<?php echo url('index/servicer/index'); ?>" class="us-nav-item ">
         <figure class="mt_3">
@@ -351,18 +351,20 @@
                     url: '/index/examcar/usedcar'
                 },
             ],
+            // banner:[],
             city: [],
             cityname: getCookie('city_name'),
             banner: [],
         },
         created() {
             this.GetCityByList();
-
+            if (this.cityname == null) {
+                this.vv = true
+            }
         },
         methods: {
             handeCity() {
                 this.vv = true
-
             },
             GetCityByList() {
                 axios.get('/index/index/indexdata/').then(res => {

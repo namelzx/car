@@ -1,9 +1,9 @@
-<?php /*a:3:{s:86:"/Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/insure.html";i:1543053522;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
+<?php /*a:3:{s:86:"/Users/jon/Documents/项目汇总/车自主/application/index/view/examcar/insure.html";i:1544444643;s:82:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/css.html";i:1543286450;s:81:"/Users/jon/Documents/项目汇总/车自主/application/index/view/public/js.html";i:1541081189;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>保险询价</title>
     <meta name="renderer" content="webkit">
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -107,7 +107,7 @@
 
 </style>
 
-<div id="app">
+<div id="app"  v-clock>
     <div class="header"></div>
     <div class="content">
         <div>
@@ -148,13 +148,7 @@
                                 </div>
 
                             </div>
-                            <div class="title relative">
-                                <div class="ml_10  border-t">
-                                    <div class="absolute-l ml_10"><i
-                                            class="iconfont icon-xiugaixianzhong font-s15 co6b"></i> 保险种类
-                                    </div>
-                                </div>
-                            </div>
+
                             <!--repeat41334591343:start-->
                             <div v-for="(items,index) in list ">
                                 <div class="item ml_25">{{items.name}}</div>
@@ -166,7 +160,7 @@
                                                    @click="handelche(index,dindex,dd.name)"
                                                    :name="dd.name"
                                                    :value="dd.name">
-                                            <label :for="dd.name"> </label>
+                                            <label :for="dd.name">  </label>
                                         </div>
                                         <span class="itemname">{{dd.name}}</span>
                                         <div class="itemcontent ml_35 relative" v-for="des in dd.desc">
@@ -179,9 +173,9 @@
                                                         <input type="radio" :checked="itemli.che"
                                                                @click="handelrad(index,dindex,dd.name,itemli.name)"
                                                                :id=" itemli.name"
-                                                               :name="dd.name"
+
                                                                :value="itemli.name">
-                                                        <label :for="itemli.name"> {{itemli.name}}</label>
+                                                        <label :for="itemli.name"> {{itemli.name}} </label>
                                                     </div>
 
                                                 </div><!--repeat613773294933-->
@@ -191,7 +185,9 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
+
                         <div class="row">
                             <a @click="handelpost">
                                 <div class="footerbtn">
@@ -223,8 +219,9 @@
         el: "#app",
         data() {
             return {
+                countries: [],
                 companyname: "",
-                datapost: [],
+                datapost: [{name: '交通事故责任强制保险'},{name: '车船税'},],
                 temp: {
                     companyname: "",
                     data: "",
@@ -238,8 +235,8 @@
                 list: [
                     {
                         name: '强制保险', list: [
-                            {id: 1, name: "交通事故责任强制保险", che: false},
-                            {id: 2, name: "车船税", che: false}
+                            {id: 1, name: "交通事故责任强制保险", che: true},
+                            {id: 2, name: "车船税", che: true}
                         ]
                     }, {
                         name: '商业保险', list: [
@@ -338,7 +335,11 @@
         },
         methods: {
             handelche(index, dindex, name) {
+                var _this=this;
+              if(name==="交通事故责任强制保险"){
 
+                  return false
+              }
                 for (var i = 0; i < this.datapost.length; i++) {
                     if (this.datapost[i].name == name) {
                         this.datapost.splice(i, 1)
@@ -381,10 +382,10 @@
                 var str = JSON.stringify(_this.temp);//独享转字符串
                 setCookie('insurance', str)
 
-               console.log( getCookie('insurance'))
+                console.log(_this.datapost)
                 if( getCookie('insurance')!=null){
 
-                window.location.href = "/index/examcar/infor"
+                    window.location.href = "/index/examcar/infor"
 
                 }
 

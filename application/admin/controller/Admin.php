@@ -31,4 +31,11 @@ class Admin extends Controller
         }
         return view();
     }
+
+    public function logout()
+    {
+        // 清楚session
+        session('aid', null);
+        return $this->redirect(url('admin/admin/login'));
+    }
 }
