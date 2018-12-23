@@ -9,7 +9,6 @@
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 			<thead>
 				<tr class="text-c">
-					<th width="40"><input name="" type="checkbox" value=""></th>
 					<th width="80">ID</th>
 					<th width="100">分类</th>
 					<th width="30">排序序号</th>
@@ -21,7 +20,6 @@
 			<tbody>
 				{volist name='res' id='vo'}
 				<tr class="text-c">
-					<td><input name="" type="checkbox" value=""></td>
 					<td>{$vo.id}</td>
 					<td>{$vo.name}</td>
 					<td class="text-c listoreder"><input type="text" size="3" attr-id={$vo.id} name="listoreder" value="{$vo.listoreder}"></td>

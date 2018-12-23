@@ -1,7 +1,8 @@
 <?php
 
 namespace app\admin\controller;
-use  app\common\model\Featured as featuredModel;
+
+use app\common\model\Featured as featuredModel;
 
 class Featured extends Base
 {
@@ -21,8 +22,7 @@ class Featured extends Base
         if (!empty($stype)) {
             $sstype = $stype;
         }
-        $list =featuredModel::getfeaturedlist();
-
+        $list = featuredModel::getfeaturedlist();
         $type = config('featured.featured_type');
         $assign = [
             'list' => $list,//推荐位列表页

@@ -17,6 +17,6 @@ class Index extends Base
 
     public function welcome()
     {
-        return '车之界';
+        return '汽车之界';
     }
 }

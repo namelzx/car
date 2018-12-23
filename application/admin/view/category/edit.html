@@ -9,20 +9,20 @@
 				<input type="text" class="input-text" value="{$category->name}" placeholder="" id="name" name="name">
 			</div>
 		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<span class="select-box">
-				<select name="parent_id" class="select">
-					<option value="0">一级分类</option>
-				  {volist name="categorys" id="vo"}
-				  <!-- 如果是子级分类那么显示上级分类名称一级分类就显示一级分类 -->
-					<option value="{$vo.id}" {if condition="$category.parent_id eq $vo.id"} selected="selected"{/if}>--{$vo.name}</option>
-					{/volist}
-				</select>
-				</span>
-			</div>
-		</div>
+		<!--<div class="row cl">-->
+			<!--<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>-->
+			<!--<div class="formControls col-xs-8 col-sm-9">-->
+				<!--<span class="select-box">-->
+				<!--<select name="parent_id" class="select">-->
+					<!--<option value="0">一级分类</option>-->
+				  <!--{volist name="categorys" id="vo"}-->
+				  <!--&lt;!&ndash; 如果是子级分类那么显示上级分类名称一级分类就显示一级分类 &ndash;&gt;-->
+					<!--<option value="{$vo.id}" {if condition="$category.parent_id eq $vo.id"} selected="selected"{/if}>&#45;&#45;{$vo.name}</option>-->
+					<!--{/volist}-->
+				<!--</select>-->
+				<!--</span>-->
+			<!--</div>-->
+		<!--</div>-->
 		
 		<div class="row cl">
 		  <input type="hidden" name="id" value="{$category->id}">

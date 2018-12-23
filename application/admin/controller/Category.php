@@ -50,9 +50,11 @@ class Category extends Base
         }
 
         $data = input('post.');
+        $data['create_time']=time();
 
         if (!empty($data['id'])) {
-            return categoryModel::update($data);
+             categoryModel::update($data);
+            $this->success('更新成功');
             # code...
         }
         // $data['cname'] = $data['name'];
@@ -77,9 +79,10 @@ class Category extends Base
         if (intval($id) < 1) {
             $this->error('参数不合法');
         }
+
         // 主要是主键就可以获取
-        $category = $this->obj->get($id);
-        $categorys = $this->obj->getNormalFirstCategory();
+        $category =categoryModel::get($id);
+        $categorys =categoryModel::getNormalFirstCategory();
         $assign = [
             'categorys' => $categorys,
             'category' => $category,
@@ -130,12 +133,12 @@ class Category extends Base
 //        if (!$validate->scene('status')->check($data)) {
 //            $this->error($validate->getError());//调用validate文件下面的验证方法
 //        }
-        $res = categoryModel::update(['status' => $data['status']], ['id' => $data['id']]);
+        $res = categoryModel::where('id',$data['id'])->delete();
 
         if ($res) {
-            $this->success('更新成功');
+            $this->success('删除成功');
         } else {
-            $this->error('更新失败');
+            $this->error('删除成功');
         }
     }
 
