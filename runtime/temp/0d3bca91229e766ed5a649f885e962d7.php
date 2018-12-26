@@ -1,4 +1,4 @@
-<?php /*a:4:{s:81:"/Users/jon/Documents/项目汇总/车自主/application/bis/view/index/index.html";i:1543329045;s:83:"/Users/jon/Documents/项目汇总/车自主/application/bis/view/public/header.html";i:1542114329;s:81:"/Users/jon/Documents/项目汇总/车自主/application/bis/view/public/menu.html";i:1542114275;s:83:"/Users/jon/Documents/项目汇总/车自主/application/bis/view/public/footer.html";i:1516080436;}*/ ?>
+<?php /*a:4:{s:81:"/Users/jon/Documents/项目汇总/车自主/application/bis/view/index/index.html";i:1544683026;s:83:"/Users/jon/Documents/项目汇总/车自主/application/bis/view/public/header.html";i:1542114329;s:81:"/Users/jon/Documents/项目汇总/车自主/application/bis/view/public/menu.html";i:1542114275;s:83:"/Users/jon/Documents/项目汇总/车自主/application/bis/view/public/footer.html";i:1516080436;}*/ ?>
 <!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -42,7 +42,7 @@
 </style>
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">车自主-商户中心</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" >车车车-商户中心</a> <span class="logo navbar-slogan f-l mr-10 hidden-xs"></span> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">汽车之界-商户中心</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" >车车车-商户中心</a> <span class="logo navbar-slogan f-l mr-10 hidden-xs"></span> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 				<ul class="cl">

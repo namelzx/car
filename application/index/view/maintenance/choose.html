@@ -69,7 +69,6 @@
                         </div>
                     </div>
                     <van-popup v-model="show">
-
                         <van-cell-group>
                             <template v-for="info in carinfo">
                                 <van-cell @click="handeinfo(info.id,info)" :title="info.name" :value="info.year" :label="info.displacement"/>
@@ -139,6 +138,7 @@
                 this.manufactorin = null
                 this.current = index
                 this.manufactor = this.carbrand[index].course
+                console.log(this.manufactor)
             },
             handelmodel(c_id) {
                 axios.get('/index/maintenance/carinfo', {params: {id: c_id}}).then(res => {

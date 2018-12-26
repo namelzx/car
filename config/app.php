@@ -142,7 +142,6 @@ return [
     'show_error_msg' => false,
     // 异常处理handle类 留空使用 \think\exception\Handle
     'exception_handle' => '',
-
     'Map' => [
         'ak' => 'cUpC6EyNX6XfcvtqQqrw11TGgg9j8ghz',
         'baidu_map_url' => 'http://api.map.baidu.com/',

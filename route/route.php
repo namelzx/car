@@ -15,6 +15,9 @@ Route::get('think', function () {
 
 Route::get('hello/:name', 'index/hello');
 Route::resource('index','index/Index');
+Route::group('v1',function (){
+    Route::get('user','demo/User/index');
+});
 
 return [
 

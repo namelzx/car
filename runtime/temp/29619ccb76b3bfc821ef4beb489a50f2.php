@@ -1,4 +1,4 @@
-<?php /*a:3:{s:89:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/maintenance/index.html";i:1541498919;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
+<?php /*a:3:{s:89:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/maintenance/index.html";i:1544684004;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/header.html";i:1543127366;s:85:"/Users/jon/Documents/项目汇总/车自主/application/admin/view/public/footer.html";i:1541487880;}*/ ?>
 <!--包含头部文件-->
 <!DOCTYPE HTML>
 <html>
@@ -40,7 +40,7 @@
   }
 </style>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 分类管理 <span class="c-gray en">&gt;</span> 分类列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i>服务添加 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 
     <form class="form form-horizontal" id="app" method="get" action="<?php echo url('Maintenance/index'); ?>" >
@@ -108,12 +108,11 @@
             </button>
         </div>
     </form>
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> <a class="btn btn-primary radius" onclick="o2o_s_edit('添加二级分类','<?php echo url('maintenance/add'); ?>','','300')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加分类</a></span> <span class="r"></span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> <a class="btn btn-primary radius" onclick="o2o_s_edit('添加服务项目','<?php echo url('maintenance/add'); ?>','','300')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加服务项</a></span> <span class="r"></span> </div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-bg table-hover table-sort">
             <thead>
             <tr class="text-c">
-                <th width="40"><input name="" type="checkbox" value=""></th>
                 <th width="80">ID</th>
                 <th width="100">名称</th>
                 <th width="150">新增时间</th>
@@ -124,12 +123,11 @@
             <tbody>
             <?php if(is_array($res) || $res instanceof \think\Collection || $res instanceof \think\Paginator): $i = 0; $__LIST__ = $res;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
             <tr class="text-c">
-                <td><input name="" type="checkbox" value=""></td>
                 <td><?php echo htmlentities($vo['id']); ?></td>
                 <td><?php echo htmlentities($vo['name']); ?></td>
                 <td><?php echo htmlentities($vo['create_time']); ?></td>
                 <td class="td-status"><a href="<?php echo url('Maintenance/status',['id'=>$vo['id'],'status'=>$vo['status']==1?0:1]); ?>" title="点击修改状态"><?php echo status($vo['status']); ?></a></td>
-                <td class="td-manage"><a href="<?php echo url('Maintenance/threeindex',['t_id'=>$vo['id']]); ?>">获取子分类</a><a style="text-decoration:none" class="ml-5" onClick="o2o_s_edit('编辑','<?php echo url('category/edit',['id'=>$vo['id']]); ?>','',300)" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="o2o_del('<?php echo url('Maintenance/delete',['id'=>$vo['id']]); ?>','')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                <td class="td-manage"><a href="<?php echo url('Maintenance/threeindex',['t_id'=>$vo['id']]); ?>">获取子分类</a> <a style="text-decoration:none" class="ml-5" onClick="o2o_del('<?php echo url('Maintenance/delete',['id'=>$vo['id']]); ?>','删除？')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
             </tr>
             <?php endforeach; endif; else: echo "" ;endif; ?>
             </tbody>
